@@ -1,0 +1,54 @@
+# Cloud Build CI/CD для CashTime Brand Concierge
+# Деплоит в Cloud Run, регион europe-west6, проект tools-cashtimepay-com.
+# Secrets подгружаются из Secret Manager на стороне Cloud Run revision (не здесь).
+
+substitutions:
+  _REGION: europe-west6
+  _SERVICE: cashtime-concierge
+  _REPO: cashtime
+  _IMAGE: cashtime-concierge
+
+steps:
+  - id: build
+    name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - --tag=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_IMAGE}:${SHORT_SHA}
+      - --tag=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_IMAGE}:latest
+      - .
+
+  - id: push-sha
+    name: gcr.io/cloud-builders/docker
+    args: [push, "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_IMAGE}:${SHORT_SHA}"]
+
+  - id: push-latest
+    name: gcr.io/cloud-builders/docker
+    args: [push, "${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_IMAGE}:latest"]
+
+  - id: deploy
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - ${_SERVICE}
+      - --image=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_IMAGE}:${SHORT_SHA}
+      - --region=${_REGION}
+      - --platform=managed
+      - --allow-unauthenticated=false
+      - --service-account=cashtime-concierge@${PROJECT_ID}.iam.gserviceaccount.com
+      - --memory=1Gi
+      - --cpu=1
+      - --concurrency=20
+      - --timeout=300s
+      - --max-instances=10
+      - --set-env-vars=GOOGLE_CLOUD_PROJECT=${PROJECT_ID},GOOGLE_CLOUD_LOCATION=${_REGION},GOOGLE_GENAI_USE_VERTEXAI=TRUE
+      - --set-secrets=MCP_BEARER_TOKEN=concierge-mcp-bearer:latest,TWENTY_API_KEY=concierge-twenty-key:latest,CF_ACCESS_CLIENT_ID=concierge-cf-id:latest,CF_ACCESS_CLIENT_SECRET=concierge-cf-secret:latest
+
+images:
+  - ${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_IMAGE}:${SHORT_SHA}
+  - ${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_IMAGE}:latest
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: E2_HIGHCPU_8

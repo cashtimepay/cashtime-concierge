@@ -1,0 +1,39 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.log
+.DS_Store
+dist/
+build/
+.coverage
+htmlcov/
+.idea/
+.vscode/
+*.local
+
+# UI
+ui/node_modules/
+ui/.next/
+ui/out/
+ui/.turbo/
+ui/coverage/
+
+# GCP
+gcp-key.json
+service-account*.json
+credentials.json
+
+# Local state
+state.db
+*.sqlite
+.adk-cache/
