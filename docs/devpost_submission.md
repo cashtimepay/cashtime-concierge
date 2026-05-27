@@ -87,7 +87,8 @@ Platform for inference.
 - **Cloud Logging + structlog** — JSON structured logs.
 - **FastAPI + SSE (sse-starlette)** — streaming server.
 - **Next.js 14 (App Router)** — Brand UI.
-- **Twenty CRM** — system of record (self-hosted on Cloud Run).
+- **Twenty CRM** — system of record (self-hosted as Docker containers on a
+  Compute Engine VM, region `europe-west6`).
 
 ## Data sources
 

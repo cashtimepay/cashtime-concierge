@@ -88,16 +88,17 @@
 
 ## What lives where on GCP
 
-| Resource | Project | Region |
-|---|---|---|
-| Concierge Cloud Run | `tools-cashtimepay-com` | `europe-west6` |
-| Brand UI Cloud Run | `tools-cashtimepay-com` | `europe-west6` |
-| Artifact Registry repo `cashtime` | `tools-cashtimepay-com` | `europe-west6` |
-| Gemini Enterprise Agent Platform (Gemini 3.1 Pro Preview / 3.5 Flash) | `tools-cashtimepay-com` | `europe-west6` |
-| Secret Manager (`concierge-*`) | `tools-cashtimepay-com` | global |
-| MCP gateway | `tools-cashtimepay-com` | `europe-west6` |
-| Twenty CRM (existing) | `tools-cashtimepay-com` | `europe-west6` |
-| AI-MM (existing) | `tools-cashtimepay-com` | `europe-west6` |
+| Resource | Hosting | Project | Region |
+|---|---|---|---|
+| Concierge service (this repo) | Cloud Run | `tools-cashtimepay-com` | `europe-west6` |
+| Brand UI | Cloud Run | `tools-cashtimepay-com` | `europe-west6` |
+| Artifact Registry repo `cashtime` | Artifact Registry | `tools-cashtimepay-com` | `europe-west6` |
+| Gemini 3.1 Pro Preview / 3.5 Flash | Gemini Enterprise Agent Platform | `tools-cashtimepay-com` | `europe-west6` |
+| Secret Manager (`concierge-*`) | Secret Manager | `tools-cashtimepay-com` | global |
+| MCP gateway | Docker on Compute Engine VM (`internal-tools-vm-v2`) | `tools-cashtimepay-com` | `europe-west6-b` |
+| Twenty CRM (existing) | Docker on Compute Engine VM (`internal-tools-vm-v2`) | `tools-cashtimepay-com` | `europe-west6-b` |
+| AI-MM service (existing) | Cloud Run (`cashtime-aimm`) | `tools-cashtimepay-com` | `europe-west6` |
+| AIBMR / AIBMO / CREN / AICROPS (existing) | Docker on Compute Engine VM (`internal-tools-vm-v2`) | `tools-cashtimepay-com` | `europe-west6-b` |
 
 > Per the CashTime GCP canon, nothing in this submission touches
 > `spheric-handler-487521-a5` (the consumer app) or `cashtime-pay-4ed26`
