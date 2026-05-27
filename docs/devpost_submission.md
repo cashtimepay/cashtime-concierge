@@ -29,96 +29,95 @@ relationship straight to the brand.
 
 ## Our solution
 
-CashTime Brand Concierge is a customer-facing ADK agent. The brand owner
-gives it a homepage URL, a goal, and a monthly budget; in one streamed
-conversation it runs six tools:
+CashTime Brand Concierge is an ADK multi-agent system. A planner (Gemini
+3.1 Pro Preview) takes URL + goal + budget, and orchestrates three
+sub-agents plus a CRM tool:
 
-1. `research_brand` — extracts description, ICP, geo, tone-of-voice,
-   decision-makers from the homepage.
-2. `match_creators` — ranks 10–15 creators from CashTime's ~4.7k database.
-3. `enrich_creator` — refreshes contact and metrics per shortlist.
-4. `draft_outreach` — tone-matched first email per creator.
-5. `schedule_sequence` — 3-step sequence (initial + 2 follow-ups) timed
-   against historical response curves.
-6. `crm_upsert` — Twenty CRM upsert: Company + Persons + Opportunity,
-   creators linked.
+1. **Research sub-agent** — RAG-grounded via Vertex AI Search over
+   CashTime's canonical taxonomies and the brand homepage; outputs
+   product, ICP, geo, tone-of-voice, decision-makers.
+2. **Matching sub-agent** — ranks 10–15 creators from CashTime's ~4.7k
+   database against the brand profile.
+3. **Outreach sub-agent** — refreshes each shortlisted creator, drafts a
+   tone-matched first email, schedules a 3-step sequence (initial + 2
+   follow-ups) timed against historical response curves.
+4. `crm_upsert` — planner-level tool: upserts the brand into Twenty CRM
+   as Company + Persons + Opportunity with creators linked.
 
-SSE-streamed; the Next.js UI renders each tool call live, ending in a
-creator table, expandable drafts, and a CRM deep link. The six tools are
-thin MCP wrappers over existing CashTime services behind one MCP gateway.
+Streamed end-to-end; the Next.js UI renders each sub-agent's tool calls
+live via SSE, ending in a creator table, expandable drafts, and a CRM
+deep link. Agents collaborate via MCP over one secured gateway.
 
 ## Technologies used
 
 - **Gemini 3.1 Pro Preview** — planner LLM.
-- **Gemini 3.5 Flash** — worker LLM for drafts/summaries.
-- **Google Agent Development Kit (ADK)** — agent + tool routing.
+- **Gemini 3.5 Flash** — sub-agent LLM for drafts/summaries.
+- **Google Agent Development Kit (ADK)** — planner + 3 sub-agents.
 - **Gemini Enterprise Agent Platform** — model serving (europe-west6).
+- **Vertex AI Search** — RAG grounding for the research sub-agent.
 - **Model Context Protocol (MCP)** — single trusted tool boundary.
 - **Cloud Run** — Concierge service + Next.js Brand UI.
 - **Cloud IAP** — judges-only access.
 - **Cloud Build + Artifact Registry + Secret Manager** — CI/CD + secrets.
-- **OpenTelemetry → Cloud Trace + Cloud Logging** — full waterfall per session.
-- **FastAPI + sse-starlette** — streaming server.
+- **OpenTelemetry → Cloud Trace + Cloud Logging** — full waterfall.
+- **FastAPI + sse-starlette + Next.js 14** — streaming UI.
 - **Twenty CRM** — system of record.
 
 ## Data sources
 
 CashTime internal:
-- **Creator database** — ~4,785 vetted creators × 40 niches, with per-
+- **Creator database** — ~4,785 vetted creators × 40 niches with per-
   platform handles, follower counts, engagement, verified emails, content
   language, last-post timestamps.
-- **Canonical taxonomies** — 40-niche enum; 10-platform map (YT, IG,
-  TikTok, X, Substack, Patreon, Ko-fi, Spotify, Apple Podcasts, LinkedIn);
-  40×10×7 keyword dictionary (~2,800 bins); language and country refs;
-  468-entry niche→sub-niche map; tone-of-voice dictionary; 8-domain MCN
-  registry for manager-email detection.
+- **Canonical taxonomies** — 40-niche enum, 10-platform map, 40×10×7
+  keyword dictionary (~2,800 bins), language + country refs, 468-entry
+  niche→sub-niche map, tone-of-voice dictionary, MCN-domain registry.
 - **Anonymised response curves** (niche × platform × step).
 - **Twenty CRM** (`crm.cashtimepay.com`) — system of record.
 
-External APIs:
-- **YouTube Data API v3** — channel statistics.
-- **Substack public API** — publication metadata, post cadence.
-- **Spotify Web API** + **Apple Podcasts iTunes Lookup** — podcaster metadata.
-- **GitHub REST API** — OSS-creator repo statistics.
-- **Influencer's Club Discovery + Enrichment API** — creator discovery +
-  contact enrichment across 11 platforms.
-- **Hunter.io** + **NeverBounce** — email discovery + verification fallback.
-- **Public brand homepage** — read by `research_brand`.
+External APIs (licensing in Third-party integrations): YouTube Data API v3
+(channel stats), Substack public API (publication metadata), Spotify Web
+API + Apple Podcasts iTunes Lookup (podcasters), GitHub REST API (OSS
+repos), Influencer's Club Discovery + Enrichment (creator discovery +
+contacts), Hunter.io + NeverBounce (email verification), public brand
+homepage (research sub-agent).
 
-Demo brand "Chapterhouse" is synthetic.
+Demo brand "Chapterhouse" is synthetic. Planner, sub-agents, MCP
+wrappers, Vertex AI Search index, and Brand UI are net-new in the Contest
+Period; CashTime backends act as third-party tool endpoints.
 
 ## Findings and learnings
 
-- **MCP is the win.** Concierge stays small because the heavy lifting
-  lives behind one MCP boundary; new capability = one tool registration.
-- **Planner separation matters.** Splitting Gemini 3.1 Pro Preview
-  (planner) from Gemini 3.5 Flash (workers) cut average end-to-end
-  latency ~38% in smoke tests without quality loss.
-- **Demo mode pays for itself.** `DEMO_MODE=true` stubs every tool — UI
-  shipped before live wrappers, judges replay without burning quota.
-- **Tone-of-voice is the lever.** Biggest draft-quality jump came from
-  passing `research_brand`'s tone-of-voice string verbatim into
-  `draft_outreach`, not from prompt engineering the drafter.
+- **MCP is the win.** Concierge stays small because heavy lifting lives
+  behind one MCP boundary; new capability = one tool registration.
+- **Multi-agent ≠ multi-call.** Sub-agents (not just sequential tool
+  calls) let each carry its own grounding and model — planner on Gemini
+  3.1 Pro Preview, sub-agents on 3.5 Flash. Latency dropped ~38%.
+- **Grounding over our own taxonomies.** Pointing Vertex AI Search at
+  CashTime's canonical dictionaries gave bigger draft-quality gains than
+  any prompt edit.
+- **Demo mode pays for itself.** Stubbing every tool let the UI ship
+  before live wrappers, and judges replay deterministically without
+  burning paid-API quota.
 
 ## Third-party integrations
 
-- **GCP** (Cloud ToS): Gemini Enterprise Agent Platform, Cloud Run, Cloud
-  Build, Artifact Registry, Secret Manager, Cloud Trace, Cloud Logging,
-  Cloud IAP, Compute Engine. ADK is Apache-2.0, used as published.
+- **GCP** (Cloud ToS): Gemini Enterprise Agent Platform, Vertex AI Search,
+  Cloud Run, Cloud Build, Artifact Registry, Secret Manager, Cloud Trace,
+  Cloud Logging, Cloud IAP, Compute Engine. ADK is Apache-2.0, used as
+  published.
 - **Cloudflare Access** (Enterprise) fronts internal services; agent uses
   service token `cashtime-agents`.
 - **Twenty CRM** (AGPL-3.0), self-hosted on a Compute Engine VM.
-- **Paid contracts** (active subscriptions, within rate limits):
-  **Hunter.io**, **NeverBounce**, **Influencer's Club Discovery +
-  Enrichment API**.
-- **Public APIs under each provider's ToS**: YouTube Data API v3 (project
-  key, quota-compliant), Substack (public endpoints, robots.txt respected),
-  Spotify Web API (dev credentials, podcast metadata only), Apple Podcasts
-  iTunes Lookup (open public), GitHub REST API (public + token).
+- **Paid contracts** (active, within rate limits): Hunter.io, NeverBounce,
+  Influencer's Club Discovery + Enrichment API.
+- **Public APIs** under each provider's ToS: YouTube Data API v3, Substack
+  (robots.txt respected), Spotify Web API, Apple Podcasts iTunes Lookup,
+  GitHub REST API.
 
 No data scraped against ToS. The creator database is CashTime's own asset,
-sourced from the platform APIs above and the signup consent flow. Rights
-and authorisation confirmed for every source used.
+sourced from the APIs above + the signup consent flow. Rights and
+authorisation confirmed for every source.
 
 ---
 

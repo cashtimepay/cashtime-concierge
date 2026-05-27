@@ -1,99 +1,89 @@
-# 3-minute demo video — script
+# 2-minute demo video — script
 
-> Recorded on Day 8 (2026-06-03). Voiceover in English. Screen capture via
-> OBS at 1920×1080, exported H.264, uploaded as YouTube unlisted.
+> Hard cap from Rules §6: max 2 minutes — anything past 02:00 is not
+> evaluated. Recorded on Day 8 (2026-06-03). Voiceover in English. Screen
+> capture via OBS at 1920×1080, exported H.264, uploaded as YouTube
+> unlisted. English subtitles burned in (judges may watch muted).
+>
+> Rules §6: no third-party logo / slogan / trademark may appear on screen.
+> All vendor names (Twenty, Hunter, NeverBounce, Influencer's Club,
+> YouTube, Substack, Spotify) may only be spoken in voiceover; the UI
+> captures must not show their logos. The Twenty CRM tab and any vendor
+> brand marks are blurred or replaced with our own UI shell.
 
-## Cold open (0:00 – 0:15)
+## Cold open (0:00 – 0:08)
 
-**Screen:** Brand UI landing page. Cursor hovers over "Run a new brief".
+**Screen:** Brand UI landing page (CashTime branding only).
 **VO:**
-> "Influencer marketing works. But the path from 'we have a product' to
-> 'fifteen creators are negotiating with us' takes a junior marketer two to
-> three days. We collapsed that into one conversation."
+> "Influencer marketing takes a marketer two to three days per campaign.
+> We collapsed that into one conversation."
 
-## The brief (0:15 – 0:30)
+## The brief (0:08 – 0:18)
 
-**Screen:** Brief form. Three fields fill in:
+**Screen:** Brief form, three fields:
 - URL: `https://chapterhouse.demo`
-- Goal: `100 trial signups per month from indie-fiction readers`
+- Goal: `100 trial signups per month`
 - Budget: `$5,000 / month`
+
+User clicks **Run**.
+
 **VO:**
-> "Meet Chapterhouse — an indie-fiction audiobook subscription. Three
-> inputs: their website, their goal, their budget."
+> "Meet Chapterhouse — an indie audiobook subscription. Three inputs:
+> their site, their goal, their budget."
 
-The user clicks **Run**.
+## Live pipeline (0:18 – 1:25)
 
-## The pipeline runs live (0:30 – 1:50)
-
-**Screen:** SSE log on the right. Tool calls appear one by one. Brand
-profile renders on the left as soon as `research_brand` returns.
+**Screen:** SSE log on the right; brand profile, creator table, drafts,
+CRM summary fill in the left column as events stream.
 
 **VO over visuals:**
-> "Behind the scenes, our Concierge agent — built on Google's Agent
-> Development Kit, planning with Gemini 3.1 Pro Preview — orchestrates six tools
-> through MCP."
+> "Behind the scenes, our agent — built on Google's Agent Development
+> Kit, planning with Gemini 3.1 Pro Preview — orchestrates a research
+> sub-agent, a matching sub-agent, and an outreach sub-agent through
+> the Model Context Protocol."
 >
-> *(research_brand fires)* "First, it reads the brand homepage and
-> extracts the product description, ideal audience, geographic focus, and
-> tone-of-voice. Tone-of-voice will matter in a minute."
+> *(research sub-agent runs)* "The research sub-agent grounds itself
+> against a Vertex AI Search index of CashTime's canonical taxonomies
+> and the brand's own homepage; it extracts product, ICP, geo, and
+> tone-of-voice."
 >
-> *(match_creators fires)* "Then it ranks our database of nearly five
-> thousand vetted creators and surfaces the top fifteen. Niche match,
-> audience match, geo match."
+> *(matching sub-agent runs)* "The matching sub-agent ranks our database
+> of nearly five thousand vetted creators against the brand profile and
+> returns the top fifteen."
 >
-> *(enrich_creator fires, in parallel)* "For every shortlisted creator,
-> Gemini 3.5 Flash refreshes contact and engagement metrics in parallel."
+> *(outreach sub-agent runs, parallel)* "The outreach sub-agent refreshes
+> each shortlisted creator and writes a personalised first email plus
+> two follow-ups — tone-matched to the brand."
 >
-> *(draft_outreach fires)* "Then it drafts a personalised first email per
-> creator. This is where tone-of-voice pays off — every draft sounds like
-> Chapterhouse, not like a template."
->
-> *(schedule_sequence fires)* "Each creator goes into a 3-step sequence —
-> initial message plus two follow-ups, timed against CashTime's historical
-> response curves."
->
-> *(crm_upsert fires)* "Finally, the agent writes the brand, the contacts,
-> and the campaign into CashTime CRM, with every creator linked."
+> *(crm_upsert tool fires)* "Finally, the planner writes the brand, the
+> contacts, and the campaign into our CRM."
 
-## The result (1:50 – 2:25)
+## Result + trace (1:25 – 1:55)
 
-**Screen:** Final summary panel. Creator table with handles, niches,
-follower counts, fit scores. Click on one draft — it expands to show the
-full email. Click "Open in CRM" — Twenty opens with the new Company,
-Persons, and Opportunity.
+**Screen:** Final summary — creator table, expandable drafts, CRM deep
+link. Quick cut to Cloud Trace waterfall showing planner → 3 sub-agents
+→ tools.
 
 **VO:**
-> "That took 47 seconds. In the CRM, the brand owner now sees a Company,
-> three Persons, an Opportunity, and fifteen linked Creators — exactly
-> what a senior account manager would have produced over two days."
+> "Forty-seven seconds end-to-end. Every Gemini call, every sub-agent
+> invocation is a span in Cloud Trace — production-grade from day one."
 
-## The trace (2:25 – 2:45)
+## Close (1:55 – 2:00)
 
-**Screen:** Cloud Trace dashboard. The full waterfall — 6 tool calls,
-~110 spans total. Hover on the `match_creators` span — it shows ~14k
-candidates scored.
-
+**Screen:** CashTime logo + project name.
 **VO:**
-> "Every tool call is a span. Every Gemini round-trip is a span. Judges
-> and engineers can replay any session in Cloud Trace — production-grade
-> from day one, not an afterthought."
-
-## Close (2:45 – 3:00)
-
-**Screen:** CashTime logo + one-line tagline.
-**VO:**
-> "CashTime Brand Concierge. Built on Google ADK, Gemini, and Gemini Enterprise Agent Platform.
-> Brand briefs in, working creator pipelines out — in a single conversation.
-> Thank you."
+> "CashTime Brand Concierge. Built on Google ADK, Gemini, and Gemini
+> Enterprise Agent Platform."
 
 ---
 
 ## Production notes
 
-- Open the run with `DEMO_MODE=false` against the real `match_creators` so
-  the creator table shows real BookTok / Bookstagram handles. We are
-  cleared to surface those publicly (they are public creator profiles).
-- Keep total length 2:55 — leave 5s headroom under the 3-min cap.
-- No background music. SSE-stream sounds carry the rhythm.
-- Subtitles burned in (high-contrast, sans-serif) — judges may have
-  audio off.
+- **Length budget: 1:55 final cut**, leaving 5 s headroom under the
+  2-minute cap.
+- Run in `DEMO_MODE=true` for the recording so timings are deterministic
+  and the creator handles do not surface real CashTime client data.
+- The Cloud Trace cutaway uses our own service-name `cashtime-concierge`;
+  no third-party logos visible.
+- No background music — SSE stream rhythm carries the pace.
+- Subtitles burned in, high-contrast sans-serif, 16:9 lower third.
