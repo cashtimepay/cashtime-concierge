@@ -92,18 +92,54 @@ Platform for inference.
 
 ## Data sources
 
+### CashTime internal datasets
+
 - **CashTime creator database** — ~4,785 vetted creators across 40 niche
-  categories, sourced and enriched by CashTime's existing pipelines from
-  public platform data (Instagram, YouTube, Substack, TikTok). Used by
+  categories, enriched by our existing pipelines. Each creator carries
+  per-platform handles, follower counts, engagement metrics, verified
+  emails, content language, and last-post timestamps. Used by
   `match_creators` and `enrich_creator`.
-- **Public brand homepage** — read by `research_brand` to extract product
-  description, ICP, geo, and tone-of-voice signals.
-- **Twenty CRM** (`crm.cashtimepay.com`) — used by `crm_upsert` as the system
-  of record. Read for de-duplication on company domain; written for new
+- **CashTime canonical taxonomies** — the reference dictionaries the agent
+  uses to reason about brands and creators in a consistent vocabulary:
+  - 40-value canonical niche enum (`CreatorNicheEnum`)
+  - 10-platform canonical map (YouTube, Instagram, TikTok, X, Substack,
+    Patreon, Ko-fi, Spotify, Apple Podcasts, LinkedIn)
+  - 40 × 10 × 7 keyword dictionary (~2,800 bins, niche × platform × language)
+  - Content language codes (ISO 639-1 subset, 7 supported languages)
+  - Country list (ISO 3166-1 alpha-2)
+  - Niche → sub-niche map (~468 sub-niches for fine-grained matching)
+  - Tone-of-voice descriptor dictionary used by `draft_outreach`
+  - MCN-domain registry (Yoola, AirMedia-Tech, Studio71, BBTV, Fullscreen,
+    Mediakraft, ScaleLab, Bent) for manager-email detection
+- **CashTime anonymised historical response curves** — aggregate response
+  rates by niche × platform × sequence-step, used by `schedule_sequence`
+  to pick send timings. No per-creator PII surfaces to the agent.
+- **Twenty CRM** (`crm.cashtimepay.com`) — system of record. Read by
+  `crm_upsert` for de-duplication on company domain; written for new
   Companies / Persons / Opportunities.
-- **CashTime historical response curves** — anonymised aggregate response
-  rates used by `schedule_sequence` to pick send timings. No per-creator PII
-  surfaces to the agent.
+
+### External APIs and public data
+
+- **YouTube Data API v3** — channel statistics (subscribers, total views,
+  country, video count, last upload). Called by `enrich_creator` for any
+  creator with a YouTube handle.
+- **Substack public API** — publication metadata, paid-vs-free subscriber
+  hints, post cadence. Called by `enrich_creator` for Substack publishers.
+- **Spotify Web API** — show metadata, episode count, latest episode date.
+  Called by `enrich_creator` for podcaster creators.
+- **Apple Podcasts iTunes Lookup API** — show metadata (open public lookup,
+  no auth). Fallback for podcasters not on Spotify.
+- **GitHub REST API** — repository stars, contributor count for OSS-developer
+  creators (CashTime supports the OSS-creator vertical).
+- **Influencer's Club (IC) Discovery + Enrichment API** — third-party creator
+  discovery and contact enrichment across 11 platforms; classifies emails
+  as personal vs general vs manager. Used as an enrichment source when
+  CashTime's own crawler has gaps.
+- **Hunter.io API** — primary email discovery + verification.
+- **NeverBounce API** — fallback email verification (when Hunter returns 4xx
+  or low confidence). Hard-gate before any email is queued for outreach.
+- **Public brand homepage** — read once by `research_brand` to extract
+  product description, ICP signals, geo, and tone-of-voice.
 
 For the public submission, the agent is exercised against a synthetic demo
 brand ("Chapterhouse" — an indie-fiction audiobook subscription, niche
@@ -133,15 +169,55 @@ facing artefact.
 
 ## Third-party integrations
 
-- **Twenty CRM** — open-source CRM (AGPL), self-hosted by CashTime.
-  No third-party data shared with Twenty.
-- **Cloudflare Access** — zero-trust auth in front of all internal CashTime
-  services. The agent uses a service token `cashtime-agents`.
+### Platform & infrastructure (under Google ToS)
 
-No external creator data is purchased or imported during the submission demo;
-the creator database is CashTime's own asset, sourced under our standard
-public-data terms and the creator consent flow at signup. We confirm rights
-and authorisation for every data source used.
+- **Google Cloud Platform** — Gemini Enterprise Agent Platform, Cloud Run,
+  Cloud Build, Artifact Registry, Secret Manager, Cloud Trace, Cloud Logging,
+  Cloud IAP, Compute Engine. All under standard Google Cloud Terms of Service.
+- **Google Agent Development Kit (ADK)** — open-source agent framework
+  (Apache-2.0). Used as published, no fork.
+
+### Auth & networking
+
+- **Cloudflare Access** — zero-trust auth in front of all internal CashTime
+  services. The agent uses a service token `cashtime-agents`. Standard
+  Cloudflare Enterprise contract.
+
+### CRM & data layer
+
+- **Twenty CRM** — open-source CRM (AGPL-3.0), self-hosted by CashTime as
+  Docker containers on a Compute Engine VM. No third-party data shared.
+
+### Paid API contracts (CashTime holds active subscriptions)
+
+- **Hunter.io API** — email discovery + verification. CashTime API key under
+  active paid plan; used within rate limits.
+- **NeverBounce API** — email verification fallback. CashTime account under
+  active paid plan; used within rate limits.
+- **Influencer's Club (IC) API** — Discovery + Enrichment. CashTime holds
+  an active commercial contract permitting programmatic access to creator
+  metadata and contact enrichment.
+
+### Public APIs (used under each platform's ToS)
+
+- **YouTube Data API v3** — Google Cloud API key in CashTime project,
+  daily-quota compliant, used only for public channel statistics.
+- **Substack** — public publication endpoints, accessed within Substack's
+  robots.txt and Terms of Service. No paid-content scraping.
+- **Spotify Web API** — CashTime developer credentials, podcast/show
+  metadata endpoints only, under Spotify Developer Terms.
+- **Apple Podcasts iTunes Lookup** — open public lookup, no auth required.
+- **GitHub REST API** — unauthenticated public endpoints + CashTime token
+  for higher rate limits, used only for public repository statistics.
+
+### Data rights
+
+No external creator data is purchased or scraped against ToS during the
+submission demo. The CashTime creator database is our own asset, populated
+from each platform's public APIs above and from the creator consent flow
+at signup. Every paid API listed is under an active CashTime contract.
+We confirm rights and authorisation for every data source used in this
+submission.
 
 ---
 
