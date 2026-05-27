@@ -13,8 +13,8 @@
 │                Concierge Agent (this repo)                   │
 │  FastAPI + SSE → ADK Runner → root agent                     │
 │                                                              │
-│  Planner   : Gemini 2.5 Pro     (Vertex AI, europe-west6)    │
-│  Workers   : Gemini 2.5 Flash   (Vertex AI, europe-west6)    │
+│  Planner   : Gemini 3.1 Pro Preview (Vertex AI, europe-west6)│
+│  Workers   : Gemini 3.5 Flash       (Vertex AI, europe-west6)│
 │                                                              │
 │  6 tools (MCP-wrapped):                                      │
 │    ① research_brand    ② match_creators   ③ enrich_creator   │
@@ -45,7 +45,7 @@
 
 1. Brand fills the brief form → POST `/concierge/run` (SSE response).
 2. Runner starts an in-memory ADK session. The first event is a planning
-   message from Gemini 2.5 Pro that decides to call `research_brand`.
+   message from Gemini 3.1 Pro Preview that decides to call `research_brand`.
 3. `research_brand` calls AIBMR via Cloudflare Access; AIBMR runs its own
    Gemini Pro analysis of the brand domain and returns a structured profile.
 4. Planner summarises the profile, then calls `match_creators` with the
@@ -92,7 +92,7 @@
 | Concierge Cloud Run | `tools-cashtimepay-com` | `europe-west6` |
 | Brand UI Cloud Run | `tools-cashtimepay-com` | `europe-west6` |
 | Artifact Registry repo `cashtime` | `tools-cashtimepay-com` | `europe-west6` |
-| Vertex AI (Gemini 2.5 Pro / Flash) | `tools-cashtimepay-com` | `europe-west6` |
+| Vertex AI (Gemini 3.1 Pro Preview / 3.5 Flash) | `tools-cashtimepay-com` | `europe-west6` |
 | Secret Manager (`concierge-*`) | `tools-cashtimepay-com` | global |
 | MCP gateway | `tools-cashtimepay-com` | `europe-west6` |
 | Twenty CRM (existing) | `tools-cashtimepay-com` | `europe-west6` |

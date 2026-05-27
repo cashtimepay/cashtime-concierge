@@ -13,8 +13,8 @@ class Settings(BaseSettings):
     google_cloud_location: str = Field(default="europe-west6")
     google_genai_use_vertexai: str = Field(default="TRUE")
 
-    concierge_planner_model: str = Field(default="gemini-2.5-pro")
-    concierge_worker_model: str = Field(default="gemini-2.5-flash")
+    concierge_planner_model: str = Field(default="gemini-3.1-pro-preview")
+    concierge_worker_model: str = Field(default="gemini-3.5-flash")
 
     mcp_base_url: str = Field(default="https://mcp.cashtimepay.com")
     mcp_bearer_token: str = Field(default="")

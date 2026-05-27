@@ -30,7 +30,7 @@ profile renders on the left as soon as `research_brand` returns.
 
 **VO over visuals:**
 > "Behind the scenes, our Concierge agent — built on Google's Agent
-> Development Kit, planning with Gemini 2.5 Pro — orchestrates six tools
+> Development Kit, planning with Gemini 3.1 Pro Preview — orchestrates six tools
 > through MCP."
 >
 > *(research_brand fires)* "First, it reads the brand homepage and
@@ -42,7 +42,7 @@ profile renders on the left as soon as `research_brand` returns.
 > audience match, geo match."
 >
 > *(enrich_creator fires, in parallel)* "For every shortlisted creator,
-> Gemini 2.5 Flash refreshes contact and engagement metrics in parallel."
+> Gemini 3.5 Flash refreshes contact and engagement metrics in parallel."
 >
 > *(draft_outreach fires)* "Then it drafts a personalised first email per
 > creator. This is where tone-of-voice pays off — every draft sounds like

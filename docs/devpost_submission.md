@@ -68,8 +68,8 @@ for the tool boundary, Cloud Run for hosting, Vertex AI for inference.
 
 ## Technologies used
 
-- **Gemini 2.5 Pro** — planner LLM for the Concierge root agent.
-- **Gemini 2.5 Flash** — worker LLM for sub-tasks (drafts, summaries).
+- **Gemini 3.1 Pro Preview** — planner LLM for the Concierge root agent.
+- **Gemini 3.5 Flash** — worker LLM for sub-tasks (drafts, summaries).
 - **Google Agent Development Kit (ADK)** — agent framework, tool routing,
   session management.
 - **Vertex AI** — model serving (region `europe-west6`).
@@ -115,8 +115,8 @@ facing artefact.
 - **MCP is the win.** The Concierge agent is small because the heavy lifting
   lives behind one MCP boundary. Adding a new capability (e.g. LinkedIn ad
   copy generator) takes one MCP-tool registration, not a new agent.
-- **Planner separation matters.** Splitting the planner (Gemini 2.5 Pro) from
-  workers (Gemini 2.5 Flash) cut average end-to-end latency by ~38 % in
+- **Planner separation matters.** Splitting the planner (Gemini 3.1 Pro Preview)
+  from workers (Gemini 3.5 Flash) cut average end-to-end latency by ~38 % in
   internal smoke tests while preserving the planning quality we needed.
 - **Streaming SSE > polling.** Judges and brand owners both responded much
   better to live tool-call streaming than to a "wait, then render" model.
