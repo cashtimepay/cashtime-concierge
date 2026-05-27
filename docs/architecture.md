@@ -13,8 +13,8 @@
 │                Concierge Agent (this repo)                   │
 │  FastAPI + SSE → ADK Runner → root agent                     │
 │                                                              │
-│  Planner   : Gemini 3.1 Pro Preview (Vertex AI, europe-west6)│
-│  Workers   : Gemini 3.5 Flash       (Vertex AI, europe-west6)│
+│  Planner   : Gemini 3.1 Pro Preview (Gemini Enterprise, ew6) │
+│  Workers   : Gemini 3.5 Flash       (Gemini Enterprise, ew6) │
 │                                                              │
 │  6 tools (MCP-wrapped):                                      │
 │    ① research_brand    ② match_creators   ③ enrich_creator   │
@@ -38,7 +38,8 @@
   production service. We do not re-implement research / matching / outreach;
   we expose them through a single MCP boundary.
 - This is the canonical way to ship an enterprise agent on GCP: ADK for the
-  agent, MCP for the tool boundary, Cloud Run for hosting, Vertex AI for
+  agent, MCP for the tool boundary, Cloud Run for hosting, Gemini Enterprise
+  Agent Platform for
   inference, Twenty for the system of record.
 
 ## Data flow (single brief, happy path)
@@ -92,7 +93,7 @@
 | Concierge Cloud Run | `tools-cashtimepay-com` | `europe-west6` |
 | Brand UI Cloud Run | `tools-cashtimepay-com` | `europe-west6` |
 | Artifact Registry repo `cashtime` | `tools-cashtimepay-com` | `europe-west6` |
-| Vertex AI (Gemini 3.1 Pro Preview / 3.5 Flash) | `tools-cashtimepay-com` | `europe-west6` |
+| Gemini Enterprise Agent Platform (Gemini 3.1 Pro Preview / 3.5 Flash) | `tools-cashtimepay-com` | `europe-west6` |
 | Secret Manager (`concierge-*`) | `tools-cashtimepay-com` | global |
 | MCP gateway | `tools-cashtimepay-com` | `europe-west6` |
 | Twenty CRM (existing) | `tools-cashtimepay-com` | `europe-west6` |

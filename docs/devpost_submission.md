@@ -64,7 +64,8 @@ Everything is implemented as a net-new agent. The six tools are thin **MCP
 wrappers** over existing CashTime production services, exposed through a
 single MCP gateway at `mcp.cashtimepay.com`. This shape is what we believe
 production agents on Google Cloud should look like: ADK for the agent, MCP
-for the tool boundary, Cloud Run for hosting, Vertex AI for inference.
+for the tool boundary, Cloud Run for hosting, Gemini Enterprise Agent
+Platform for inference.
 
 ## Technologies used
 
@@ -72,7 +73,7 @@ for the tool boundary, Cloud Run for hosting, Vertex AI for inference.
 - **Gemini 3.5 Flash** — worker LLM for sub-tasks (drafts, summaries).
 - **Google Agent Development Kit (ADK)** — agent framework, tool routing,
   session management.
-- **Vertex AI** — model serving (region `europe-west6`).
+- **Gemini Enterprise Agent Platform** — model serving (region `europe-west6`).
 - **Model Context Protocol (MCP)** — single trusted boundary between the agent
   and all six tools.
 - **Google Cloud Run** — hosting for both the Concierge service and the Next.js

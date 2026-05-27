@@ -32,7 +32,7 @@ What used to take a CashTime account manager 2–3 days now happens in minutes.
 | Agent framework | Google Agent Development Kit (ADK), Python |
 | Planner LLM | Gemini 3.1 Pro Preview |
 | Worker LLM | Gemini 3.5 Flash |
-| Inference | Vertex AI (region `europe-west6`) |
+| Inference | Gemini Enterprise Agent Platform (region `europe-west6`) |
 | Tools | Model Context Protocol (MCP) over `mcp.cashtimepay.com` |
 | Backend | FastAPI + SSE on Cloud Run |
 | UI | Next.js, Cloud Run, behind Cloud IAP for judges |

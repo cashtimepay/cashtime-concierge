@@ -82,7 +82,7 @@ candidates scored.
 
 **Screen:** CashTime logo + one-line tagline.
 **VO:**
-> "CashTime Brand Concierge. Built on Google ADK, Gemini, and Vertex AI.
+> "CashTime Brand Concierge. Built on Google ADK, Gemini, and Gemini Enterprise Agent Platform.
 > Brand briefs in, working creator pipelines out — in a single conversation.
 > Thank you."
 
