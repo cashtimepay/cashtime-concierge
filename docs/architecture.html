@@ -103,6 +103,10 @@
         </div>
       </div>
 
+      <div style="text-align:center;color:var(--muted);font-size:12.5px;margin-top:14px">
+        each sub-agent = <b style="color:var(--text)">instruction</b> (its role) + <b style="color:var(--text)">tools</b> (its hands, MCP) + Gemini (reasoning); research_agent also grounds against a real knowledge base
+      </div>
+
       <div class="crmtool">
         <div class="box"><div class="h" style="font-size:14px">crm_upsert</div><div class="s">planner-level tool</div></div>
       </div>
@@ -110,13 +114,18 @@
 
     <div class="side">
       <div class="box" style="border-color:rgba(91,140,255,.4)">
-        <div class="h">🔎 Vertex AI Search</div>
-        <div class="s">RAG grounding for research_agent over CashTime's canonical taxonomy (40 niches · 10 platforms · tone dictionary). Falls back to a bundled local corpus offline.</div>
+        <div class="h">✨ Gemini via Vertex AI</div>
+        <div class="s">Planner on 3.1 Pro Preview, sub-agents on 3.5 Flash — served from Vertex AI <b>inside this project</b> (region <b>global</b>), authenticated by the Cloud Run service account. No API key, no external gateway: every Gemini call stays in-project.</div>
       </div>
-      <div style="height:14px"></div>
+      <div style="height:12px"></div>
+      <div class="box" style="border-color:rgba(91,140,255,.4)">
+        <div class="h">🔎 Vertex AI Search (RAG)</div>
+        <div class="s">research_agent's knowledge base — grounds the brand against CashTime's canonical taxonomy (40 niches · 10 platforms · tone dictionary). Bundled local-corpus fallback offline.</div>
+      </div>
+      <div style="height:12px"></div>
       <div class="obs">📈 OpenTelemetry → Cloud Trace + Cloud Logging — every agent + tool call is a span judges can replay</div>
-      <div style="height:14px"></div>
-      <div class="note">DEMO_MODE → deterministic pipeline (no LLM): identical tool sequence & event stream for reproducible judge replay. Synthetic “Chapterhouse” brand; the CRM step writes nothing to production.</div>
+      <div style="height:12px"></div>
+      <div class="note">Two modes, one service — <b>Live</b>: real ADK agents on Gemini. <b>Fast</b>: a deterministic twin (no LLM, same tool order & events) for instant reproducible replay. Synthetic “Chapterhouse” brand; tools return stub data and the CRM step writes nothing to production.</div>
     </div>
   </div>
 
@@ -131,7 +140,7 @@
     <div class="svc"><div class="n">Twenty CRM</div><div class="d">system of record</div></div>
   </div>
   <div class="center" style="margin-top:10px">
-    <span class="lbl">existing CashTime production services — exposed to the agent as third-party MCP tool endpoints</span>
+    <span class="lbl">existing CashTime production services — each with its own identity, knowledge base & MCP "hands"; exposed to the Concierge agents as third-party MCP tool endpoints (stubbed in the public demo)</span>
   </div>
 
   <div class="foot">net-new for the contest: planner + 3 sub-agents · MCP wrappers · Vertex AI Search grounding · Brand UI &nbsp;|&nbsp; project tools-cashtimepay-com · region EMEA (Switzerland)</div>
