@@ -125,6 +125,8 @@ export default function Home() {
         campaign to the CRM — live.
       </p>
 
+      <HowItWorks />
+
       <div className="grid">
         <form className="panel" onSubmit={onSubmit}>
           <h2>Brief</h2>
@@ -268,5 +270,74 @@ function SummaryCard({ s }) {
         </a>
       )}
     </div>
+  );
+}
+
+const STEPS = [
+  { n: 1, name: "Research", tool: "research_brand · ground_taxonomy",
+    desc: "Reads your brand (ICP, geo, tone) and grounds it to real CashTime niches via Vertex AI Search — no made-up categories." },
+  { n: 2, name: "Match", tool: "match_creators · enrich_creator",
+    desc: "Finds the 10–15 best-fit creators in the network and refreshes their contact + audience data." },
+  { n: 3, name: "Outreach", tool: "draft_outreach · schedule_sequence",
+    desc: "Writes a personalised first message per creator and schedules a 3-step follow-up sequence. Drafts only — never sends." },
+  { n: 4, name: "CRM", tool: "crm_upsert",
+    desc: "Saves the brand, contacts and the campaign to the CRM and returns a link." },
+];
+
+const FAQ = [
+  { q: "What is this, in one line?",
+    a: "It turns a one-line brand brief into a ready-to-launch creator-marketing campaign in minutes — work that takes an account manager 2–3 days by hand." },
+  { q: "Why is it useful?",
+    a: "One brief in, a full campaign out: researched brand, matched creators, personalised outreach, scheduled follow-ups and a CRM record. Creators are the trusted bridge to their audience — we make reaching the right ones one click. And a human approves every message before anything is sent." },
+  { q: "What am I watching in the live log?",
+    a: "Every \"call → tool\" / \"result ✓\" line is a real step the agents take, streamed as it happens: research_brand → ground_taxonomy → match_creators → enrich_creator (×N) → draft_outreach (×N) → schedule_sequence (×N) → crm_upsert." },
+  { q: "Is this real customer data?",
+    a: "No. This public demo runs the synthetic \"Chapterhouse\" brand — no real customer data and no emails are ever sent." },
+];
+
+function HowItWorks() {
+  return (
+    <details className="how" open>
+      <summary>ⓘ How it works — start here</summary>
+
+      <div className="how-body">
+        <div className="steps">
+          {STEPS.map((s) => (
+            <div className="step" key={s.n}>
+              <div className="step-h"><span className="step-n">{s.n}</span>{s.name}</div>
+              <div className="step-tool">{s.tool}</div>
+              <div className="step-desc">{s.desc}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="agents-box">
+          <div className="agents-title">Who does the work — and how they talk</div>
+          <div className="agent-tree">
+            <div className="planner">Planner · Gemini 3.1 Pro <span className="muted">— the conductor: runs the 4 steps in order, hands each result to the next</span></div>
+            <div className="subs">
+              <span className="sub-agent">research_agent</span>
+              <span className="sub-agent">matching_agent</span>
+              <span className="sub-agent">outreach_agent</span>
+              <span className="muted">· Gemini 3.5 Flash</span>
+            </div>
+            <div className="muted small">
+              The planner calls each sub-agent <b>as a tool</b> (agent-to-agent, ADK).
+              Each sub-agent calls the real CashTime services <b>over MCP</b>. The
+              planner does the final CRM write itself.
+            </div>
+          </div>
+        </div>
+
+        <div className="faq">
+          {FAQ.map((f, i) => (
+            <details className="faq-item" key={i}>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </details>
   );
 }
