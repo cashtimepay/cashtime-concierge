@@ -111,7 +111,7 @@
 | Concierge service (this repo) | Cloud Run | `tools-cashtimepay-com` | `europe-west6` |
 | Brand UI | Cloud Run | `tools-cashtimepay-com` | `europe-west6` |
 | Artifact Registry repo `cashtime` | Artifact Registry | `tools-cashtimepay-com` | `europe-west6` |
-| Gemini 3.1 Pro Preview / 3.5 Flash | Gemini Enterprise Agent Platform | `tools-cashtimepay-com` | `europe-west6` |
+| Gemini 3.1 Pro Preview (planner) / 3.5 Flash (sub-agents) | Vertex AI — in-project, service-account auth (no API key) | `tools-cashtimepay-com` | `global` |
 | Secret Manager (`concierge-*`) | Secret Manager | `tools-cashtimepay-com` | global |
 | MCP gateway | Docker on Compute Engine VM (`internal-tools-vm-v2`) | `tools-cashtimepay-com` | `europe-west6-b` |
 | Twenty CRM (existing) | Docker on Compute Engine VM (`internal-tools-vm-v2`) | `tools-cashtimepay-com` | `europe-west6-b` |

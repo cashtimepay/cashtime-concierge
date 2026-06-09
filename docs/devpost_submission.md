@@ -55,7 +55,8 @@ approves every message; the agent drafts and schedules but never sends.
 - **Gemini 3.1 Pro Preview** — planner LLM.
 - **Gemini 3.5 Flash** — sub-agent LLM for drafts/summaries.
 - **Google Agent Development Kit (ADK)** — planner + 3 sub-agents.
-- **Gemini Enterprise Agent Platform** — model serving (europe-west6).
+- **Vertex AI** — Gemini serving, in-project (global endpoint), authenticated
+  by the Cloud Run service account (IAM) — no API key, no external gateway.
 - **Vertex AI Search** — RAG grounding for the research sub-agent.
 - **Model Context Protocol (MCP)** — single trusted tool boundary.
 - **Cloud Run** — Concierge service + Next.js Brand UI.
