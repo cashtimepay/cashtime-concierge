@@ -1,28 +1,33 @@
 # Testing access for hackathon judges
 
-> This page is rendered into the **Testing access** field of the devpost form
-> on submission day. Filled out on Day 9.
+> This page is rendered into the **Testing access** field of the devpost form.
 
-## Deployed URLs
+## Live demo (public, no login)
 
-- **Brand UI (judges entry point):** `https://concierge.cashtimepay.com/`
-  *(behind Cloud IAP — credentials below)*
-- **Health probe (no auth):** `https://concierge-api.cashtimepay.com/healthz`
-- **Open API spec:** `https://concierge-api.cashtimepay.com/docs`
+Deployed on Cloud Run in `tools-cashtimepay-com` / `europe-west6`, running in
+**demo mode** with the synthetic **Chapterhouse** brand only — no login, no real
+data, no production calls. Open the UI and click **"Run the Chapterhouse demo"**:
 
-## Judges credentials
+- **Brand UI (judges entry point):**
+  `https://cashtime-concierge-ui-455884480848.europe-west6.run.app/`
+- **Concierge API health (no auth):**
+  `https://cashtime-concierge-455884480848.europe-west6.run.app/health`
+- **OpenAPI spec / Swagger:**
+  `https://cashtime-concierge-455884480848.europe-west6.run.app/docs`
 
-A single tester account is provisioned for the judging window
-(2026-06-11 → 2026-06-22). Credentials are sent privately on the devpost
-submission form, not committed to this repo.
+> The live demo runs the deterministic pipeline (identical tool sequence and
+> event stream as the model-driven path) so it is fast and reproducible for
+> judges. The ADK multi-agent + Gemini path and the live CashTime backends are
+> wired behind the same API and enabled with credentials for production briefs.
 
-The account has read-only access to:
-- The Brand UI (can submit briefs, see live runs)
-- A scoped CashTime CRM tenant (read-only, populated only with the
-  synthetic "Chapterhouse" demo data)
-- The Cloud Trace dashboard for the Concierge service (link below)
+## Hardened access (custom domains + IAP)
 
-After 2026-06-22 the account is revoked automatically.
+For production we front both services with a custom domain + Cloud IAP
+(`concierge.cashtimepay.com`, `concierge-api.cashtimepay.com`) so a single tester
+account governs access during the judging window (2026-06-11 → 2026-06-22), with
+read-only entry to the Brand UI and a scoped CRM tenant holding only the
+synthetic Chapterhouse data. Wiring is in `deploy/iap_setup.md`. The public
+run.app demo above needs no such account.
 
 ## Quick walkthrough (90 seconds)
 

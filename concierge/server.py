@@ -58,8 +58,9 @@ class BriefRequest(BaseModel):
     session_id: str | None = None
 
 
-@app.get("/healthz")
-async def healthz() -> dict[str, str]:
+@app.get("/health")
+@app.get("/healthz")  # kept for parity; note: Google Frontend reserves /healthz at the edge
+async def health() -> dict[str, str]:
     return {"status": "ok", "demo_mode": str(get_settings().demo_mode)}
 
 

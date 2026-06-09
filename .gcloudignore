@@ -1,0 +1,14 @@
+# Keep the Cloud Build source upload small for the concierge (Python) service.
+.git
+.venv
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+ui/
+docs/
+tests/
+*.log
+.env
+.env.*
+!.env.example

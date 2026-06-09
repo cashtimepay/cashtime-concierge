@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./globals.css";
 
-const API_BASE =
+const BUILD_API_BASE =
   process.env.NEXT_PUBLIC_CONCIERGE_API || "http://localhost:8080";
 
 const DEMO_PRESET = {
@@ -24,7 +24,17 @@ export default function Home() {
   const [events, setEvents] = useState([]);
   const [summary, setSummary] = useState(null);
   const [status, setStatus] = useState("idle"); // idle | running | done | error
+  const [apiBase, setApiBase] = useState(BUILD_API_BASE);
   const logRef = useRef(null);
+
+  useEffect(() => {
+    fetch("/api/config")
+      .then((r) => r.json())
+      .then((c) => {
+        if (c.apiBase) setApiBase(c.apiBase);
+      })
+      .catch(() => {});
+  }, []);
 
   function pushEvent(ev) {
     setEvents((prev) => {
@@ -41,7 +51,7 @@ export default function Home() {
     setSummary(null);
     setStatus("running");
     try {
-      const resp = await fetch(`${API_BASE}/concierge/run`, {
+      const resp = await fetch(`${apiBase}/concierge/run`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

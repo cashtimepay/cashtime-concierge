@@ -50,12 +50,12 @@ judge → IAP (Google sign-in) → HTTPS LB → Serverless NEG → Cloud Run
 
 ## Health check (no auth)
 
-`/healthz` on the concierge service is reachable without IAP via the LB's
+`/health` on the concierge service is reachable without IAP via the LB's
 unauthenticated path matcher, so judges can confirm the service is live before
 signing in:
 
 ```
-GET https://concierge-api.cashtimepay.com/healthz  →  {"status":"ok"}
+GET https://concierge-api.cashtimepay.com/health  →  {"status":"ok"}
 ```
 
 ## Teardown after judging
