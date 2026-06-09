@@ -207,6 +207,18 @@ export default function Home() {
     run({ brand_url: DEMO_PRESET.brand_url, goal: DEMO_PRESET.goal, live: liveMode });
   }
 
+  function clearAll() {
+    if (running) return;
+    setBrandUrl("");
+    setGoal("");
+    setEvents([]);
+    setPipe(emptyPipe());
+    setBrandName("");
+    setTab("research");
+    setStatus("idle");
+    pinnedRef.current = false;
+  }
+
   function selectTab(k) {
     pinnedRef.current = true;
     setTab(k);
@@ -266,6 +278,9 @@ export default function Home() {
               Run the Chapterhouse demo
             </button>
           </div>
+          <button className="ghost clear" type="button" onClick={clearAll} disabled={running}>
+            Clear
+          </button>
         </form>
 
         <div className="panel">

@@ -113,6 +113,8 @@ input:focus, textarea:focus { outline: none; border-color: var(--accent); }
 .runmode.fast { color: var(--muted); background: var(--panel-2); border: 1px solid var(--border); }
 
 .row { display: flex; gap: 10px; margin-top: 18px; }
+.clear { width: 100%; margin-top: 10px; color: var(--muted); font-weight: 500; }
+.clear:hover:not(:disabled) { color: var(--text); border-color: var(--muted); }
 button {
   border: none; border-radius: 9px; padding: 11px 16px; font-size: 14px;
   font-weight: 600; cursor: pointer; font-family: inherit;
