@@ -75,9 +75,8 @@ async def stream_pipeline(
     yield _event("text", text=f"Brief received for {brand_url}. Running the pipeline…")
 
     # 1) Research --------------------------------------------------------------
-    yield _call("research_brand", {"brand_url": brand_url, "goal": goal,
-                                   "budget_monthly_usd": budget_monthly_usd})
-    profile = await research_brand(brand_url, goal, budget_monthly_usd)
+    yield _call("research_brand", {"brand_url": brand_url, "goal": goal})
+    profile = await research_brand(brand_url, goal)
     yield _result("research_brand", profile)
     company = profile.get("company", {})
     yield _event("text", text=(

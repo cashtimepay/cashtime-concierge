@@ -80,8 +80,7 @@ async def run_concierge(brief: BriefRequest) -> EventSourceResponse:
 
     user_message = (
         f"Brand URL: {brief.brand_url}\n"
-        f"Goal: {brief.goal}\n"
-        f"Monthly budget (USD): {brief.budget_monthly_usd}\n\n"
+        f"Goal: {brief.goal}\n\n"
         "Run the full pipeline."
     )
 

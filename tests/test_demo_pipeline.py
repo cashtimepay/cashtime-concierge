@@ -19,7 +19,6 @@ async def test_full_demo_pipeline():
     profile = await research_brand(
         brand_url="https://chapterhouse.demo",
         goal="100 trial signups per month",
-        budget_monthly_usd=5000,
     )
     assert profile["company"]["name"] == "Chapterhouse"
     assert "BOOKS_LITERATURE" in profile["categories"]

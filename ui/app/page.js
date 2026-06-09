@@ -414,18 +414,25 @@ function OutreachTab({ pipe }) {
       <div className="warn-strip">Drafts &amp; schedules only - nothing is sent. A human approves each message.</div>
       {pipe.drafts.map((d, i) => {
         const seq = pipe.sequences.find((s) => s.creator_id === d.creator_id);
-        const body = (d.body_markdown || "").slice(0, 220);
+        const steps = seq?.steps?.length
+          ? seq.steps
+          : [{ step: 1, subject: d.subject, body_markdown: d.body_markdown }];
         return (
           <div className="draft" key={i}>
-            <div className="draft-h">{d.handle}</div>
-            <div className="draft-subj">{d.subject}</div>
-            <div className="draft-body">{body}{(d.body_markdown || "").length > 220 ? "…" : ""}</div>
-            {seq && (
-              <div className="muted small">
-                Sequence: {seq.total_messages} messages
-                {seq.steps?.length ? ` · first ${seq.steps[0].scheduled_at?.slice(0, 10)}` : ""}
+            <div className="draft-h">
+              {d.handle}
+              <span className="muted small"> · {steps.length}-step sequence</span>
+            </div>
+            {steps.map((s, j) => (
+              <div className="seqstep" key={j}>
+                <div className="seqstep-h">
+                  <span className="stepn">{s.step || j + 1}</span>
+                  {s.scheduled_at ? s.scheduled_at.slice(0, 10) : "first touch"}
+                  <span className="seqstep-subj">{s.subject}</span>
+                </div>
+                <div className="seqstep-body">{s.body_markdown}</div>
               </div>
-            )}
+            ))}
           </div>
         );
       })}
@@ -531,8 +538,8 @@ const FAQ = [
 
 function HowItWorks() {
   return (
-    <details className="how" open>
-      <summary>ⓘ How it works - start here</summary>
+    <details className="how">
+      <summary>How it works - start here</summary>
       <div className="how-body">
         <div className="steps">
           {STEPS.map((s) => (

@@ -12,7 +12,7 @@ from concierge.http_client import internal_client
 from concierge.settings import get_settings
 
 
-async def research_brand(brand_url: str, goal: str, budget_monthly_usd: float) -> dict[str, Any]:
+async def research_brand(brand_url: str, goal: str) -> dict[str, Any]:
     """Research a brand from its public homepage + goal.
 
     Fetches the brand's homepage and extracts a structured profile (name,
@@ -22,7 +22,6 @@ async def research_brand(brand_url: str, goal: str, budget_monthly_usd: float) -
     Args:
         brand_url: Public-facing URL of the brand (homepage or landing page).
         goal: Plain-English marketing goal (e.g. "100 trial signups per month").
-        budget_monthly_usd: Monthly creator budget the brand can commit, in USD.
 
     Returns:
         dict with keys: ``company`` (name/domain/description), ``icp``, ``geo``,
@@ -33,22 +32,22 @@ async def research_brand(brand_url: str, goal: str, budget_monthly_usd: float) -
 
     # Curated showcase brand keeps a rich, book-themed profile for the demo preset.
     if "chapterhouse.demo" in brand_url:
-        return _chapterhouse(brand_url, goal, budget_monthly_usd)
+        return _chapterhouse(brand_url, goal)
 
     # Optional live AIBMR backend.
     if settings.aibmr_base_url and not settings.demo_mode:
         async with internal_client(settings.aibmr_base_url) as http:
             resp = await http.post(
                 "/recon",
-                json={"brand_url": brand_url, "goal": goal, "budget_monthly_usd": budget_monthly_usd},
+                json={"brand_url": brand_url, "goal": goal},
             )
             resp.raise_for_status()
             return resp.json()
 
     try:
-        return await _fetch_profile(brand_url, goal, budget_monthly_usd)
+        return await _fetch_profile(brand_url, goal)
     except Exception as exc:  # never hard-fail the pipeline
-        return _minimal_profile(brand_url, goal, budget_monthly_usd, note=str(exc)[:120])
+        return _minimal_profile(brand_url, goal, note=str(exc)[:120])
 
 
 def _is_public_host(host: str) -> bool:
@@ -67,7 +66,7 @@ def _is_public_host(host: str) -> bool:
     return True
 
 
-async def _fetch_profile(brand_url: str, goal: str, budget: float) -> dict[str, Any]:
+async def _fetch_profile(brand_url: str, goal: str) -> dict[str, Any]:
     parsed = urlparse(brand_url if "://" in brand_url else "https://" + brand_url)
     if parsed.scheme not in ("http", "https") or not parsed.hostname:
         raise ValueError("unsupported URL")
@@ -119,11 +118,11 @@ async def _fetch_profile(brand_url: str, goal: str, budget: float) -> dict[str, 
         "tone_of_voice": "",
         "persons": [],
         "categories": [],  # filled by the taxonomy-grounding step
-        "_source": {"kind": "live_fetch", "url": url, "goal": goal, "budget_monthly_usd": budget},
+        "_source": {"kind": "live_fetch", "url": url, "goal": goal},
     }
 
 
-def _minimal_profile(brand_url: str, goal: str, budget: float, note: str = "") -> dict[str, Any]:
+def _minimal_profile(brand_url: str, goal: str, note: str = "") -> dict[str, Any]:
     parsed = urlparse(brand_url if "://" in brand_url else "https://" + brand_url)
     host = parsed.hostname or brand_url
     name = host.replace("www.", "").split(".")[0].title()
@@ -151,7 +150,7 @@ def _first_text(html: str) -> str | None:
     return text[:400] if len(text) > 60 else None
 
 
-def _chapterhouse(brand_url: str, goal: str, budget: float) -> dict[str, Any]:
+def _chapterhouse(brand_url: str, goal: str) -> dict[str, Any]:
     return {
         "company": {
             "name": "Chapterhouse",
@@ -175,5 +174,5 @@ def _chapterhouse(brand_url: str, goal: str, budget: float) -> dict[str, Any]:
             {"name": "Demo Founder", "role": "CEO", "email": "founder@chapterhouse.demo", "verified": True},
         ],
         "categories": ["BOOKS_LITERATURE", "ART_DESIGN"],
-        "_source": {"kind": "showcase", "goal": goal, "budget_monthly_usd": budget},
+        "_source": {"kind": "showcase", "goal": goal},
     }
