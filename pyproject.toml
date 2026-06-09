@@ -8,6 +8,7 @@ authors = [{ name = "CashTime Pay AG", email = "dmitry@cashtimepay.com" }]
 dependencies = [
     "google-adk>=0.6.0",
     "google-cloud-aiplatform>=1.71.0",
+    "google-cloud-discoveryengine>=0.13.0",
     "fastapi>=0.115.0",
     "uvicorn[standard]>=0.30.0",
     "sse-starlette>=2.1.0",
@@ -42,13 +43,18 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools.packages.find]
 include = ["concierge*"]
 
+[tool.setuptools.package-data]
+concierge = ["data/*.json"]
+
 [tool.ruff]
 line-length = 100
 target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF"]
-ignore = ["E501"]
+# E501: line length handled by formatter. RUF001-003: the codebase intentionally
+# uses typographic characters (en-dash, ×, →) in agent prompts and UI copy.
+ignore = ["E501", "RUF001", "RUF002", "RUF003"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"

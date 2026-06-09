@@ -16,6 +16,13 @@ class Settings(BaseSettings):
     concierge_planner_model: str = Field(default="gemini-3.1-pro-preview")
     concierge_worker_model: str = Field(default="gemini-3.5-flash")
 
+    # --- Vertex AI Search grounding (research sub-agent RAG) ---
+    # When ``vertex_search_datastore`` is set, ``ground_taxonomy`` queries the
+    # Discovery Engine data store. Otherwise it falls back to the bundled
+    # canonical-taxonomy corpus (deterministic, offline, demo-safe).
+    vertex_search_datastore: str = Field(default="")
+    vertex_search_location: str = Field(default="global")
+
     mcp_base_url: str = Field(default="https://mcp.cashtimepay.com")
     mcp_bearer_token: str = Field(default="")
 

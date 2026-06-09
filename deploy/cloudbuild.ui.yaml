@@ -1,22 +1,23 @@
-# Cloud Build CI/CD для CashTime Brand Concierge
-# Деплоит в Cloud Run, регион europe-west6, проект tools-cashtimepay-com.
-# Secrets подгружаются из Secret Manager на стороне Cloud Run revision (не здесь).
+# Cloud Build for the Brand UI (Next.js) → Cloud Run.
+# Region europe-west6, project tools-cashtimepay-com.
+# _CONCIERGE_API is baked into the client bundle at build time.
 
 substitutions:
   _REGION: europe-west6
-  _SERVICE: cashtime-concierge
+  _SERVICE: cashtime-concierge-ui
   _REPO: cashtime
-  _IMAGE: cashtime-concierge
-  _DATASTORE: cashtime-taxonomy
+  _IMAGE: cashtime-concierge-ui
+  _CONCIERGE_API: https://concierge-api.cashtimepay.com
 
 steps:
   - id: build
     name: gcr.io/cloud-builders/docker
     args:
       - build
+      - --build-arg=NEXT_PUBLIC_CONCIERGE_API=${_CONCIERGE_API}
       - --tag=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_IMAGE}:${SHORT_SHA}
       - --tag=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_IMAGE}:latest
-      - .
+      - ./ui
 
   - id: push-sha
     name: gcr.io/cloud-builders/docker
@@ -36,15 +37,14 @@ steps:
       - --image=${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_IMAGE}:${SHORT_SHA}
       - --region=${_REGION}
       - --platform=managed
-      - --allow-unauthenticated=false
-      - --service-account=cashtime-concierge@${PROJECT_ID}.iam.gserviceaccount.com
-      - --memory=1Gi
+      # UI is fronted by Cloud IAP for the judging window — no public ingress.
+      - --no-allow-unauthenticated
+      - --memory=512Mi
       - --cpu=1
-      - --concurrency=20
-      - --timeout=300s
-      - --max-instances=10
-      - --set-env-vars=GOOGLE_CLOUD_PROJECT=${PROJECT_ID},GOOGLE_CLOUD_LOCATION=${_REGION},GOOGLE_GENAI_USE_VERTEXAI=TRUE,VERTEX_SEARCH_DATASTORE=${_DATASTORE},VERTEX_SEARCH_LOCATION=global
-      - --set-secrets=MCP_BEARER_TOKEN=concierge-mcp-bearer:latest,TWENTY_API_KEY=concierge-twenty-key:latest,CF_ACCESS_CLIENT_ID=concierge-cf-id:latest,CF_ACCESS_CLIENT_SECRET=concierge-cf-secret:latest
+      - --concurrency=80
+      - --timeout=60s
+      - --max-instances=4
+      - --port=3000
 
 images:
   - ${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO}/${_IMAGE}:${SHORT_SHA}

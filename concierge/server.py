@@ -19,6 +19,7 @@ from sse_starlette.sse import EventSourceResponse
 
 from concierge.agent import root_agent
 from concierge.observability import setup_observability
+from concierge.pipeline import stream_pipeline
 from concierge.settings import get_settings
 
 setup_observability()
@@ -80,24 +81,32 @@ async def run_concierge(brief: BriefRequest) -> EventSourceResponse:
     )
 
     async def event_stream() -> AsyncGenerator[dict, None]:
-        await _session_service.create_session(
-            app_name="cashtime_brand_concierge",
-            user_id="brand-ui",
-            session_id=session_id,
-        )
-        content = types.Content(role="user", parts=[types.Part(text=user_message)])
-
         try:
-            async for event in _runner.run_async(
-                user_id="brand-ui",
-                session_id=session_id,
-                new_message=content,
-            ):
-                payload = _serialise_event(event)
-                if payload is None:
-                    continue
-                yield {"event": payload["type"], "data": json.dumps(payload)}
-                await asyncio.sleep(0)
+            if get_settings().demo_mode:
+                # Deterministic offline replay — same event shape, no LLM.
+                async for payload in stream_pipeline(
+                    brief.brand_url, brief.goal, brief.budget_monthly_usd
+                ):
+                    yield {"event": payload["type"], "data": json.dumps(payload)}
+                    await asyncio.sleep(0)
+            else:
+                # Live model-driven multi-agent run via ADK.
+                await _session_service.create_session(
+                    app_name="cashtime_brand_concierge",
+                    user_id="brand-ui",
+                    session_id=session_id,
+                )
+                content = types.Content(role="user", parts=[types.Part(text=user_message)])
+                async for event in _runner.run_async(
+                    user_id="brand-ui",
+                    session_id=session_id,
+                    new_message=content,
+                ):
+                    payload = _serialise_event(event)
+                    if payload is None:
+                        continue
+                    yield {"event": payload["type"], "data": json.dumps(payload)}
+                    await asyncio.sleep(0)
         except Exception as exc:
             log.exception("concierge.run.error", session_id=session_id)
             yield {"event": "error", "data": json.dumps({"error": str(exc)})}

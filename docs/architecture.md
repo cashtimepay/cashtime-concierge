@@ -11,14 +11,19 @@
              ▼
 ┌──────────────────────────────────────────────────────────────┐
 │                Concierge Agent (this repo)                   │
-│  FastAPI + SSE → ADK Runner → root agent                     │
+│  FastAPI + SSE → ADK Runner → planner (root)                 │
+│  Planner : Gemini 3.1 Pro Preview   (Gemini Enterprise, ew6) │
+│  Workers : Gemini 3.5 Flash         (Gemini Enterprise, ew6) │
 │                                                              │
-│  Planner   : Gemini 3.1 Pro Preview (Gemini Enterprise, ew6) │
-│  Workers   : Gemini 3.5 Flash       (Gemini Enterprise, ew6) │
-│                                                              │
-│  6 tools (MCP-wrapped):                                      │
-│    ① research_brand    ② match_creators   ③ enrich_creator   │
-│    ④ draft_outreach    ⑤ schedule_sequence ⑥ crm_upsert     │
+│   planner ── AgentTool ──┬─ research_agent                   │
+│      │                   │     research_brand                │
+│      │                   │     ground_taxonomy ──► Vertex AI │
+│      │                   │                          Search   │
+│      │                   ├─ matching_agent                   │
+│      │                   │     match_creators · enrich_creator│
+│      │                   └─ outreach_agent                   │
+│      │                         draft_outreach · schedule_seq │
+│      └── crm_upsert  (planner-level tool)                    │
 └────┬─────────┬─────────┬─────────┬──────────┬────────┬───────┘
      │         │         │         │          │        │
      ▼         ▼         ▼         ▼          ▼        ▼
@@ -28,6 +33,14 @@
   ─────── existing CashTime production services ───────
   All called via the MCP gateway at mcp.cashtimepay.com
   (single trusted boundary, Bearer auth, allow-list per tool)
+
+  Grounding: ground_taxonomy queries a Vertex AI Search data store
+  indexed from concierge/data/taxonomy_corpus.json (40 niches,
+  10 platforms, tone dictionary). Offline / demo → deterministic
+  local-corpus retriever, same interface.
+
+  DEMO_MODE: concierge/pipeline.py runs the identical tool sequence
+  with no LLM, emitting the same SSE event stream (judge replay + tests).
 ```
 
 ## Why this shape

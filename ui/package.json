@@ -1,0 +1,17 @@
+{
+  "name": "cashtime-concierge-ui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Brand-facing UI for CashTime Brand Concierge (Google for Startups AI Agents Challenge)",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p ${PORT:-3000}",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "15.1.6",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  }
+}

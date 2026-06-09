@@ -40,14 +40,14 @@ async def match_creators(
 
 def _demo_payload(limit: int) -> list[dict[str, Any]]:
     base = [
-        {"handle": "@quietreader", "platform": "instagram", "niche": "BOOKS_LITERATURE",
-         "follower_count": 48_200, "engagement_percent": 4.7, "geo": "US",
+        {"creator_id": "demo-0001-quietreader", "handle": "@quietreader", "platform": "instagram",
+         "niche": "BOOKS_LITERATURE", "follower_count": 48_200, "engagement_percent": 4.7, "geo": "US",
          "fit_score": 0.93, "fit_reasons": ["literary fiction focus", "high engagement", "US audience"]},
-        {"handle": "@inkandvellum", "platform": "youtube", "niche": "BOOKS_LITERATURE",
-         "follower_count": 31_500, "engagement_percent": 6.1, "geo": "UK",
+        {"creator_id": "demo-0002-inkandvellum", "handle": "@inkandvellum", "platform": "youtube",
+         "niche": "BOOKS_LITERATURE", "follower_count": 31_500, "engagement_percent": 6.1, "geo": "UK",
          "fit_score": 0.91, "fit_reasons": ["indie-publisher coverage", "UK audience"]},
-        {"handle": "@lesemorgen", "platform": "instagram", "niche": "BOOKS_LITERATURE",
-         "follower_count": 22_800, "engagement_percent": 5.4, "geo": "DE",
+        {"creator_id": "demo-0003-lesemorgen", "handle": "@lesemorgen", "platform": "instagram",
+         "niche": "BOOKS_LITERATURE", "follower_count": 22_800, "engagement_percent": 5.4, "geo": "DE",
          "fit_score": 0.88, "fit_reasons": ["DE BookTok", "design-led aesthetic"]},
     ]
     return base[:limit]

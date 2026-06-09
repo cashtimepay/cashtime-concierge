@@ -30,9 +30,11 @@ After 2026-06-22 the account is revoked automatically.
    Google account.
 2. On the landing page, click **"Run the Chapterhouse demo"** (a one-click
    preset that loads the synthetic brand).
-3. Watch the streamed tool-call log on the right. Six tools fire in order:
-   `research_brand` → `match_creators` → `enrich_creator` (×N) →
-   `draft_outreach` (×N) → `schedule_sequence` (×N) → `crm_upsert`.
+3. Watch the streamed tool-call log on the right. The planner delegates to
+   three sub-agents and the tools fire in order:
+   `research_brand` → `ground_taxonomy` (Vertex AI Search RAG) →
+   `match_creators` → `enrich_creator` (×N) → `draft_outreach` (×N) →
+   `schedule_sequence` (×N) → `crm_upsert`.
 4. When the run completes, click **"Open in CRM"** to see the Company,
    Persons, and Opportunity that the agent just created.
 5. Optionally, click **"View trace"** to see the full OpenTelemetry trace
@@ -66,5 +68,16 @@ curl -N -X POST http://localhost:8080/concierge/run \
   -d '{"brand_url":"https://chapterhouse.demo","goal":"100 trial signups/mo","budget_monthly_usd":5000}'
 ```
 
-`DEMO_MODE=true` shortcuts every tool to a deterministic stub so the full
-pipeline runs without any external auth.
+`DEMO_MODE=true` runs the full pipeline through a **deterministic orchestrator**
+(no LLM, no external auth) that fires the exact same tool sequence and emits the
+exact same event stream as the live model-driven run — so judges get an
+identical, reproducible end-to-end demo offline. The live run (no `DEMO_MODE`)
+drives the same pipeline with the ADK multi-agent planner + Gemini and the
+Vertex AI Search grounding backend.
+
+To run the Brand UI locally against it:
+
+```bash
+cd ui && npm install
+NEXT_PUBLIC_CONCIERGE_API=http://localhost:8080 npm run dev   # → http://localhost:3000
+```
