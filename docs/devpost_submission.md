@@ -103,6 +103,10 @@ Period; CashTime backends act as third-party tool endpoints.
 - **Demo mode pays for itself.** A deterministic twin of the pipeline
   (same tool order, same event stream, no LLM) let the UI ship before live
   wrappers and lets judges replay the full flow with zero auth or quota.
+- **Real for any brand, safe by construction.** The public demo researches
+  any brand URL live and matches against a curated, public-safe sample of the
+  real creator network (handles/niches/followers only) — judges get genuine
+  output without exposing contact data, economics, or the full database.
 
 ## Third-party integrations
 

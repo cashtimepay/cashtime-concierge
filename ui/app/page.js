@@ -511,8 +511,8 @@ const FAQ = [
     a: "Each tab is one agent's output, filled in live as it finishes: Research = the grounded brand profile, Match = the creators it picked, Outreach = the drafted messages + schedules, CRM = the record it would create. The Activity log tab is the raw tool-by-tool stream." },
   { q: "Which AI models run, and on what credentials?",
     a: "Live mode runs the planner on Gemini 3.1 Pro Preview and the three sub-agents on Gemini 3.5 Flash, called through Vertex AI inside our own Google Cloud project (tools-cashtimepay-com). Auth is the project's service-account identity (IAM) — no API key and no third-party gateway, so every Gemini call stays within the project. Toggle off \"Live\" for an instant deterministic replay with no LLM." },
-  { q: "Is this real customer data?",
-    a: "No. This public demo runs the synthetic \"Chapterhouse\" brand — no real customer data, and the CRM step writes nothing to production. No emails are ever sent." },
+  { q: "Can I enter my own brand? Is the data real?",
+    a: "Yes — enter any real brand URL and the research step genuinely fetches and analyses it, then grounds it to real CashTime niches. Creator matching draws from a curated, public-safe sample of our real creator network (handle / niche / followers only — no contact details or economics). No emails are ever sent and the CRM step writes nothing to production. (\"Run the Chapterhouse demo\" uses a synthetic brand as a quick showcase.)" },
 ];
 
 function HowItWorks() {

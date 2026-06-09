@@ -15,10 +15,13 @@ data, no production calls. Open the UI and click **"Run the Chapterhouse demo"**
 - **OpenAPI spec / Swagger:**
   `https://cashtime-concierge-455884480848.europe-west6.run.app/docs`
 
-> The live demo runs the deterministic pipeline (identical tool sequence and
-> event stream as the model-driven path) so it is fast and reproducible for
-> judges. The ADK multi-agent + Gemini path and the live CashTime backends are
-> wired behind the same API and enabled with credentials for production briefs.
+> **Enter any real brand URL** — the research step genuinely fetches and
+> analyses it and grounds it to real CashTime niches; creator matching draws
+> from a curated, public-safe sample of the real creator network (handle /
+> niche / followers only — no contact data or economics). Toggle **Live** for
+> the real ADK + Gemini multi-agent run, or **Fast** for the instant
+> deterministic replay. No emails are sent; the CRM step writes nothing to
+> production.
 
 ## Hardened access (custom domains + IAP)
 
