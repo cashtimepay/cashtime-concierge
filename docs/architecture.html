@@ -39,9 +39,17 @@
   .crmtool .box{border-style:dashed;text-align:center}
 
   .services{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;width:100%}
-  .svc{background:var(--panel);border:1px solid var(--border);border-radius:11px;padding:12px;text-align:center}
+  .svc{background:var(--panel);border:1px solid var(--border);border-radius:11px;padding:12px;text-align:left}
   .svc .n{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--green)}
   .svc .d{font-size:11px;color:var(--muted);margin-top:3px}
+  .svc .d2{font-size:10.5px;color:var(--muted);margin-top:6px;line-height:1.45}
+  .svc .d2 b{color:var(--text)}
+
+  .flow{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-top:16px}
+  .flow-h{font-size:13px;margin-bottom:9px}
+  .hop{font-size:12.5px;color:var(--muted);padding:3px 0;line-height:1.5}
+  .hop b{color:var(--text)} .hop i{color:var(--accent);font-style:normal;font-family:var(--mono);font-size:11.5px}
+  .num{display:inline-block;width:18px;color:var(--accent);font-weight:700}
 
   .side{position:relative}
   .note{background:rgba(246,183,60,.08);border:1px solid rgba(246,183,60,.3);color:var(--warn);border-radius:10px;padding:10px 13px;font-size:12.5px;line-height:1.5}
@@ -103,8 +111,13 @@
         </div>
       </div>
 
-      <div style="text-align:center;color:var(--muted);font-size:12.5px;margin-top:14px">
-        each sub-agent = <b style="color:var(--text)">instruction</b> (its role) + <b style="color:var(--text)">tools</b> (its hands, MCP) + Gemini (reasoning); research_agent also grounds against a real knowledge base
+      <div class="flow">
+        <div class="flow-h"><b>Hub-and-spoke:</b> sub-agents never call each other — the planner (Gemini Pro) passes each result to the next.</div>
+        <div class="hop"><span class="num">①</span> planner → <b>research_agent</b> <i>(brand URL + goal + budget)</i> → grounded brand profile <i>(niches · geo · tone)</i></div>
+        <div class="hop"><span class="num">②</span> planner → <b>matching_agent</b> <i>(brand profile)</i> → ranked + enriched creators</div>
+        <div class="hop"><span class="num">③</span> planner → <b>outreach_agent</b> <i>(profile + creators)</i> → drafts + 3-step sequences</div>
+        <div class="hop"><span class="num">④</span> planner → <b>crm_upsert</b> <i>(profile + creators + sequences)</i> → CRM record</div>
+        <div class="muted small" style="margin-top:6px">each sub-agent = <b style="color:var(--text)">instruction</b> (role) + <b style="color:var(--text)">tools</b> (MCP hands) + Gemini; research_agent also grounds against a real knowledge base</div>
       </div>
 
       <div class="crmtool">
@@ -132,12 +145,12 @@
   <div class="arrow"><span class="lbl">MCP — single secured gateway · mcp.cashtimepay.com (Bearer + allow-list per tool)</span><div class="ln"></div><div class="tri">▼</div></div>
 
   <div class="services">
-    <div class="svc"><div class="n">AIBMR</div><div class="d">brand research</div></div>
-    <div class="svc"><div class="n">AI-MM</div><div class="d">creator matching</div></div>
-    <div class="svc"><div class="n">CREN</div><div class="d">enrichment</div></div>
-    <div class="svc"><div class="n">AIBMO</div><div class="d">outreach drafting</div></div>
-    <div class="svc"><div class="n">AICROPS</div><div class="d">sequencing</div></div>
-    <div class="svc"><div class="n">Twenty CRM</div><div class="d">system of record</div></div>
+    <div class="svc"><div class="n">AIBMR</div><div class="d2"><b>Brand research.</b> Scrapes the brand site + socials → company profile: description, ICP, geo, tone-of-voice, decision-makers, niche classification.</div></div>
+    <div class="svc"><div class="n">AI-MM</div><div class="d2"><b>AI Matchmaker.</b> Scores the creator network against a brand profile (niche · audience · geo alignment) → ranked shortlist of creators.</div></div>
+    <div class="svc"><div class="n">AICREN</div><div class="d2"><b>Creator enrichment.</b> For a creator record: refreshes follower count, engagement, email, per-platform handles, language and last-post recency from the platforms.</div></div>
+    <div class="svc"><div class="n">AIBMO</div><div class="d2"><b>Outreach drafting.</b> Writes a personalised first-touch message per creator in the brand's tone, matched to that creator's niche.</div></div>
+    <div class="svc"><div class="n">AICROPS</div><div class="d2"><b>Sequencing.</b> Schedules the multi-step follow-up cadence per creator, with send-times tuned to historical response curves.</div></div>
+    <div class="svc"><div class="n">Twenty CRM</div><div class="d2"><b>System of record.</b> Stores Companies, Persons & Opportunities and the creator network (the source of the matching pool).</div></div>
   </div>
   <div class="center" style="margin-top:10px">
     <span class="lbl">existing CashTime production services — each with its own identity, knowledge base & MCP "hands"; exposed to the Concierge agents as third-party MCP tool endpoints (in the public demo: research is live, matching uses a curated public-safe network sample)</span>
