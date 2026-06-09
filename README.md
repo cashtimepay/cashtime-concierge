@@ -9,37 +9,37 @@
 
 A brand owner pastes a homepage URL, a goal, and a monthly budget. A **planner
 agent** delegates to three specialist sub-agents and writes the result to the
-CRM — all streamed live:
+CRM - all streamed live:
 
-1. **research** — researches the brand (description, ICP, geo, tone-of-voice,
+1. **research** - researches the brand (description, ICP, geo, tone-of-voice,
    decision-makers) and **grounds** it against CashTime's canonical taxonomy via
-   Vertex AI Search, so the brand maps to real niche enums (no hallucination),
-2. **matching** — matches 10–15 creators from the CashTime database and
+   Gemini Enterprise Search, so the brand maps to real niche enums (no hallucination),
+2. **matching** - matches 10-15 creators from the CashTime database and
    refreshes each one's contact + audience metrics,
-3. **outreach** — drafts a personalised first message per creator and schedules
+3. **outreach** - drafts a personalised first message per creator and schedules
    a 3-step sequence (initial + 2 follow-ups),
-4. **crm_upsert** (planner tool) — upserts the brand, contacts, and the campaign
+4. **crm_upsert** (planner tool) - upserts the brand, contacts, and the campaign
    into the CashTime CRM.
 
-What used to take a CashTime account manager 2–3 days now happens in minutes.
+What used to take a CashTime account manager 2-3 days now happens in minutes.
 
 ## Agent design
 
 ```
 planner  (Gemini 3.1 Pro Preview)
-  ├── research_agent  (Gemini 3.5 Flash)  research_brand · ground_taxonomy [Vertex AI Search RAG]
+  ├── research_agent  (Gemini 3.5 Flash)  research_brand · ground_taxonomy [Gemini Enterprise Search RAG]
   ├── matching_agent  (Gemini 3.5 Flash)  match_creators · enrich_creator
   ├── outreach_agent  (Gemini 3.5 Flash)  draft_outreach · schedule_sequence
   └── crm_upsert       (planner-level tool)
 ```
 
 A `DEMO_MODE=true` deterministic twin (`concierge/pipeline.py`) runs the exact
-same tool sequence with no LLM, emitting an identical event stream — for offline
+same tool sequence with no LLM, emitting an identical event stream - for offline
 judge replay and tests.
 
 ## Track and theme
 
-- **Track 1 — Build (Net-New Agents)**
+- **Track 1 - Build (Net-New Agents)**
 - Built net-new for the hackathon, on top of existing CashTime production services
   exposed as MCP tools.
 
@@ -51,8 +51,8 @@ judge replay and tests.
 | Agent design | Planner + 3 sub-agents (research / matching / outreach), agent-to-agent collaboration via `AgentTool` |
 | Planner LLM | Gemini 3.1 Pro Preview |
 | Worker LLM | Gemini 3.5 Flash |
-| Inference | Gemini Enterprise Agent Platform (region `europe-west6`) |
-| Grounding / RAG | Vertex AI Search (Discovery Engine) over the canonical taxonomy, with a bundled local-corpus fallback |
+| Inference | Gemini Enterprise Agents Platform (region `global`) |
+| Grounding / RAG | Gemini Enterprise Search (Discovery Engine) over the canonical taxonomy, with a bundled local-corpus fallback |
 | Tools | Model Context Protocol (MCP) over `mcp.cashtimepay.com` |
 | Backend | FastAPI + SSE on Cloud Run |
 | UI | Next.js, Cloud Run, behind Cloud IAP for judges |
@@ -73,7 +73,7 @@ cashtime-concierge/
 │   │   └── outreach.py         # outreach sub-agent
 │   ├── agent.py                # Re-exports root_agent (ADK discovery)
 │   ├── prompts.py              # Planner + per-sub-agent instructions
-│   ├── grounding.py            # ground_taxonomy (Vertex AI Search + local fallback)
+│   ├── grounding.py            # ground_taxonomy (Gemini Enterprise Search + local fallback)
 │   ├── pipeline.py             # Deterministic demo orchestrator (no LLM)
 │   ├── server.py               # FastAPI + SSE (demo → pipeline, live → ADK)
 │   ├── settings.py             # pydantic-settings
@@ -92,7 +92,7 @@ cashtime-concierge/
 │   ├── cloudbuild.yaml         # concierge service build/deploy
 │   ├── cloudbuild.ui.yaml      # Brand UI build/deploy
 │   ├── deploy.sh               # one-shot: preflight | infra | api | ui | all
-│   ├── provision_vertex_search.sh  # create + populate the grounding index
+│   ├── provision_grounding.sh  # create + populate the grounding index
 │   └── iap_setup.md            # Cloud IAP wiring for judges
 ├── docs/                       # Submission artefacts
 ├── tests/                      # Pytest (tools + pipeline + grounding)
@@ -129,7 +129,7 @@ One-shot, idempotent (targets `tools-cashtimepay-com` / `europe-west6`):
 
 ```bash
 ./deploy/deploy.sh preflight   # check auth/project/APIs, create nothing
-./deploy/deploy.sh infra       # APIs + Artifact Registry + SA + secrets + Vertex AI Search index
+./deploy/deploy.sh infra       # APIs + Artifact Registry + SA + secrets + Gemini Enterprise Search index
 # populate Secret Manager values, then:
 ./deploy/deploy.sh api         # build + deploy concierge service
 ./deploy/deploy.sh ui          # build + deploy Brand UI
@@ -142,10 +142,9 @@ with one Google account. The deploy step needs a service account with
 ## Submission artefacts
 
 See `docs/`:
-- `devpost_submission.md` — copy-ready text for every devpost field
-- `architecture.md` — full system diagram
-- `judges_access.md` — login + walkthrough for judges
-- `demo_script.md` — 3-minute video script
+- `devpost_submission.md` - copy-ready text for every devpost field
+- `architecture.md` - full system diagram
+- `judges_access.md` - login + walkthrough for judges
 
 ## Licence
 
@@ -155,4 +154,4 @@ via MCP remain CashTime IP.
 
 ## Contact
 
-Dmitry Radionov — CRO, CashTime Pay AG — dmitry@cashtimepay.com
+Dmitry Radionov - CRO, CashTime Pay AG - dmitry@cashtimepay.com

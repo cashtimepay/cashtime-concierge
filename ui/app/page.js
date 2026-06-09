@@ -51,13 +51,26 @@ function emptyPipe() {
 }
 
 function fmtNum(n) {
-  return n == null ? "—" : Intl.NumberFormat("en-US").format(n);
+  return n == null ? "-" : Intl.NumberFormat("en-US").format(n);
+}
+
+// Best-effort display name from a brand URL (fallback for the CRM tab).
+function displayBrand(url) {
+  if (!url) return "";
+  if (url.includes("chapterhouse.demo")) return "Chapterhouse";
+  try {
+    const host = new URL(url.includes("://") ? url : "https://" + url).hostname;
+    const root = host.replace(/^www\./, "").split(".")[0];
+    return root.charAt(0).toUpperCase() + root.slice(1);
+  } catch {
+    return "";
+  }
 }
 
 export default function Home() {
   const [brandUrl, setBrandUrl] = useState("");
   const [goal, setGoal] = useState("");
-  const [budget, setBudget] = useState(5000);
+  const [brandName, setBrandName] = useState("");
   const [events, setEvents] = useState([]);
   const [pipe, setPipe] = useState(emptyPipe());
   const [tab, setTab] = useState("research");
@@ -141,6 +154,7 @@ export default function Home() {
     setTab("research");
     pinnedRef.current = false;
     setRanMode(payload.live ? "live" : "fast");
+    setBrandName(displayBrand(payload.brand_url));
     setStatus("running");
     try {
       const resp = await fetch(`${apiBase}/concierge/run`, {
@@ -184,14 +198,13 @@ export default function Home() {
 
   function onSubmit(e) {
     e.preventDefault();
-    run({ brand_url: brandUrl, goal, budget_monthly_usd: Number(budget), live: liveMode });
+    run({ brand_url: brandUrl, goal, live: liveMode });
   }
 
   function runDemo() {
     setBrandUrl(DEMO_PRESET.brand_url);
     setGoal(DEMO_PRESET.goal);
-    setBudget(DEMO_PRESET.budget_monthly_usd);
-    run({ ...DEMO_PRESET, live: liveMode });
+    run({ brand_url: DEMO_PRESET.brand_url, goal: DEMO_PRESET.goal, live: liveMode });
   }
 
   function selectTab(k) {
@@ -208,9 +221,9 @@ export default function Home() {
         <span className="badge">AI Agents Challenge · Track 1</span>
       </div>
       <p className="sub">
-        Give us a brand brief. The agent researches the brand, matches creators
-        from the CashTime network, drafts personalised outreach, and writes the
-        campaign to the CRM — live.
+        Give us a brand website and a goal. The agent researches the brand,
+        matches creators from the CashTime network, drafts personalised outreach,
+        and writes the campaign to the CRM, live.
       </p>
 
       <HowItWorks />
@@ -224,9 +237,6 @@ export default function Home() {
           <label htmlFor="goal">Goal</label>
           <textarea id="goal" rows={3} placeholder="e.g. 100 trial signups per month"
             value={goal} onChange={(e) => setGoal(e.target.value)} disabled={running} />
-          <label htmlFor="budget">Monthly creator budget (USD)</label>
-          <input id="budget" type="number" min={0} step={500} value={budget}
-            onChange={(e) => setBudget(e.target.value)} disabled={running} />
 
           <div className="mode">
             <button
@@ -239,11 +249,11 @@ export default function Home() {
               <span className="knob" />
             </button>
             <div className="mode-txt">
-              <b>{liveMode ? "Live AI agents (Gemini)" : "Fast deterministic replay"}</b>
+              <b>{liveMode ? "Live AI agents (Gemini)" : "Fast preview"}</b>
               <span>
                 {liveMode
-                  ? "Runs the real ADK planner + 3 sub-agents on Gemini 3.5 Flash / 3.1 Pro via Vertex AI — ~1 min."
-                  : "Replays the identical pipeline with no LLM — instant, reproducible."}
+                  ? "Runs the real ADK planner and 3 sub-agents on Gemini 3.5 Flash and 3.1 Pro via the Gemini Enterprise Agents Platform. About 1 min."
+                  : "Instant preview that replays the same pipeline."}
               </span>
             </div>
           </div>
@@ -262,8 +272,8 @@ export default function Home() {
           {status !== "idle" && (
             <div className={`runmode ${ranMode}`}>
               {ranMode === "live"
-                ? "● Live — real ADK agents on Gemini (Vertex AI, project tools-cashtimepay-com)"
-                : "● Fast — deterministic replay, no LLM"}
+                ? "● Live: real ADK agents on the Gemini Enterprise Agents Platform (project tools-cashtimepay-com)"
+                : "● Fast: instant preview"}
             </div>
           )}
           <div className="tabs">
@@ -286,14 +296,14 @@ export default function Home() {
             {tab === "research" && <ResearchTab pipe={pipe} />}
             {tab === "match" && <MatchTab pipe={pipe} />}
             {tab === "outreach" && <OutreachTab pipe={pipe} />}
-            {tab === "crm" && <CrmTab pipe={pipe} />}
+            {tab === "crm" && <CrmTab pipe={pipe} brandName={brandName} />}
             {tab === "activity" && <ActivityTab events={events} logRef={logRef} />}
           </div>
         </div>
       </div>
 
       <p className="foot">
-        CashTime Pay AG · Switzerland — drafts and schedules only; a human
+        CashTime Pay AG · Switzerland - drafts and schedules only; a human
         approves every message. Demo data is synthetic.
       </p>
     </div>
@@ -324,19 +334,19 @@ function ResearchTab({ pipe }) {
   const icp = p.icp || {};
   return (
     <div>
-      <h3 className="tab-h">{c.name} — brand profile</h3>
+      <h3 className="tab-h">{c.name} - brand profile</h3>
       <p className="muted-p">{c.description}</p>
       <div className="kv">
-        <div><span>Pricing</span>{c.pricing_model || "—"}{c.monthly_price_usd ? ` · $${c.monthly_price_usd}/mo` : ""}</div>
-        <div><span>Audience</span>{icp.audience || "—"}</div>
-        <div><span>Geo</span>{(p.geo || []).join(", ") || "—"}</div>
-        <div><span>Tone of voice</span>{p.tone_of_voice || "—"}</div>
+        <div><span>Pricing</span>{c.pricing_model || "-"}{c.monthly_price_usd ? ` · $${c.monthly_price_usd}/mo` : ""}</div>
+        <div><span>Audience</span>{icp.audience || "-"}</div>
+        <div><span>Geo</span>{(p.geo || []).join(", ") || "-"}</div>
+        <div><span>Tone of voice</span>{p.tone_of_voice || "-"}</div>
       </div>
       {p.persons?.length > 0 && (
         <div className="block">
           <div className="block-t">Decision-makers</div>
           {p.persons.map((pe, i) => (
-            <div className="muted small" key={i}>{pe.name} — {pe.role} · {pe.email}</div>
+            <div className="muted small" key={i}>{pe.name} - {pe.role} · {pe.email}</div>
           ))}
         </div>
       )}
@@ -349,7 +359,7 @@ function ResearchTab({ pipe }) {
         </div>
         {g && (
           <div className="muted small" style={{ marginTop: 8 }}>
-            Matched against {g.citations?.length || 0} canonical taxonomy entries — only real
+            Matched against {g.citations?.length || 0} canonical taxonomy entries - only real
             CashTime niches are used, never invented ones.
           </div>
         )}
@@ -378,9 +388,9 @@ function MatchTab({ pipe }) {
             <span>{c.handle} {e.creator_id && <span className="ok">✓</span>}</span>
             <span>{c.niche}</span>
             <span>{fmtNum(e.follower_count || c.follower_count)}</span>
-            <span>{(e.engagement_percent || c.engagement_percent) ?? "—"}%</span>
-            <span>{c.fit_score != null ? c.fit_score.toFixed(2) : "—"}</span>
-            <span>{c.geo || "—"}</span>
+            <span>{(e.engagement_percent || c.engagement_percent) ?? "-"}%</span>
+            <span>{c.fit_score != null ? c.fit_score.toFixed(2) : "-"}</span>
+            <span>{c.geo || "-"}</span>
           </div>
         );
       })}
@@ -401,7 +411,7 @@ function OutreachTab({ pipe }) {
   return (
     <div>
       <h3 className="tab-h">{pipe.drafts.length} drafts ready for approval</h3>
-      <div className="warn-strip">Drafts &amp; schedules only — nothing is sent. A human approves each message.</div>
+      <div className="warn-strip">Drafts &amp; schedules only - nothing is sent. A human approves each message.</div>
       {pipe.drafts.map((d, i) => {
         const seq = pipe.sequences.find((s) => s.creator_id === d.creator_id);
         const body = (d.body_markdown || "").slice(0, 220);
@@ -423,29 +433,33 @@ function OutreachTab({ pipe }) {
   );
 }
 
-function CrmTab({ pipe }) {
+function CrmTab({ pipe, brandName }) {
   const crm = pipe.crm;
   if (!crm) return <Waiting what="CRM" />;
+  const company = crm.company_name || brandName || "-";
+  const opportunity = crm.opportunity_name && !crm.opportunity_name.includes("None")
+    ? crm.opportunity_name
+    : `Concierge run · ${company}`;
   return (
     <div>
       <h3 className="tab-h">CRM record</h3>
       {crm.written === false && (
         <div className="warn-strip">
-          Demo record — synthetic data, <b>not written to the production CRM</b>.
-          With production credentials this same step creates the records below in Twenty.
+          Demo record: synthetic data, <b>not written to the production Twenty CRM</b>.
+          With production credentials this same step creates the records below in Twenty CRM.
         </div>
       )}
       <div className="kv">
-        <div><span>Company</span>{crm.company_name || "—"}</div>
-        <div><span>Opportunity</span>{crm.opportunity_name || "—"}</div>
-        <div><span>Creators linked</span>{crm.creators_linked ?? "—"}</div>
-        <div><span>Sequences attached</span>{crm.sequences_attached ?? "—"}</div>
+        <div><span>Company</span>{company}</div>
+        <div><span>Opportunity</span>{opportunity}</div>
+        <div><span>Creators linked</span>{crm.creators_linked ?? "-"}</div>
+        <div><span>Sequences attached</span>{crm.sequences_attached ?? "-"}</div>
       </div>
       {crm.persons?.length > 0 && (
         <div className="block">
           <div className="block-t">Contacts (Persons)</div>
           {crm.persons.map((pe, i) => (
-            <div className="muted small" key={i}>{pe.name} — {pe.role} · {pe.email}</div>
+            <div className="muted small" key={i}>{pe.name} - {pe.role} · {pe.email}</div>
           ))}
         </div>
       )}
@@ -493,32 +507,32 @@ function LogLine({ ev }) {
 
 const STEPS = [
   { n: 1, name: "Research", tool: "research_brand · ground_taxonomy",
-    desc: "Reads your brand (ICP, geo, tone) and grounds it to real CashTime niches via Vertex AI Search — no made-up categories." },
+    desc: "Reads your brand (ICP, geo, tone) and grounds it to real CashTime niches via Gemini Enterprise Search. No made-up categories." },
   { n: 2, name: "Match", tool: "match_creators · enrich_creator",
-    desc: "Finds the 10–15 best-fit creators in the network and refreshes their contact + audience data." },
+    desc: "Finds the 10-15 best-fit creators in the network and enriches each one's audience data." },
   { n: 3, name: "Outreach", tool: "draft_outreach · schedule_sequence",
-    desc: "Writes a personalised first message per creator and schedules a 3-step follow-up sequence. Drafts only — never sends." },
+    desc: "Writes a personalised first message per creator and schedules a 3-step follow-up sequence. Drafts only, never sends." },
   { n: 4, name: "CRM", tool: "crm_upsert",
-    desc: "Saves the brand, contacts and the campaign to the CRM and returns a link." },
+    desc: "Saves the brand, contacts and the campaign to Twenty CRM and returns a link." },
 ];
 
 const FAQ = [
   { q: "What is this, in one line?",
-    a: "It turns a one-line brand brief into a ready-to-launch creator-marketing campaign in minutes — work that takes an account manager 2–3 days by hand." },
+    a: "It turns a brand website and a goal into a ready-to-launch creator-marketing campaign in minutes, work that takes an account manager 2-3 days by hand." },
   { q: "Why is it useful?",
-    a: "One brief in, a full campaign out: researched brand, matched creators, personalised outreach, scheduled follow-ups and a CRM record. Creators are the trusted bridge to their audience — we make reaching the right ones one click. And a human approves every message before anything is sent." },
+    a: "One website in, a full campaign out: researched brand, matched creators, personalised outreach, scheduled follow-ups and a CRM record. Creators are the trusted bridge to their audience, and we make reaching the right ones one click. A human approves every message before anything is sent." },
   { q: "What do the four tabs show?",
-    a: "Each tab is one agent's output, filled in live as it finishes: Research = the grounded brand profile, Match = the creators it picked, Outreach = the drafted messages + schedules, CRM = the record it would create. The Activity log tab is the raw tool-by-tool stream." },
+    a: "Each tab is one step's output, filled in live as it finishes: Research = the grounded brand profile, Match = the creators it picked (the matching step also enriches each creator's audience metrics), Outreach = the drafted messages and schedules, CRM = the record it would create. The Activity log tab is the raw tool-by-tool stream." },
   { q: "Which AI models run, and on what credentials?",
-    a: "Live mode runs the planner on Gemini 3.1 Pro Preview and the three sub-agents on Gemini 3.5 Flash, called through Vertex AI inside our own Google Cloud project (tools-cashtimepay-com). Auth is the project's service-account identity (IAM) — no API key and no third-party gateway, so every Gemini call stays within the project. Toggle off \"Live\" for an instant deterministic replay with no LLM." },
+    a: "Live mode runs the planner on Gemini 3.1 Pro Preview and the three sub-agents on Gemini 3.5 Flash, called through the Gemini Enterprise Agents Platform inside our own Google Cloud project (tools-cashtimepay-com). Auth is the project's service-account identity (IAM): no API key and no third-party gateway, so every Gemini call stays within the project." },
   { q: "Can I enter my own brand? Is the data real?",
-    a: "Yes — enter any real brand URL and the research step genuinely fetches and analyses it, then grounds it to real CashTime niches. Creator matching draws from a curated, public-safe sample of our real creator network (handle / niche / followers only — no contact details or economics). No emails are ever sent and the CRM step writes nothing to production. (\"Run the Chapterhouse demo\" uses a synthetic brand as a quick showcase.)" },
+    a: "Yes. Enter any real brand website and the research step genuinely fetches and analyses it, then grounds it to real CashTime niches. Creator matching draws from a curated, public-safe sample of our real creator network (handle, niche, followers only, with no contact details or economics). No emails are ever sent and the CRM step writes nothing to production. (\"Run the Chapterhouse demo\" uses a synthetic brand as a quick showcase.)" },
 ];
 
 function HowItWorks() {
   return (
     <details className="how" open>
-      <summary>ⓘ How it works — start here</summary>
+      <summary>ⓘ How it works - start here</summary>
       <div className="how-body">
         <div className="steps">
           {STEPS.map((s) => (
@@ -530,9 +544,9 @@ function HowItWorks() {
           ))}
         </div>
         <div className="agents-box">
-          <div className="agents-title">Who does the work — and how they talk</div>
+          <div className="agents-title">Who does the work - and how they talk</div>
           <div className="agent-tree">
-            <div className="planner">Planner · Gemini 3.1 Pro <span className="muted">— the conductor: runs the 4 steps in order, hands each result to the next</span></div>
+            <div className="planner">Planner · Gemini 3.1 Pro <span className="muted">- the conductor: runs the 4 steps in order, hands each result to the next</span></div>
             <div className="subs">
               <span className="sub-agent">research_agent</span>
               <span className="sub-agent">matching_agent</span>

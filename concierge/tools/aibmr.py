@@ -129,7 +129,7 @@ def _minimal_profile(brand_url: str, goal: str, budget: float, note: str = "") -
     name = host.replace("www.", "").split(".")[0].title()
     return {
         "company": {"name": name, "domain": brand_url,
-                    "description": f"{name} — {goal}".strip(" —")},
+                    "description": f"{name}: {goal}".strip(" :")},
         "icp": {"audience": "", "psychographics": [], "geo_priority": []},
         "geo": [],
         "tone_of_voice": "",
@@ -165,7 +165,7 @@ def _chapterhouse(brand_url: str, goal: str, budget: float) -> dict[str, Any]:
             "monthly_price_usd": 15,
         },
         "icp": {
-            "audience": "adult fiction readers, 25–45",
+            "audience": "adult fiction readers, 25-45",
             "psychographics": ["values craft", "anti-bestseller fatigue", "design-conscious"],
             "geo_priority": ["US", "GB", "DE"],
         },

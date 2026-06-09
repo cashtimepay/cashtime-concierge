@@ -14,7 +14,7 @@ research_agent = Agent(
     model=_settings.concierge_worker_model,
     description=(
         "Researches a brand from its URL, goal and budget, then grounds the "
-        "profile against CashTime's canonical taxonomy via Vertex AI Search so "
+        "profile against CashTime's canonical taxonomy via Gemini Enterprise Search so "
         "the brand maps to real niche enums (no hallucinated niches)."
     ),
     instruction=RESEARCH_AGENT_INSTRUCTION,

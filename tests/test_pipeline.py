@@ -11,7 +11,7 @@ from concierge.pipeline import run_pipeline, stream_pipeline
 @pytest.mark.asyncio
 async def test_grounding_maps_books_brand_to_canonical_niche():
     g = await ground_taxonomy("indie fiction audiobook subscription, design-led, adult readers")
-    assert g["backend"] in {"local_corpus", "vertex_ai_search", "local_corpus_fallback"}
+    assert g["backend"] in {"local_corpus", "gemini_enterprise_search", "local_corpus_fallback"}
     # Top canonical niche for an indie-fiction brand must be BOOKS_LITERATURE.
     assert g["categories"][0] == "BOOKS_LITERATURE"
     # Every returned enum must be a real taxonomy entry (no hallucination).
@@ -47,7 +47,7 @@ async def test_stream_pipeline_emits_tools_in_order():
     assert summary["brand"] == "Chapterhouse"
     assert summary["drafts_ready"] == 3
     assert len(summary["creators"]) == 3
-    # Demo CRM record is synthetic — not written to production.
+    # Demo CRM record is synthetic - not written to production.
     assert summary["crm"]["written"] is False
     assert summary["crm"]["company_name"] == "Chapterhouse"
     assert "BOOKS_LITERATURE" in summary["categories"]

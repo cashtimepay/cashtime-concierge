@@ -19,7 +19,7 @@ async def schedule_sequence(
 
     Args:
         creator_id: Twenty UUID of the target creator.
-        initial_draft: Output of ``draft_outreach`` — subject/body for the
+        initial_draft: Output of ``draft_outreach`` - subject/body for the
             first message.
         follow_up_count: Number of follow-ups (0..3). Default 2.
 
@@ -56,7 +56,7 @@ def _demo_payload(creator_id: str, initial: dict[str, Any], follow_ups: int) -> 
             "step": i + 2,
             "scheduled_at": f"2026-06-{12 + i * 6:02d}T09:00:00Z",
             "subject": f"Re: {initial.get('subject', '')}",
-            "body_markdown": "Quick nudge — happy to share more if useful.",
+            "body_markdown": "Quick nudge - happy to share more if useful.",
         })
     return {
         "sequence_id": f"demo-seq-{creator_id[:8]}",

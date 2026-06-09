@@ -1,4 +1,4 @@
-# Cloud IAP setup — judge access
+# Cloud IAP setup - judge access
 
 Both Cloud Run services are deployed with `--no-allow-unauthenticated`. Access
 for the judging window (2026-06-11 → 2026-06-22) is granted through Cloud IAP +
@@ -34,7 +34,7 @@ judge → IAP (Google sign-in) → HTTPS LB → Serverless NEG → Cloud Run
 
 3. **Backend services with IAP enabled**, URL map, target HTTPS proxy, managed
    cert for `concierge.cashtimepay.com` + `concierge-api.cashtimepay.com`, and a
-   global forwarding rule. (Standard LB wiring — see Google's "Serverless +
+   global forwarding rule. (Standard LB wiring - see Google's "Serverless +
    external HTTPS LB + IAP" guide.)
 
 4. **Grant the judge tester account** IAP access (read-only entry):

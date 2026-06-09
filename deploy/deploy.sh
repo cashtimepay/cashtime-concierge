@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# CashTime Brand Concierge — one-shot deploy to Cloud Run + Vertex AI Search.
+# CashTime Brand Concierge - one-shot deploy to Cloud Run + Gemini Enterprise Search.
 #
 # Idempotent. Safe to re-run. Targets project tools-cashtimepay-com / europe-west6.
 #
 # Usage:
 #   ./deploy/deploy.sh preflight     # checks auth/project/APIs, creates nothing
-#   ./deploy/deploy.sh infra         # APIs + Artifact Registry + SA + secrets + Vertex index
+#   ./deploy/deploy.sh infra         # APIs + Artifact Registry + SA + secrets + Gemini Enterprise Search index
 #   ./deploy/deploy.sh api           # build + deploy the concierge service
 #   ./deploy/deploy.sh ui            # build + deploy the Brand UI
 #   ./deploy/deploy.sh all           # infra + api + ui
@@ -68,8 +68,8 @@ infra() {
   done
   warn "Populate secrets:  echo -n VALUE | gcloud secrets versions add concierge-twenty-key --data-file=- --project ${PROJECT}"
 
-  log "Provisioning Vertex AI Search index…"
-  bash "${ROOT}/deploy/provision_vertex_search.sh" || warn "Vertex index step failed — pipeline still runs on local corpus fallback."
+  log "Provisioning Gemini Enterprise Search index…"
+  bash "${ROOT}/deploy/provision_grounding.sh" || warn "Gemini Enterprise Search step failed - pipeline still runs on local corpus fallback."
 }
 
 api() {

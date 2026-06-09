@@ -1,4 +1,4 @@
-# Architecture — CashTime Brand Concierge
+# Architecture - CashTime Brand Concierge
 
 > Rendered diagram: **`docs/architecture.png`** (source: `docs/architecture.html`).
 > The ASCII version below is the text fallback.
@@ -22,7 +22,7 @@
 │                                                              │
 │   planner ── AgentTool ──┬─ research_agent                   │
 │      │                   │     research_brand                │
-│      │                   │     ground_taxonomy ──► Vertex AI │
+│      │                   │     ground_taxonomy ──► Gemini Enterprise Agents Platform │
 │      │                   │                          Search   │
 │      │                   ├─ matching_agent                   │
 │      │                   │     match_creators · enrich_creator│
@@ -39,7 +39,7 @@
   All called via the MCP gateway at mcp.cashtimepay.com
   (single trusted boundary, Bearer auth, allow-list per tool)
 
-  Grounding: ground_taxonomy queries a Vertex AI Search data store
+  Grounding: ground_taxonomy queries a Gemini Enterprise Search data store
   indexed from concierge/data/taxonomy_corpus.json (40 niches,
   10 platforms, tone dictionary). Offline / demo → deterministic
   local-corpus retriever, same interface.
@@ -111,7 +111,7 @@
 | Concierge service (this repo) | Cloud Run | `tools-cashtimepay-com` | `europe-west6` |
 | Brand UI | Cloud Run | `tools-cashtimepay-com` | `europe-west6` |
 | Artifact Registry repo `cashtime` | Artifact Registry | `tools-cashtimepay-com` | `europe-west6` |
-| Gemini 3.1 Pro Preview (planner) / 3.5 Flash (sub-agents) | Vertex AI — in-project, service-account auth (no API key) | `tools-cashtimepay-com` | `global` |
+| Gemini 3.1 Pro Preview (planner) / 3.5 Flash (sub-agents) | Gemini Enterprise Agents Platform - in-project, service-account auth (no API key) | `tools-cashtimepay-com` | `global` |
 | Secret Manager (`concierge-*`) | Secret Manager | `tools-cashtimepay-com` | global |
 | MCP gateway | Docker on Compute Engine VM (`internal-tools-vm-v2`) | `tools-cashtimepay-com` | `europe-west6-b` |
 | Twenty CRM (existing) | Docker on Compute Engine VM (`internal-tools-vm-v2`) | `tools-cashtimepay-com` | `europe-west6-b` |

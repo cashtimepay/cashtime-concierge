@@ -5,7 +5,7 @@
 ## Live demo (public, no login)
 
 Deployed on Cloud Run in `tools-cashtimepay-com` / `europe-west6`, running in
-**demo mode** with the synthetic **Chapterhouse** brand only — no login, no real
+**demo mode** with the synthetic **Chapterhouse** brand only - no login, no real
 data, no production calls. Open the UI and click **"Run the Chapterhouse demo"**:
 
 - **Brand UI (judges entry point):**
@@ -15,10 +15,10 @@ data, no production calls. Open the UI and click **"Run the Chapterhouse demo"**
 - **OpenAPI spec / Swagger:**
   `https://cashtime-concierge-455884480848.europe-west6.run.app/docs`
 
-> **Enter any real brand URL** — the research step genuinely fetches and
+> **Enter any real brand URL** - the research step genuinely fetches and
 > analyses it and grounds it to real CashTime niches; creator matching draws
 > from a curated, public-safe sample of the real creator network (handle /
-> niche / followers only — no contact data or economics). Toggle **Live** for
+> niche / followers only - no contact data or economics). Toggle **Live** for
 > the real ADK + Gemini multi-agent run, or **Fast** for the instant
 > deterministic replay. No emails are sent; the CRM step writes nothing to
 > production.
@@ -40,7 +40,7 @@ run.app demo above needs no such account.
    preset that loads the synthetic brand).
 3. Watch the streamed tool-call log on the right. The planner delegates to
    three sub-agents and the tools fire in order:
-   `research_brand` → `ground_taxonomy` (Vertex AI Search RAG) →
+   `research_brand` → `ground_taxonomy` (Gemini Enterprise Search RAG) →
    `match_creators` → `enrich_creator` (×N) → `draft_outreach` (×N) →
    `schedule_sequence` (×N) → `crm_upsert`.
 4. When the run completes, click **"Open in CRM"** to see the Company,
@@ -78,10 +78,10 @@ curl -N -X POST http://localhost:8080/concierge/run \
 
 `DEMO_MODE=true` runs the full pipeline through a **deterministic orchestrator**
 (no LLM, no external auth) that fires the exact same tool sequence and emits the
-exact same event stream as the live model-driven run — so judges get an
+exact same event stream as the live model-driven run - so judges get an
 identical, reproducible end-to-end demo offline. The live run (no `DEMO_MODE`)
 drives the same pipeline with the ADK multi-agent planner + Gemini and the
-Vertex AI Search grounding backend.
+Gemini Enterprise Search grounding backend.
 
 To run the Brand UI locally against it:
 

@@ -31,7 +31,7 @@ async def match_creators(
 
     Ranks creators whose niche matches the brand's grounded categories, by
     follower reach and geo/niche fit. The pool is a curated, public-safe sample
-    of real CashTime creators (handle / niche / followers / geo only — no
+    of real CashTime creators (handle / niche / followers / geo only - no
     contact details or economics).
 
     Args:

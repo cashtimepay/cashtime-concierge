@@ -1,7 +1,7 @@
 """Deterministic pipeline orchestrator (demo / offline replay).
 
 The live product path is the ADK multi-agent stack in ``concierge.agents``,
-driven by Gemini. That path needs Vertex AI credentials and a model call per
+driven by Gemini. That path needs Gemini Enterprise Agents Platform credentials and a model call per
 step, which judges cannot run locally.
 
 This module is the **deterministic twin**: it executes the exact same six-tool
@@ -82,7 +82,7 @@ async def stream_pipeline(
     yield _result("research_brand", profile)
     company = profile.get("company", {})
     yield _event("text", text=(
-        f"Researched {company.get('name', 'the brand')} — "
+        f"Researched {company.get('name', 'the brand')} - "
         f"{company.get('pricing_model', 'n/a')} model, "
         f"target geo {', '.join(profile.get('geo', []) or [])}."
     ))
@@ -139,7 +139,7 @@ async def stream_pipeline(
         yield _result("schedule_sequence", seq)
     yield _event("text", text=(
         f"Drafted {len(sequences)} personalised first-touch messages and scheduled "
-        f"3-step sequences — all awaiting human approval."
+        f"3-step sequences - all awaiting human approval."
     ))
 
     # 6) CRM upsert ------------------------------------------------------------

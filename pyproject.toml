@@ -1,9 +1,9 @@
 [project]
 name = "cashtime-concierge"
 version = "0.1.0"
-description = "CashTime Brand Concierge — ADK agent that turns a brand brief into a working creator outreach pipeline (Google for Startups AI Agents Challenge submission)"
+description = "CashTime Brand Concierge - ADK agent that turns a brand brief into a working creator outreach pipeline (Google for Startups AI Agents Challenge submission)"
 requires-python = ">=3.11"
-license = { text = "Proprietary — CashTime Pay AG" }
+license = { text = "Proprietary - CashTime Pay AG" }
 authors = [{ name = "CashTime Pay AG", email = "dmitry@cashtimepay.com" }]
 dependencies = [
     "google-adk>=0.6.0",

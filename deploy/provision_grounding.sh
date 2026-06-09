@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-# Provision the Vertex AI Search (Discovery Engine) data store that grounds the
+# Provision the Gemini Enterprise Search (Discovery Engine) data store that grounds the
 # research sub-agent, and import the canonical taxonomy corpus into it.
 #
 # Idempotent. If anything here fails, the agent still works on the bundled
-# local-corpus fallback (see concierge/grounding.py) — grounding never hard-fails.
+# local-corpus fallback (see concierge/grounding.py) - grounding never hard-fails.
 #
 # After this runs, set on the concierge Cloud Run service:
-#   VERTEX_SEARCH_DATASTORE=<DATASTORE>   VERTEX_SEARCH_LOCATION=global
+#   GEMINI_SEARCH_DATASTORE=<DATASTORE>   GEMINI_SEARCH_LOCATION=global
 set -euo pipefail
 
 PROJECT="${PROJECT:-tools-cashtimepay-com}"
-LOCATION="${VERTEX_SEARCH_LOCATION:-global}"
+LOCATION="${GEMINI_SEARCH_LOCATION:-global}"
 DATASTORE="${DATASTORE:-cashtime-taxonomy}"
 BUCKET="${BUCKET:-gs://${PROJECT}-concierge-grounding}"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -18,7 +18,7 @@ CORPUS="${ROOT}/concierge/data/taxonomy_corpus.json"
 JSONL="/tmp/taxonomy_corpus.jsonl"
 API="https://discoveryengine.googleapis.com/v1"
 
-log() { printf '\033[1;34m[vertex]\033[0m %s\n' "$*"; }
+log() { printf '\033[1;34m[grounding]\033[0m %s\n' "$*"; }
 
 # 1) corpus.json → Discovery Engine JSONL (id + structData per line).
 python3 - "$CORPUS" "$JSONL" <<'PY'
@@ -77,4 +77,4 @@ curl -s -X POST \
     \"reconciliationMode\": \"FULL\"
   }" | python3 -c "import sys,json;d=json.load(sys.stdin);print(d.get('name','(import op submitted)'))" || true
 
-log "Done. Set VERTEX_SEARCH_DATASTORE=${DATASTORE} on the concierge service to enable the live grounding backend."
+log "Done. Set GEMINI_SEARCH_DATASTORE=${DATASTORE} on the concierge service to enable the live grounding backend."

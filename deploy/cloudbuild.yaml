@@ -43,7 +43,7 @@ steps:
       - --concurrency=20
       - --timeout=300s
       - --max-instances=10
-      - --set-env-vars=GOOGLE_CLOUD_PROJECT=${PROJECT_ID},GOOGLE_CLOUD_LOCATION=${_REGION},GOOGLE_GENAI_USE_VERTEXAI=TRUE,VERTEX_SEARCH_DATASTORE=${_DATASTORE},VERTEX_SEARCH_LOCATION=global
+      - --set-env-vars=GOOGLE_CLOUD_PROJECT=${PROJECT_ID},GOOGLE_CLOUD_LOCATION=${_REGION},GOOGLE_GENAI_USE_VERTEXAI=TRUE,GEMINI_SEARCH_DATASTORE=${_DATASTORE},GEMINI_SEARCH_LOCATION=global
       - --set-secrets=MCP_BEARER_TOKEN=concierge-mcp-bearer:latest,TWENTY_API_KEY=concierge-twenty-key:latest,CF_ACCESS_CLIENT_ID=concierge-cf-id:latest,CF_ACCESS_CLIENT_SECRET=concierge-cf-secret:latest
 
 images:

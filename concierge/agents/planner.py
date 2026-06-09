@@ -12,8 +12,8 @@ from concierge.tools.twenty import crm_upsert
 
 _settings = get_settings()
 
-# Planner (root). Calls the three specialist sub-agents as tools — agent-to-agent
-# collaboration — then performs the single CRM write itself via `crm_upsert`.
+# Planner (root). Calls the three specialist sub-agents as tools - agent-to-agent
+# collaboration - then performs the single CRM write itself via `crm_upsert`.
 root_agent = Agent(
     name="cashtime_brand_concierge",
     model=_settings.concierge_planner_model,

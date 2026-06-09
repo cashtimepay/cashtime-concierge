@@ -60,13 +60,13 @@
 </style>
 </head>
 <body>
-  <div class="title">CashTime Brand Concierge — Architecture</div>
+  <div class="title">CashTime Brand Concierge - Architecture</div>
   <div class="subtitle">Google for Startups AI Agents Challenge · Track 1 (Build, Net-New Agents) · CashTime Pay AG</div>
   <div class="badges">
     <span class="badge g">Gemini 3.1 Pro + 3.5 Flash</span>
     <span class="badge g">Google ADK</span>
     <span class="badge g">MCP</span>
-    <span class="badge g">Vertex AI Search (RAG)</span>
+    <span class="badge g">Gemini Enterprise Search (RAG)</span>
     <span class="badge k">Cloud Run · europe-west6</span>
   </div>
 
@@ -83,10 +83,10 @@
 
   <div class="two">
     <div class="concierge">
-      <div class="tag">Concierge Agent · Cloud Run (FastAPI + SSE · ADK) — net-new</div>
+      <div class="tag">Concierge Agent · Cloud Run (FastAPI + SSE · ADK) - net-new</div>
       <div style="height:8px"></div>
       <div class="planner">
-        <div class="h">Planner — Gemini 3.1 Pro Preview</div>
+        <div class="h">Planner - Gemini 3.1 Pro Preview</div>
         <div class="s">orchestrates the pipeline; calls each sub-agent as a tool (agent-to-agent), then writes the CRM</div>
       </div>
 
@@ -112,8 +112,8 @@
       </div>
 
       <div class="flow">
-        <div class="flow-h"><b>Hub-and-spoke:</b> sub-agents never call each other — the planner (Gemini Pro) passes each result to the next.</div>
-        <div class="hop"><span class="num">①</span> planner → <b>research_agent</b> <i>(brand URL + goal + budget)</i> → grounded brand profile <i>(niches · geo · tone)</i></div>
+        <div class="flow-h"><b>Hub-and-spoke:</b> sub-agents never call each other - the planner (Gemini Pro) passes each result to the next.</div>
+        <div class="hop"><span class="num">①</span> planner → <b>research_agent</b> <i>(brand website + goal)</i> → grounded brand profile <i>(niches · geo · tone)</i></div>
         <div class="hop"><span class="num">②</span> planner → <b>matching_agent</b> <i>(brand profile)</i> → ranked + enriched creators</div>
         <div class="hop"><span class="num">③</span> planner → <b>outreach_agent</b> <i>(profile + creators)</i> → drafts + 3-step sequences</div>
         <div class="hop"><span class="num">④</span> planner → <b>crm_upsert</b> <i>(profile + creators + sequences)</i> → CRM record</div>
@@ -127,22 +127,22 @@
 
     <div class="side">
       <div class="box" style="border-color:rgba(91,140,255,.4)">
-        <div class="h">✨ Gemini via Vertex AI</div>
-        <div class="s">Planner on 3.1 Pro Preview, sub-agents on 3.5 Flash — served from Vertex AI <b>inside this project</b> (region <b>global</b>), authenticated by the Cloud Run service account. No API key, no external gateway: every Gemini call stays in-project.</div>
+        <div class="h">✨ Gemini Enterprise Agents Platform</div>
+        <div class="s">Planner on 3.1 Pro Preview, sub-agents on 3.5 Flash - served from the Gemini Enterprise Agents Platform <b>inside this project</b> (region <b>global</b>), authenticated by the Cloud Run service account. No API key, no external gateway: every Gemini call stays in-project.</div>
       </div>
       <div style="height:12px"></div>
       <div class="box" style="border-color:rgba(91,140,255,.4)">
-        <div class="h">🔎 Vertex AI Search (RAG)</div>
-        <div class="s">research_agent's knowledge base — grounds the brand against CashTime's canonical taxonomy (40 niches · 10 platforms · tone dictionary). Bundled local-corpus fallback offline.</div>
+        <div class="h">🔎 Gemini Enterprise Search (RAG)</div>
+        <div class="s">research_agent's knowledge base - grounds the brand against CashTime's canonical taxonomy (40 niches · 10 platforms · tone dictionary). Bundled local-corpus fallback offline.</div>
       </div>
       <div style="height:12px"></div>
-      <div class="obs">📈 OpenTelemetry → Cloud Trace + Cloud Logging — every agent + tool call is a span judges can replay</div>
+      <div class="obs">📈 OpenTelemetry → Cloud Trace + Cloud Logging - every agent + tool call is a span judges can replay</div>
       <div style="height:12px"></div>
-      <div class="note">Two modes, one service — <b>Live</b>: real ADK agents on Gemini. <b>Fast</b>: a deterministic twin (no LLM, same tool order & events). Research is <b>live for any brand URL</b>; matching uses a curated <b>public-safe sample of the real creator network</b> (handle/niche/followers only — no contact data or economics); the CRM step writes nothing to production.</div>
+      <div class="note">Two modes, one service - <b>Live</b>: real ADK agents on Gemini. <b>Fast</b>: a deterministic twin (no LLM, same tool order & events). Research is <b>live for any brand URL</b>; matching uses a curated <b>public-safe sample of the real creator network</b> (handle/niche/followers only - no contact data or economics); the CRM step writes nothing to production.</div>
     </div>
   </div>
 
-  <div class="arrow"><span class="lbl">MCP — single secured gateway · mcp.cashtimepay.com (Bearer + allow-list per tool)</span><div class="ln"></div><div class="tri">▼</div></div>
+  <div class="arrow"><span class="lbl">MCP - single secured gateway · mcp.cashtimepay.com (Bearer + allow-list per tool)</span><div class="ln"></div><div class="tri">▼</div></div>
 
   <div class="services">
     <div class="svc"><div class="n">AIBMR</div><div class="d2"><b>Brand research.</b> Scrapes the brand site + socials → company profile: description, ICP, geo, tone-of-voice, decision-makers, niche classification.</div></div>
@@ -153,9 +153,9 @@
     <div class="svc"><div class="n">Twenty CRM</div><div class="d2"><b>System of record.</b> Stores Companies, Persons & Opportunities and the creator network (the source of the matching pool).</div></div>
   </div>
   <div class="center" style="margin-top:10px">
-    <span class="lbl">existing CashTime production services — each with its own identity, knowledge base & MCP "hands"; exposed to the Concierge agents as third-party MCP tool endpoints (in the public demo: research is live, matching uses a curated public-safe network sample)</span>
+    <span class="lbl">existing CashTime production services - each with its own identity, knowledge base & MCP "hands"; exposed to the Concierge agents as third-party MCP tool endpoints (in the public demo: research is live, matching uses a curated public-safe network sample)</span>
   </div>
 
-  <div class="foot">net-new for the contest: planner + 3 sub-agents · MCP wrappers · Vertex AI Search grounding · Brand UI &nbsp;|&nbsp; project tools-cashtimepay-com · region EMEA (Switzerland)</div>
+  <div class="foot">net-new for the contest: planner + 3 sub-agents · MCP wrappers · Gemini Enterprise Search grounding · Brand UI &nbsp;|&nbsp; project tools-cashtimepay-com · region EMEA (Switzerland)</div>
 </body>
 </html>

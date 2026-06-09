@@ -39,20 +39,21 @@ async def draft_outreach(
 
 
 def _demo_payload(brand: dict[str, Any], creator: dict[str, Any]) -> dict[str, Any]:
-    handle = creator.get("handle", "@creator")
     company = brand.get("company", {})
-    name = company.get("name", "our brand")
-    desc = (company.get("description") or "").split(".")[0].strip()
-    pitch = f", {desc.lower()}" if desc else ""
+    name = (company.get("name") or "our brand").split(" ")[0]
     niche = (creator.get("niche") or "").replace("_", " ").lower()
+    niche_phrase = f"your {niche} content" if niche else "your content"
+    # Subject: short (AICROPS canon: 2-5 words, no "Re:", no templated lines).
+    # Greeting: real first names are not known (handles are channel/page names),
+    # so we open with a neutral "Hi" and no name (AICROPS canon).
     return {
-        "subject": f"{name} × {handle} — a collaboration idea",
+        "subject": f"{name} collaboration",
         "body_markdown": (
-            f"Hi {handle},\n\n"
-            f"We've been following your {niche} work — it lines up with what we're "
-            f"building at {name}{pitch}.\n\n"
-            "Would you be open to a short collaboration? Happy to share details.\n\n"
-            f"— The {name} team"
+            "Hi,\n\n"
+            f"We've been following {niche_phrase} and think it lines up with what "
+            f"we're building at {name}. Would you be open to a short collaboration? "
+            "Happy to share details.\n\n"
+            f"The {name} team"
         ),
         "estimated_response_rate": 0.21,
         "personalisation_signals": ["niche match", "audience fit", "geo match"],

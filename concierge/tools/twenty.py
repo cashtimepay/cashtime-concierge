@@ -13,7 +13,7 @@ async def crm_upsert(
 ) -> dict[str, Any]:
     """Upsert a brand campaign into Twenty CRM as Company + Persons + Opportunity.
 
-    Idempotent on company domain. Creators are not duplicated — they are
+    Idempotent on company domain. Creators are not duplicated - they are
     linked to the Opportunity via the existing Creator records (matched by
     ``creator_id``).
 

@@ -1,17 +1,17 @@
-"""Taxonomy grounding for the research sub-agent (Vertex AI Search + RAG).
+"""Taxonomy grounding for the research sub-agent (Gemini Enterprise Search + RAG).
 
 `ground_taxonomy` is an ADK tool. Given a free-text query describing a brand /
 product, it returns the closest **canonical CashTime taxonomy entries** (niches,
 platforms, tone descriptors) so the research agent can only ever emit enum
-values that actually exist in our taxonomy — no hallucinated niches.
+values that actually exist in our taxonomy - no hallucinated niches.
 
 Two backends, selected at runtime:
 
-* **Vertex AI Search** (Discovery Engine) — used when
-  ``settings.vertex_search_datastore`` is set and we are not in demo mode. This
+* **Gemini Enterprise Search** (Discovery Engine) - used when
+  ``settings.gemini_search_datastore`` is set and we are not in demo mode. This
   is the production grounding path; the data store is indexed from
   ``data/taxonomy_corpus.json``.
-* **Local corpus** — a deterministic keyword retriever over the bundled
+* **Local corpus** - a deterministic keyword retriever over the bundled
   ``data/taxonomy_corpus.json``. Used offline, in tests and in demo mode so the
   full pipeline runs without any GCP auth.
 
@@ -91,8 +91,8 @@ def _local_search(query: str, top_k: int) -> list[dict[str, Any]]:
     return out
 
 
-def _vertex_search(query: str, top_k: int) -> list[dict[str, Any]]:
-    """Query the Vertex AI Search (Discovery Engine) data store.
+def _gemini_search(query: str, top_k: int) -> list[dict[str, Any]]:
+    """Query the Gemini Enterprise Search (Discovery Engine) data store.
 
     Imported lazily so the local path never needs the client library.
     """
@@ -102,9 +102,9 @@ def _vertex_search(query: str, top_k: int) -> list[dict[str, Any]]:
     client = de.SearchServiceClient()
     serving_config = (
         f"projects/{settings.google_cloud_project}"
-        f"/locations/{settings.vertex_search_location}"
+        f"/locations/{settings.gemini_search_location}"
         f"/collections/default_collection"
-        f"/dataStores/{settings.vertex_search_datastore}"
+        f"/dataStores/{settings.gemini_search_datastore}"
         f"/servingConfigs/default_search"
     )
     request = de.SearchRequest(
@@ -133,8 +133,8 @@ async def ground_taxonomy(query: str, top_k: int = 6) -> dict[str, Any]:
     """Ground a brand/product description against CashTime's canonical taxonomy.
 
     Retrieves the closest canonical niche, platform and tone entries from the
-    taxonomy index (Vertex AI Search in production, a bundled corpus offline).
-    Use the returned ``categories`` as the brand's canonical niche enums — do
+    taxonomy index (Gemini Enterprise Search in production, a bundled corpus offline).
+    Use the returned ``categories`` as the brand's canonical niche enums - do
     not invent niche names.
 
     Args:
@@ -144,7 +144,7 @@ async def ground_taxonomy(query: str, top_k: int = 6) -> dict[str, Any]:
 
     Returns:
         dict with:
-        ``backend`` ("vertex_ai_search" or "local_corpus"),
+        ``backend`` ("gemini_enterprise_search" or "local_corpus"),
         ``results`` (list of {enum, type, title, snippet, score, doc_id}),
         ``categories`` (canonical niche enums among the results, best first),
         ``platforms`` (canonical platform enums among the results),
@@ -156,12 +156,12 @@ async def ground_taxonomy(query: str, top_k: int = 6) -> dict[str, Any]:
 
     backend = "local_corpus"
     results: list[dict[str, Any]] = []
-    if settings.vertex_search_datastore and not settings.demo_mode:
+    if settings.gemini_search_datastore and not settings.demo_mode:
         try:
-            results = _vertex_search(query, top_k)
-            backend = "vertex_ai_search"
+            results = _gemini_search(query, top_k)
+            backend = "gemini_enterprise_search"
         except Exception:
-            # Grounding must never hard-fail the pipeline — fall back locally.
+            # Grounding must never hard-fail the pipeline - fall back locally.
             results = _local_search(query, top_k)
             backend = "local_corpus_fallback"
     else:

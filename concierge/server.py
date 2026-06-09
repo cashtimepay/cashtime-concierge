@@ -54,9 +54,9 @@ _runner = Runner(
 class BriefRequest(BaseModel):
     brand_url: str = Field(..., examples=["https://chapterhouse.demo"])
     goal: str = Field(..., examples=["100 trial signups per month from indie-fiction readers"])
-    budget_monthly_usd: float = Field(..., examples=[5000])
+    budget_monthly_usd: float = Field(default=0, examples=[5000])
     session_id: str | None = None
-    # True  → run the real ADK multi-agent stack on Gemini (Vertex AI).
+    # True  → run the real ADK multi-agent stack on Gemini (Gemini Enterprise Agents Platform).
     # False → run the deterministic offline twin (no LLM).
     # None  → fall back to the server default (DEMO_MODE env).
     live: bool | None = None
@@ -92,7 +92,7 @@ async def run_concierge(brief: BriefRequest) -> EventSourceResponse:
     async def event_stream() -> AsyncGenerator[dict, None]:
         try:
             if not run_live:
-                # Deterministic offline replay — same event shape, no LLM.
+                # Deterministic offline replay - same event shape, no LLM.
                 async for payload in stream_pipeline(
                     brief.brand_url, brief.goal, brief.budget_monthly_usd
                 ):

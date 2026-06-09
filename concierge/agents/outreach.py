@@ -15,7 +15,7 @@ outreach_agent = Agent(
     description=(
         "Drafts personalised first-touch outreach in the brand tone-of-voice "
         "and schedules a 3-step follow-up sequence per creator. Drafts and "
-        "schedules only — never sends."
+        "schedules only - never sends."
     ),
     instruction=OUTREACH_AGENT_INSTRUCTION,
     tools=[draft_outreach, schedule_sequence],
