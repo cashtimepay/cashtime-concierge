@@ -17,23 +17,23 @@
 ┌──────────────────────────────────────────────────────────────┐
 │                Concierge Agent (this repo)                   │
 │  FastAPI + SSE → ADK Runner → planner (root)                 │
-│  Planner : Gemini 3.1 Pro Preview   (Gemini Enterprise, ew6) │
-│  Workers : Gemini 3.5 Flash         (Gemini Enterprise, ew6) │
+│  Planner : Gemini 3.1 Pro Preview (Gemini Enterprise, global)│
+│  Workers : Gemini 3.5 Flash       (Gemini Enterprise, global)│
 │                                                              │
 │   planner ── AgentTool ──┬─ research_agent                   │
 │      │                   │     research_brand                │
-│      │                   │     ground_taxonomy ──► Gemini Enterprise Agents Platform │
-│      │                   │                          Search   │
+│      │                   │     ground_taxonomy ──► Gemini    │
+│      │                   │              Enterprise Search (RAG)
 │      │                   ├─ matching_agent                   │
 │      │                   │     match_creators · enrich_creator│
 │      │                   └─ outreach_agent                   │
 │      │                         draft_outreach · schedule_seq │
 │      └── crm_upsert  (planner-level tool)                    │
-└────┬─────────┬─────────┬─────────┬──────────┬────────┬───────┘
-     │         │         │         │          │        │
-     ▼         ▼         ▼         ▼          ▼        ▼
-  AIBMR     AI-MM      CREN      AIBMO     AICROPS   Twenty
- (recon)  (matching) (enrich) (drafting) (sequencing) (CRM)
+└────┬──────────┬──────────┬───────────┬───────────────┬──────┘
+     ▼          ▼          ▼           ▼               ▼
+  AIBMR       AI-MM      AICREN     AICROPS        Twenty CRM
+(research)  (matching)  (enrich)  (draft +        (system of
+                                   sequence)        record)
 
   ─────── existing CashTime production services ───────
   All called via the MCP gateway at mcp.cashtimepay.com
@@ -56,9 +56,7 @@
   production service. We do not re-implement research / matching / outreach;
   we expose them through a single MCP boundary.
 - This is the canonical way to ship an enterprise agent on GCP: ADK for the
-  agent, MCP for the tool boundary, Cloud Run for hosting, Gemini Enterprise
-  Agent Platform for
-  inference, Twenty for the system of record.
+  agent, MCP for the tool boundary, Cloud Run for hosting, Gemini Enterprise Agents Platform for inference, Twenty for the system of record.
 
 ## Data flow (single brief, happy path)
 
@@ -70,15 +68,15 @@
 4. Planner summarises the profile, then calls `match_creators` with the
    profile attached. AI-MM scores ~4.7k creators against the brief, returns
    the top 15.
-5. For each of the top 15, planner calls `enrich_creator` (CREN refreshes
+5. For each of the top 15, planner calls `enrich_creator` (AICREN refreshes
    contact + metrics). Independent calls run in parallel.
-6. Planner calls `draft_outreach` per creator (AIBMO uses Gemini Flash to
-   write personalised drafts in the brand tone-of-voice).
-7. Planner calls `schedule_sequence` per creator (AICROPS picks send-times
-   based on historical response curves).
-8. Planner calls `crm_upsert` once with everything attached; Twenty receives
+6. Planner calls `draft_outreach` then `schedule_sequence` per creator.
+   Both are backed by AICROPS, the creator-outreach engine: it writes the
+   personalised draft in the brand tone-of-voice and schedules the follow-up
+   sequence with send-times based on historical response curves.
+7. Planner calls `crm_upsert` once with everything attached; Twenty receives
    a Company + Persons + Opportunity, linked to the existing Creator records.
-9. SSE stream emits a final summary; UI renders the table + CRM link.
+8. SSE stream emits a final summary; UI renders the table + CRM link.
 
 ## Observability
 
@@ -96,7 +94,7 @@
 - Inbound: Cloud IAP in front of both Brand UI and Concierge service. Judges
   get a dedicated tester account; everyone else is rejected.
 - Outbound: Cloudflare Access service token `cashtime-agents` for every
-  internal call (AIBMR / AIBMO / CREN / AICROPS). Twenty calls use a scoped
+  internal call (AIBMR / AICREN / AICROPS). Twenty calls use a scoped
   API key from Secret Manager.
 - No secrets in the image. All sensitive vars come from Secret Manager at
   Cloud Run revision time (see `deploy/cloudbuild.yaml`).
@@ -116,7 +114,7 @@
 | MCP gateway | Docker on Compute Engine VM (`internal-tools-vm-v2`) | `tools-cashtimepay-com` | `europe-west6-b` |
 | Twenty CRM (existing) | Docker on Compute Engine VM (`internal-tools-vm-v2`) | `tools-cashtimepay-com` | `europe-west6-b` |
 | AI-MM service (existing) | Cloud Run (`cashtime-aimm`) | `tools-cashtimepay-com` | `europe-west6` |
-| AIBMR / AIBMO / CREN / AICROPS (existing) | Docker on Compute Engine VM (`internal-tools-vm-v2`) | `tools-cashtimepay-com` | `europe-west6-b` |
+| AIBMR / AICREN / AICROPS (existing) | Docker on Compute Engine VM (`internal-tools-vm-v2`) | `tools-cashtimepay-com` | `europe-west6-b` |
 
 > Per the CashTime GCP canon, nothing in this submission touches
 > `spheric-handler-487521-a5` (the consumer app) or `cashtime-pay-4ed26`

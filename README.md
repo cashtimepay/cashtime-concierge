@@ -84,8 +84,7 @@ cashtime-concierge/
 │       ├── aibmr.py            # research_brand
 │       ├── aimm.py             # match_creators
 │       ├── cren.py             # enrich_creator
-│       ├── aibmo.py            # draft_outreach
-│       ├── aicrops.py          # schedule_sequence
+│       ├── aicrops.py          # draft_outreach + schedule_sequence (AICROPS)
 │       └── twenty.py           # crm_upsert
 ├── ui/                         # Next.js brand UI (brief form + live SSE log)
 ├── deploy/

@@ -68,7 +68,7 @@
 - No financial or preferential support from Google / Devpost. ✅
 - $500 Google Cloud credits (default for all eligible startups) - apply on
   Day 1, approval up to 72h. **Open action.**
-- Backend services (AIBMR / AI-MM / AIBMO / AICROPS / CREN / Twenty) act
+- Backend services (AIBMR / AI-MM / AICREN / AICROPS / Twenty) act
   as third-party tool endpoints to the Concierge agent and predate the
   Contest Period. The agent itself and all orchestration / MCP wrappers /
   Brand UI are net-new. This positioning is stated in `devpost_submission.md`.
