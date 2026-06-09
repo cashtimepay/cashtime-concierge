@@ -44,9 +44,11 @@ sub-agents plus a CRM tool:
 4. `crm_upsert` — planner-level tool: upserts the brand into Twenty CRM
    as Company + Persons + Opportunity with creators linked.
 
-Streamed end-to-end; the Next.js UI renders each sub-agent's tool calls
-live via SSE, ending in a creator table, expandable drafts, and a CRM
-deep link. Agents collaborate via MCP over one secured gateway.
+Streamed end-to-end over SSE; the Next.js UI gives each sub-agent its own
+live tab — Research (grounded profile), Match (creator table), Outreach
+(drafts + schedules), CRM (the record) — so a judge sees exactly what each
+agent does. Agents collaborate via MCP over one secured gateway. A human
+approves every message; the agent drafts and schedules but never sends.
 
 ## Technologies used
 
@@ -60,7 +62,7 @@ deep link. Agents collaborate via MCP over one secured gateway.
 - **Cloud IAP** — judges-only access.
 - **Cloud Build + Artifact Registry + Secret Manager** — CI/CD + secrets.
 - **OpenTelemetry → Cloud Trace + Cloud Logging** — full waterfall.
-- **FastAPI + sse-starlette + Next.js 14** — streaming UI.
+- **FastAPI + sse-starlette + Next.js 15** — streaming UI.
 - **Twenty CRM** — system of record.
 
 ## Data sources
@@ -90,15 +92,16 @@ Period; CashTime backends act as third-party tool endpoints.
 
 - **MCP is the win.** Concierge stays small because heavy lifting lives
   behind one MCP boundary; new capability = one tool registration.
-- **Multi-agent ≠ multi-call.** Sub-agents (not just sequential tool
-  calls) let each carry its own grounding and model — planner on Gemini
-  3.1 Pro Preview, sub-agents on 3.5 Flash. Latency dropped ~38%.
+- **Multi-agent ≠ multi-call.** Making each step a real sub-agent (not
+  just a sequential tool call) lets each carry its own grounding and model
+  tier — planner on Gemini 3.1 Pro Preview for orchestration, sub-agents on
+  cheaper 3.5 Flash — and isolates failures to one step.
 - **Grounding over our own taxonomies.** Pointing Vertex AI Search at
-  CashTime's canonical dictionaries gave bigger draft-quality gains than
-  any prompt edit.
-- **Demo mode pays for itself.** Stubbing every tool let the UI ship
-  before live wrappers, and judges replay deterministically without
-  burning paid-API quota.
+  CashTime's canonical niche dictionary stops the agent inventing niches —
+  it can only emit enum values that exist in our taxonomy.
+- **Demo mode pays for itself.** A deterministic twin of the pipeline
+  (same tool order, same event stream, no LLM) let the UI ship before live
+  wrappers and lets judges replay the full flow with zero auth or quota.
 
 ## Third-party integrations
 
@@ -121,14 +124,27 @@ authorisation confirmed for every source.
 
 ---
 
+## Live demo / testing access (no login)
+
+Deployed on Cloud Run (`tools-cashtimepay-com`, europe-west6), demo mode,
+synthetic "Chapterhouse" brand — no login, no real data, no emails sent,
+nothing written to the production CRM.
+
+- **Brand UI:** https://cashtime-concierge-ui-455884480848.europe-west6.run.app
+- **API health:** https://cashtime-concierge-455884480848.europe-west6.run.app/health
+- **API / Swagger:** https://cashtime-concierge-455884480848.europe-west6.run.app/docs
+
+Open the UI → click **"Run the Chapterhouse demo"** → watch the four agent tabs
+fill in live.
+
 ## Submission form checklist
 
-- [ ] Project page filled in
-- [ ] Code: github.com/cashtimepay/cashtime-concierge (judges as collaborators)
-- [ ] Video: YouTube unlisted, 3 min
-- [ ] Architecture diagram: `docs/architecture.md` rendered as PNG
-- [ ] Testing access: deployed URL + Cloud IAP credentials (one-time-use,
-      expire 2026-06-22)
-- [ ] Region: EMEA (Switzerland)
-- [ ] Track: Build (Net-New Agents)
-- [ ] Mandatory tech: Gemini ✅, ADK ✅, MCP ✅
+- [x] Code (public): github.com/cashtimepay/cashtime-concierge
+- [x] Deployed live demo (URLs above)
+- [x] Architecture diagram: `docs/architecture.png`
+- [x] Multi-agent + Vertex AI Search grounding shipped
+- [x] Region: EMEA (Switzerland)
+- [x] Track: Build (Net-New Agents)
+- [x] Mandatory tech: Gemini, ADK, MCP
+- [ ] **Video** (≤2 min, English, no third-party logos on screen) — TODO
+- [ ] Paste this text into the Devpost project page + EMEA regional flag

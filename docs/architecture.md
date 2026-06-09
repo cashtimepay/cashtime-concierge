@@ -1,5 +1,10 @@
 # Architecture — CashTime Brand Concierge
 
+> Rendered diagram: **`docs/architecture.png`** (source: `docs/architecture.html`).
+> The ASCII version below is the text fallback.
+
+![CashTime Brand Concierge architecture](architecture.png)
+
 ## High-level diagram
 
 ```
