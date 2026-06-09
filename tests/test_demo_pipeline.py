@@ -39,4 +39,7 @@ async def test_full_demo_pipeline():
 
     crm = await crm_upsert(brand_profile=profile, creators=creators, sequences=[sequence])
     assert crm["creators_linked"] == len(creators)
-    assert crm["crm_url"].startswith("https://")
+    # Demo mode must never claim a production write.
+    assert crm["written"] is False
+    assert crm["crm_url"] is None
+    assert crm["company_name"] == "Chapterhouse"

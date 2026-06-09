@@ -47,7 +47,9 @@ async def test_stream_pipeline_emits_tools_in_order():
     assert summary["brand"] == "Chapterhouse"
     assert summary["drafts_ready"] == 3
     assert len(summary["creators"]) == 3
-    assert summary["crm_url"].startswith("https://")
+    # Demo CRM record is synthetic — not written to production.
+    assert summary["crm"]["written"] is False
+    assert summary["crm"]["company_name"] == "Chapterhouse"
     assert "BOOKS_LITERATURE" in summary["categories"]
 
 

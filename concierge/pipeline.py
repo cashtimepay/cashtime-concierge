@@ -129,7 +129,8 @@ async def stream_pipeline(
         cid = creator["creator_id"]
         yield _call("draft_outreach", {"creator_id": cid, "handle": creator.get("handle")})
         draft = await draft_outreach(profile, creator)
-        yield _result("draft_outreach", draft)
+        # Carry the creator identity into the result so the UI can group drafts.
+        yield _result("draft_outreach", {**draft, "creator_id": cid, "handle": creator.get("handle")})
 
         yield _call("schedule_sequence", {"creator_id": cid, "follow_up_count": 2})
         seq = await schedule_sequence(cid, draft, follow_up_count=2)
@@ -164,6 +165,7 @@ async def stream_pipeline(
             for c in enriched
         ],
         "drafts_ready": len(sequences),
+        "crm": crm,
         "crm_url": crm.get("crm_url"),
     }
     yield _event("summary", text=(

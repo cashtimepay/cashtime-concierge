@@ -70,20 +70,37 @@ async def crm_upsert(
     crm_url = f"{settings.twenty_base_url}/object/company/{company_id}"
     return {
         "company_id": company_id,
+        "company_name": company.get("name"),
+        "opportunity_name": f"Concierge run · {company.get('name')}",
+        "persons": [
+            {"name": p.get("name"), "role": p.get("role"), "email": p.get("email")}
+            for p in brand_profile.get("persons", [])
+        ],
         "person_ids": person_ids,
         "opportunity_id": opportunity_id,
         "crm_url": crm_url,
         "creators_linked": len(creators),
         "sequences_attached": len(sequences),
+        "written": True,
     }
 
 
 def _demo_payload(brand: dict[str, Any], creators: list[dict[str, Any]]) -> dict[str, Any]:
+    company = brand.get("company", {})
     return {
         "company_id": "demo-company-uuid",
+        "company_name": company.get("name"),
+        "opportunity_name": f"Concierge run · {company.get('name')}",
+        "persons": [
+            {"name": p.get("name"), "role": p.get("role"), "email": p.get("email")}
+            for p in brand.get("persons", [])
+        ],
         "person_ids": ["demo-person-uuid"],
         "opportunity_id": "demo-opportunity-uuid",
-        "crm_url": "https://crm.cashtimepay.com/object/company/demo-company-uuid",
+        # In demo mode nothing is written to the production CRM; this is a
+        # synthetic record shown for illustration only.
+        "written": False,
+        "crm_url": None,
         "creators_linked": len(creators),
         "sequences_attached": len(creators),
     }
