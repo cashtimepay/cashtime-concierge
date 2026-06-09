@@ -1,0 +1,3546 @@
+{
+ "version": "2026-06-09",
+ "note": "Curated public-safe real-creator sample (handle/niche/followers/geo only; no emails, no economics, no internal IDs).",
+ "creators": [
+  {
+   "handle": "The Diary Of A CEO with Steven Bartlett",
+   "niche": "BUSINESS_ENTREPRENEURSHIP",
+   "sub_niche": "STARTUP_FOUNDER_STORYTELLERS",
+   "platform": "youtube",
+   "follower_count": 16900000,
+   "engagement_percent": null,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "@garyvee",
+   "niche": "BUSINESS_ENTREPRENEURSHIP",
+   "sub_niche": "STARTUP_FOUNDER_STORYTELLERS",
+   "platform": "instagram",
+   "follower_count": 11200000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@SahilBloom",
+   "niche": "BUSINESS_ENTREPRENEURSHIP",
+   "sub_niche": "STARTUP_FOUNDER_STORYTELLERS",
+   "platform": "x_twitter",
+   "follower_count": 937000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Young Entrepreneurs Forum",
+   "niche": "BUSINESS_ENTREPRENEURSHIP",
+   "sub_niche": "STARTUP_FOUNDER_STORYTELLERS",
+   "platform": "youtube",
+   "follower_count": 898000,
+   "engagement_percent": null,
+   "geo": "IN",
+   "language": "EN"
+  },
+  {
+   "handle": "@levelsio",
+   "niche": "BUSINESS_ENTREPRENEURSHIP",
+   "sub_niche": "SOLOPRENEUR_INDIE_HACKER_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 869408,
+   "engagement_percent": null,
+   "geo": "NL",
+   "language": "EN"
+  },
+  {
+   "handle": "@jason",
+   "niche": "BUSINESS_ENTREPRENEURSHIP",
+   "sub_niche": "FUNDRAISING_VC_INSIDER_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 700000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "AI Founders",
+   "niche": "BUSINESS_ENTREPRENEURSHIP",
+   "sub_niche": "STARTUP_FOUNDER_STORYTELLERS",
+   "platform": "youtube",
+   "follower_count": 539000,
+   "engagement_percent": 20,
+   "geo": "CH",
+   "language": "EN"
+  },
+  {
+   "handle": "aifoundershq",
+   "niche": "BUSINESS_ENTREPRENEURSHIP",
+   "sub_niche": "STARTUP_FOUNDER_STORYTELLERS",
+   "platform": "youtube",
+   "follower_count": 539000,
+   "engagement_percent": 20.39,
+   "geo": "CH",
+   "language": "EN"
+  },
+  {
+   "handle": "Entrepreneur Mindset",
+   "niche": "BUSINESS_ENTREPRENEURSHIP",
+   "sub_niche": "SOLOPRENEUR_INDIE_HACKER_CREATORS",
+   "platform": "youtube",
+   "follower_count": 526000,
+   "engagement_percent": 35.66,
+   "geo": "FR",
+   "language": "FR"
+  },
+  {
+   "handle": "How I Built This with Guy Raz",
+   "niche": "BUSINESS_ENTREPRENEURSHIP",
+   "sub_niche": "STARTUP_FOUNDER_STORYTELLERS",
+   "platform": "other",
+   "follower_count": 500000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Maxine Sharf",
+   "niche": "FOOD_COOKING",
+   "sub_niche": "HOME_COOKING_FAMILY_RECIPES_CREATORS",
+   "platform": "instagram",
+   "follower_count": 3126029,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@ahnestkitchen",
+   "niche": "FOOD_COOKING",
+   "sub_niche": "HOME_COOKING_FAMILY_RECIPES_CREATORS",
+   "platform": "instagram",
+   "follower_count": 1659302,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@krishashok",
+   "niche": "FOOD_COOKING",
+   "sub_niche": "ETHNIC_REGIONAL_CUISINE_CREATORS",
+   "platform": "instagram",
+   "follower_count": 1379817,
+   "engagement_percent": null,
+   "geo": "IN",
+   "language": "EN"
+  },
+  {
+   "handle": "Polin Lifestyle",
+   "niche": "FOOD_COOKING",
+   "sub_niche": "ETHNIC_REGIONAL_CUISINE_CREATORS",
+   "platform": "youtube",
+   "follower_count": 1110000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@wellmadebykiley",
+   "niche": "FOOD_COOKING",
+   "sub_niche": "BAKING_PASTRY_CREATORS",
+   "platform": "instagram",
+   "follower_count": 1100000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Michael Ligier",
+   "niche": "FOOD_COOKING",
+   "sub_niche": "RESTAURANT_FOOD_TOUR_REVIEWERS",
+   "platform": "youtube",
+   "follower_count": 858000,
+   "engagement_percent": 100,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Csaba dalla Zorza",
+   "niche": "FOOD_COOKING",
+   "sub_niche": "HOME_COOKING_FAMILY_RECIPES_CREATORS",
+   "platform": "instagram",
+   "follower_count": 700000,
+   "engagement_percent": null,
+   "geo": "IT",
+   "language": "IT"
+  },
+  {
+   "handle": "@plantbasedonabudget",
+   "niche": "FOOD_COOKING",
+   "sub_niche": "PLANT_BASED_VEGAN_COOKING_CREATORS",
+   "platform": "other",
+   "follower_count": 632200,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@handmethefork",
+   "niche": "FOOD_COOKING",
+   "sub_niche": "HOME_COOKING_FAMILY_RECIPES_CREATORS",
+   "platform": "instagram",
+   "follower_count": 597100,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Thomas kocht",
+   "niche": "FOOD_COOKING",
+   "sub_niche": "PROFESSIONAL_CHEF_DEMONSTRATIONS",
+   "platform": "youtube",
+   "follower_count": 593000,
+   "engagement_percent": 31,
+   "geo": "DE",
+   "language": "DE"
+  },
+  {
+   "handle": "@lumiakuma",
+   "niche": "ART_DESIGN",
+   "sub_niche": "DIGITAL_ILLUSTRATORS",
+   "platform": "instagram",
+   "follower_count": 5850000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "puppertoast",
+   "niche": "ART_DESIGN",
+   "sub_niche": "DIGITAL_ILLUSTRATORS",
+   "platform": "other",
+   "follower_count": 5000000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@BenJuniu",
+   "niche": "ART_DESIGN",
+   "sub_niche": "N_3D_ARTISTS_CONCEPT_DESIGNERS",
+   "platform": "other",
+   "follower_count": 4910000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "FA"
+  },
+  {
+   "handle": "alter",
+   "niche": "ART_DESIGN",
+   "sub_niche": "DIGITAL_ILLUSTRATORS",
+   "platform": "other",
+   "follower_count": 3820000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@jayprints",
+   "niche": "ART_DESIGN",
+   "sub_niche": "GENERATIVE_AI_ART_CREATORS",
+   "platform": "instagram",
+   "follower_count": 2044037,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@MetaDumplings",
+   "niche": "ART_DESIGN",
+   "sub_niche": "N_3D_ARTISTS_CONCEPT_DESIGNERS",
+   "platform": "tiktok",
+   "follower_count": 935900,
+   "engagement_percent": null,
+   "geo": "ES",
+   "language": "EN"
+  },
+  {
+   "handle": "M✨ Cosmic Atelier",
+   "niche": "ART_DESIGN",
+   "sub_niche": "DIGITAL_ILLUSTRATORS",
+   "platform": "instagram",
+   "follower_count": 856000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "The Artistic Edge",
+   "niche": "ART_DESIGN",
+   "sub_niche": "ART_HISTORY_CRITIQUE_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 500000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@blue.jay.walker",
+   "niche": "ART_DESIGN",
+   "sub_niche": "ART_HISTORY_CRITIQUE_CREATORS",
+   "platform": "instagram",
+   "follower_count": 450000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@xandrastax",
+   "niche": "ART_DESIGN",
+   "sub_niche": "SCULPTURE_CERAMICS_CREATORS",
+   "platform": "instagram",
+   "follower_count": 350359,
+   "engagement_percent": null,
+   "geo": "PL",
+   "language": "EN"
+  },
+  {
+   "handle": "@wendys",
+   "niche": "CAREER_PROFESSIONAL_DEVELOPMENT",
+   "sub_niche": "INTERNSHIPS_EARLY_CAREER_CREATORS",
+   "platform": "substack",
+   "follower_count": 1400000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "CEO of Life",
+   "niche": "CAREER_PROFESSIONAL_DEVELOPMENT",
+   "sub_niche": "EXECUTIVE_COACHING_C_SUITE_CREATORS",
+   "platform": "youtube",
+   "follower_count": 822000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@danschawbel",
+   "niche": "CAREER_PROFESSIONAL_DEVELOPMENT",
+   "sub_niche": "LINKEDIN_PERSONAL_BRANDING_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 137593,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "TechLao's Data-Stack",
+   "niche": "CAREER_PROFESSIONAL_DEVELOPMENT",
+   "sub_niche": null,
+   "platform": "linkedin",
+   "follower_count": 115000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "tonyjselimi",
+   "niche": "CAREER_PROFESSIONAL_DEVELOPMENT",
+   "sub_niche": "EXECUTIVE_COACHING_C_SUITE_CREATORS",
+   "platform": "youtube",
+   "follower_count": 91290,
+   "engagement_percent": 0.03,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "@annasaenko_career",
+   "niche": "CAREER_PROFESSIONAL_DEVELOPMENT",
+   "sub_niche": "CAREER_CHANGE_PIVOT_CREATORS",
+   "platform": "other",
+   "follower_count": 84000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@saienko_anna",
+   "niche": "CAREER_PROFESSIONAL_DEVELOPMENT",
+   "sub_niche": "CAREER_CHANGE_PIVOT_CREATORS",
+   "platform": "instagram",
+   "follower_count": 80000,
+   "engagement_percent": null,
+   "geo": "UA",
+   "language": "UK"
+  },
+  {
+   "handle": "@chernobelskiy",
+   "niche": "CAREER_PROFESSIONAL_DEVELOPMENT",
+   "sub_niche": "NETWORKING_RELATIONSHIP_BUILDING_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 75000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@vlad_career",
+   "niche": "CAREER_PROFESSIONAL_DEVELOPMENT",
+   "sub_niche": "JOB_INTERVIEW_COACHES",
+   "platform": "other",
+   "follower_count": 48000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@vira_career",
+   "niche": "CAREER_PROFESSIONAL_DEVELOPMENT",
+   "sub_niche": "RESUME_CV_WRITING_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 47000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@KamalaHarris",
+   "niche": "NEWS_POLITICS",
+   "sub_niche": "ELECTION_CAMPAIGN_COVERAGE_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 21000000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@piersmorgan",
+   "niche": "NEWS_POLITICS",
+   "sub_niche": "MAINSTREAM_NEWS_ANALYSTS",
+   "platform": "x_twitter",
+   "follower_count": 8440000,
+   "engagement_percent": null,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "@AJENews",
+   "niche": "NEWS_POLITICS",
+   "sub_niche": "MAINSTREAM_NEWS_ANALYSTS",
+   "platform": "x_twitter",
+   "follower_count": 8396698,
+   "engagement_percent": null,
+   "geo": "OTHER",
+   "language": "EN"
+  },
+  {
+   "handle": "Tom Bilyeu's Impact Theory",
+   "niche": "NEWS_POLITICS",
+   "sub_niche": "INTERNATIONAL_AFFAIRS_GEOPOLITICS_CREATORS",
+   "platform": "youtube",
+   "follower_count": 4630000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@SkyTG24",
+   "niche": "NEWS_POLITICS",
+   "sub_niche": "MAINSTREAM_NEWS_ANALYSTS",
+   "platform": "x_twitter",
+   "follower_count": 3800000,
+   "engagement_percent": null,
+   "geo": "IT",
+   "language": "EN"
+  },
+  {
+   "handle": "Guy Christensen",
+   "niche": "NEWS_POLITICS",
+   "sub_niche": "ACTIVISM_MOVEMENT_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 3000000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "TruthBoost",
+   "niche": "NEWS_POLITICS",
+   "sub_niche": "INDEPENDENT_POLITICAL_COMMENTATORS_RIGHT",
+   "platform": "instagram",
+   "follower_count": 2600000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@dhsgov",
+   "niche": "NEWS_POLITICS",
+   "sub_niche": "POLICY_LEGISLATION_EXPLAINERS",
+   "platform": "x_twitter",
+   "follower_count": 2500000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@VigilantFox",
+   "niche": "NEWS_POLITICS",
+   "sub_niche": "INDEPENDENT_POLITICAL_COMMENTATORS_RIGHT",
+   "platform": "x_twitter",
+   "follower_count": 1960000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@RepThomasMassie",
+   "niche": "NEWS_POLITICS",
+   "sub_niche": "INDEPENDENT_POLITICAL_COMMENTATORS_RIGHT",
+   "platform": "x_twitter",
+   "follower_count": 1800000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "MBADIY",
+   "niche": "EDUCATION",
+   "sub_niche": "UNIVERSITY_TEST_PREP_COACHES_SAT_GRE_IELTS",
+   "platform": "youtube",
+   "follower_count": 2960000,
+   "engagement_percent": null,
+   "geo": "IN",
+   "language": "EN"
+  },
+  {
+   "handle": "@mathssolutionz",
+   "niche": "EDUCATION",
+   "sub_niche": "K_12_SUBJECT_TUTORS",
+   "platform": "x_twitter",
+   "follower_count": 2570000,
+   "engagement_percent": null,
+   "geo": "IN",
+   "language": "FA"
+  },
+  {
+   "handle": "@englishcompiled",
+   "niche": "EDUCATION",
+   "sub_niche": "LANGUAGE_LEARNING_CREATORS",
+   "platform": "instagram",
+   "follower_count": 2100000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Frazzled About Education",
+   "niche": "EDUCATION",
+   "sub_niche": "HUMANITIES_SOCIAL_SCIENCES_EDUCATORS",
+   "platform": "tiktok",
+   "follower_count": 1400000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@iamteacherpaul",
+   "niche": "EDUCATION",
+   "sub_niche": "LANGUAGE_LEARNING_CREATORS",
+   "platform": "youtube",
+   "follower_count": 540000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "FA"
+  },
+  {
+   "handle": "@theenglishgist",
+   "niche": "EDUCATION",
+   "sub_niche": "LANGUAGE_LEARNING_CREATORS",
+   "platform": "other",
+   "follower_count": 273800,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "FA"
+  },
+  {
+   "handle": "@treccanigram",
+   "niche": "EDUCATION",
+   "sub_niche": "LANGUAGE_LEARNING_CREATORS",
+   "platform": "instagram",
+   "follower_count": 150700,
+   "engagement_percent": null,
+   "geo": "IT",
+   "language": "EN"
+  },
+  {
+   "handle": "Faladictos",
+   "niche": "EDUCATION",
+   "sub_niche": "CRITICAL_THINKING_LOGIC_EDUCATORS",
+   "platform": "substack",
+   "follower_count": 150000,
+   "engagement_percent": null,
+   "geo": "ES",
+   "language": "ES"
+  },
+  {
+   "handle": "@thebekku",
+   "niche": "EDUCATION",
+   "sub_niche": "HUMANITIES_SOCIAL_SCIENCES_EDUCATORS",
+   "platform": "substack",
+   "follower_count": 119000,
+   "engagement_percent": null,
+   "geo": "IN",
+   "language": "EN"
+  },
+  {
+   "handle": "english4it",
+   "niche": "EDUCATION",
+   "sub_niche": "LANGUAGE_LEARNING_CREATORS",
+   "platform": "youtube",
+   "follower_count": 115000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@Twitter",
+   "niche": "TECHNOLOGY",
+   "sub_niche": "BIG_TECH_NEWS_COMMENTATORS",
+   "platform": "x_twitter",
+   "follower_count": 67000000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "diyperks",
+   "niche": "TECHNOLOGY",
+   "sub_niche": "PC_BUILDERS_HARDWARE_ENTHUSIASTS",
+   "platform": "youtube",
+   "follower_count": 4910000,
+   "engagement_percent": 68.06,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "@OpenAI",
+   "niche": "TECHNOLOGY",
+   "sub_niche": "AI_ML_EDUCATORS",
+   "platform": "x_twitter",
+   "follower_count": 3842150,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "evana",
+   "niche": "TECHNOLOGY",
+   "sub_niche": null,
+   "platform": "x_twitter",
+   "follower_count": 3000000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@karpathy",
+   "niche": "TECHNOLOGY",
+   "sub_niche": "AI_ML_EDUCATORS",
+   "platform": "x_twitter",
+   "follower_count": 2000000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "piratesoftware",
+   "niche": "TECHNOLOGY",
+   "sub_niche": "PROGRAMMING_EDUCATORS",
+   "platform": "youtube",
+   "follower_count": 1890000,
+   "engagement_percent": 79.91,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "ai video to",
+   "niche": "TECHNOLOGY",
+   "sub_niche": "AI_ML_EDUCATORS",
+   "platform": "youtube",
+   "follower_count": 1690000,
+   "engagement_percent": null,
+   "geo": "IN",
+   "language": "HI"
+  },
+  {
+   "handle": "@davidjmalan",
+   "niche": "TECHNOLOGY",
+   "sub_niche": "PROGRAMMING_EDUCATORS",
+   "platform": "linkedin",
+   "follower_count": 1000000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@smart.easy",
+   "niche": "TECHNOLOGY",
+   "sub_niche": "AI_ML_EDUCATORS",
+   "platform": "tiktok",
+   "follower_count": 886600,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Robin Wauters (Inside European Deep Tech)",
+   "niche": "TECHNOLOGY",
+   "sub_niche": "BIG_TECH_NEWS_COMMENTATORS",
+   "platform": "x_twitter",
+   "follower_count": 724335,
+   "engagement_percent": 0.04,
+   "geo": "BE",
+   "language": "EN"
+  },
+  {
+   "handle": "G That's Nice",
+   "niche": "LIFESTYLE",
+   "sub_niche": "MINIMALISM_SLOW_LIVING_CREATORS",
+   "platform": "substack",
+   "follower_count": 11100000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@sofiagrainge",
+   "niche": "LIFESTYLE",
+   "sub_niche": "LUXURY_LIFESTYLE_CREATORS",
+   "platform": "instagram",
+   "follower_count": 10712225,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Bisola",
+   "niche": "LIFESTYLE",
+   "sub_niche": "PRODUCTIVITY_SELF_IMPROVEMENT_CREATORS",
+   "platform": "substack",
+   "follower_count": 4396654,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Feranmi",
+   "niche": "LIFESTYLE",
+   "sub_niche": "PRODUCTIVITY_SELF_IMPROVEMENT_CREATORS",
+   "platform": "substack",
+   "follower_count": 2900000,
+   "engagement_percent": null,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "@charliedenis",
+   "niche": "LIFESTYLE",
+   "sub_niche": "URBAN_SOLO_LIFE_CREATORS",
+   "platform": "substack",
+   "follower_count": 1300000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Jimmy & Laura Astuces",
+   "niche": "LIFESTYLE",
+   "sub_niche": "COUPLE_ROMANTIC_LIFESTYLE_CREATORS",
+   "platform": "youtube",
+   "follower_count": 689000,
+   "engagement_percent": null,
+   "geo": "FR",
+   "language": "FR"
+  },
+  {
+   "handle": "@garyswilkinson",
+   "niche": "LIFESTYLE",
+   "sub_niche": "STOICISM_MINDFUL_LIVING_CREATORS",
+   "platform": "substack",
+   "follower_count": 623000,
+   "engagement_percent": null,
+   "geo": "BR",
+   "language": "PT"
+  },
+  {
+   "handle": "Lifestyle 101",
+   "niche": "LIFESTYLE",
+   "sub_niche": "LUXURY_LIFESTYLE_CREATORS",
+   "platform": "youtube",
+   "follower_count": 329000,
+   "engagement_percent": 100,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@juliageezy",
+   "niche": "LIFESTYLE",
+   "sub_niche": "URBAN_SOLO_LIFE_CREATORS",
+   "platform": "instagram",
+   "follower_count": 265500,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@habituallychic",
+   "niche": "LIFESTYLE",
+   "sub_niche": "LUXURY_LIFESTYLE_CREATORS",
+   "platform": "instagram",
+   "follower_count": 228199,
+   "engagement_percent": 1.98,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@mikaelaloach",
+   "niche": "SUSTAINABILITY_ENVIRONMENT",
+   "sub_niche": "CLIMATE_ACTION_EDUCATORS",
+   "platform": "instagram",
+   "follower_count": 279600,
+   "engagement_percent": null,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "the nest",
+   "niche": "SUSTAINABILITY_ENVIRONMENT",
+   "sub_niche": "PERMACULTURE_REGENERATIVE_AGRICULTURE_CREATORS",
+   "platform": "youtube",
+   "follower_count": 114000,
+   "engagement_percent": null,
+   "geo": "IT",
+   "language": "IT"
+  },
+  {
+   "handle": "The Weird and Wild",
+   "niche": "SUSTAINABILITY_ENVIRONMENT",
+   "sub_niche": "CLIMATE_ACTION_EDUCATORS",
+   "platform": "instagram",
+   "follower_count": 25000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@redeliciousdc",
+   "niche": "SUSTAINABILITY_ENVIRONMENT",
+   "sub_niche": "ZERO_WASTE_LIFESTYLE_CREATORS",
+   "platform": "instagram",
+   "follower_count": 18000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "fullo",
+   "niche": "SUSTAINABILITY_ENVIRONMENT",
+   "sub_niche": "GREEN_TECH_CLEANTECH_CREATORS",
+   "platform": "linkedin",
+   "follower_count": 10000,
+   "engagement_percent": null,
+   "geo": "IT",
+   "language": "IT"
+  },
+  {
+   "handle": "@inkcapjournal",
+   "niche": "SUSTAINABILITY_ENVIRONMENT",
+   "sub_niche": "WILDLIFE_CONSERVATION_CREATORS",
+   "platform": "other",
+   "follower_count": 8000,
+   "engagement_percent": null,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "Act Bigger w/ Mr. Earth Rebirth",
+   "niche": "SUSTAINABILITY_ENVIRONMENT",
+   "sub_niche": "CLIMATE_ACTION_EDUCATORS",
+   "platform": "substack",
+   "follower_count": 5900,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@solarpunkldn",
+   "niche": "SUSTAINABILITY_ENVIRONMENT",
+   "sub_niche": "RENEWABLE_ENERGY_CREATORS",
+   "platform": "substack",
+   "follower_count": 5200,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "The Green Fix",
+   "niche": "SUSTAINABILITY_ENVIRONMENT",
+   "sub_niche": "CLIMATE_ACTION_EDUCATORS",
+   "platform": "substack",
+   "follower_count": 4900,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Waqqas Malik",
+   "niche": "OTHER",
+   "sub_niche": "SKILL_UP_MICROLEARNING_CREATORS",
+   "platform": "youtube",
+   "follower_count": 22323924,
+   "engagement_percent": null,
+   "geo": "IN",
+   "language": "UR"
+  },
+  {
+   "handle": "Alicia Joe",
+   "niche": "OTHER",
+   "sub_niche": null,
+   "platform": "youtube",
+   "follower_count": 783000,
+   "engagement_percent": null,
+   "geo": "DE",
+   "language": "DE"
+  },
+  {
+   "handle": "@tobias_beck_official",
+   "niche": "OTHER",
+   "sub_niche": null,
+   "platform": "instagram",
+   "follower_count": 221000,
+   "engagement_percent": null,
+   "geo": "DE",
+   "language": "DE"
+  },
+  {
+   "handle": "@baddangelfromig",
+   "niche": "OTHER",
+   "sub_niche": null,
+   "platform": "x_twitter",
+   "follower_count": 200323,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "FA"
+  },
+  {
+   "handle": "@tsukor_terentiy",
+   "niche": "OTHER",
+   "sub_niche": null,
+   "platform": "tiktok",
+   "follower_count": 185000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@dubovska_viktoriia",
+   "niche": "OTHER",
+   "sub_niche": null,
+   "platform": "instagram",
+   "follower_count": 160000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@vlad_yasko",
+   "niche": "OTHER",
+   "sub_niche": null,
+   "platform": "instagram",
+   "follower_count": 155000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@birdylovesit",
+   "niche": "OTHER",
+   "sub_niche": null,
+   "platform": "x_twitter",
+   "follower_count": 139021,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "FA"
+  },
+  {
+   "handle": "@DoubleEph",
+   "niche": "OTHER",
+   "sub_niche": null,
+   "platform": "substack",
+   "follower_count": 134400,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Stories by AhMeD on Medium",
+   "niche": "OTHER",
+   "sub_niche": null,
+   "platform": "other",
+   "follower_count": 133000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "FA"
+  },
+  {
+   "handle": "uninterrupted",
+   "niche": "BOOKS_LITERATURE",
+   "sub_niche": "INDEPENDENT_AUTHOR_SELF_PUBLISHING_CREATORS",
+   "platform": "youtube",
+   "follower_count": 2800000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "FA"
+  },
+  {
+   "handle": "@TheAmandaGorman",
+   "niche": "BOOKS_LITERATURE",
+   "sub_niche": "POETRY_SPOKEN_WORD_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 1700000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "The FAQs - Answers, insights, and truths about publishing",
+   "niche": "BOOKS_LITERATURE",
+   "sub_niche": "INDEPENDENT_AUTHOR_SELF_PUBLISHING_CREATORS",
+   "platform": "substack",
+   "follower_count": 1645000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@victoriashaz",
+   "niche": "BOOKS_LITERATURE",
+   "sub_niche": "INDEPENDENT_AUTHOR_SELF_PUBLISHING_CREATORS",
+   "platform": "substack",
+   "follower_count": 750000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "shimizua",
+   "niche": "BOOKS_LITERATURE",
+   "sub_niche": "INDEPENDENT_AUTHOR_SELF_PUBLISHING_CREATORS",
+   "platform": "other",
+   "follower_count": 678000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@hopeyoufindyourdad",
+   "niche": "BOOKS_LITERATURE",
+   "sub_niche": "NON_FICTION_BOOK_SUMMARY_CREATORS",
+   "platform": "substack",
+   "follower_count": 600000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@amazonkindle",
+   "niche": "BOOKS_LITERATURE",
+   "sub_niche": "READING_LIFESTYLE_COZY_READER_CREATORS",
+   "platform": "instagram",
+   "follower_count": 397300,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@davidhowellchess",
+   "niche": "BOOKS_LITERATURE",
+   "sub_niche": "INDEPENDENT_AUTHOR_SELF_PUBLISHING_CREATORS",
+   "platform": "substack",
+   "follower_count": 132900,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@laubythesea",
+   "niche": "BOOKS_LITERATURE",
+   "sub_niche": "BOOKTOK_BOOKTUBE_CREATORS",
+   "platform": "instagram",
+   "follower_count": 115000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "ES"
+  },
+  {
+   "handle": "@chaaya23",
+   "niche": "BOOKS_LITERATURE",
+   "sub_niche": "INDEPENDENT_AUTHOR_SELF_PUBLISHING_CREATORS",
+   "platform": "substack",
+   "follower_count": 102200,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Luxury Travel Expert",
+   "niche": "TRAVEL",
+   "sub_niche": "LUXURY_TRAVEL_CREATORS",
+   "platform": "youtube",
+   "follower_count": 1380000,
+   "engagement_percent": 37,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "field notes nyc",
+   "niche": "TRAVEL",
+   "sub_niche": "HIDDEN_GEM_OFF_THE_BEATEN_PATH_CREATORS",
+   "platform": "substack",
+   "follower_count": 895000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "ST Travel",
+   "niche": "TRAVEL",
+   "sub_niche": "LUXURY_TRAVEL_CREATORS",
+   "platform": "youtube",
+   "follower_count": 437000,
+   "engagement_percent": 100,
+   "geo": "JP",
+   "language": "EN"
+  },
+  {
+   "handle": "Akash Worldwide",
+   "niche": "TRAVEL",
+   "sub_niche": "SLOW_TRAVEL_LONG_TERM_STAY_CREATORS",
+   "platform": "substack",
+   "follower_count": 360000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Luxury travel & Global business",
+   "niche": "TRAVEL",
+   "sub_niche": "LUXURY_TRAVEL_CREATORS",
+   "platform": "youtube",
+   "follower_count": 258000,
+   "engagement_percent": 13,
+   "geo": "SG",
+   "language": "EN"
+  },
+  {
+   "handle": "zahishaked",
+   "niche": "TRAVEL",
+   "sub_niche": "CULTURAL_TRAVEL_LOCAL_IMMERSION_CREATORS",
+   "platform": "youtube",
+   "follower_count": 197000,
+   "engagement_percent": null,
+   "geo": "IL",
+   "language": "EN"
+  },
+  {
+   "handle": "Luxury Travel Club",
+   "niche": "TRAVEL",
+   "sub_niche": "LUXURY_TRAVEL_CREATORS",
+   "platform": "youtube",
+   "follower_count": 132000,
+   "engagement_percent": 100,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "Luxury Travel Host",
+   "niche": "TRAVEL",
+   "sub_niche": "LUXURY_TRAVEL_CREATORS",
+   "platform": "youtube",
+   "follower_count": 67100,
+   "engagement_percent": 100,
+   "geo": "RO",
+   "language": "EN"
+  },
+  {
+   "handle": "@saramelotti_",
+   "niche": "TRAVEL",
+   "sub_niche": "CULTURAL_TRAVEL_LOCAL_IMMERSION_CREATORS",
+   "platform": "instagram",
+   "follower_count": 42517,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "IT"
+  },
+  {
+   "handle": "marina mattos: de malas prontas",
+   "niche": "TRAVEL",
+   "sub_niche": "CULTURAL_TRAVEL_LOCAL_IMMERSION_CREATORS",
+   "platform": "youtube",
+   "follower_count": 30100,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "PT"
+  },
+  {
+   "handle": "Billboard",
+   "niche": "MUSIC",
+   "sub_niche": "MUSIC_INDUSTRY_BUSINESS_CREATORS",
+   "platform": "instagram",
+   "follower_count": 17721655,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "One Voice Children",
+   "niche": "MUSIC",
+   "sub_niche": "COVER_ARTISTS_REACTION_CHANNELS",
+   "platform": "youtube",
+   "follower_count": 5090000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "FA"
+  },
+  {
+   "handle": "@liamgallagher",
+   "niche": "MUSIC",
+   "sub_niche": "SINGER_SONGWRITERS_VOCAL_COACHES",
+   "platform": "x_twitter",
+   "follower_count": 3700000,
+   "engagement_percent": null,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "@tchapmanonline",
+   "niche": "MUSIC",
+   "sub_niche": "INDIE_UNDERGROUND_MUSIC_CURATORS",
+   "platform": "substack",
+   "follower_count": 1900000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@bigkrit",
+   "niche": "MUSIC",
+   "sub_niche": "HIP_HOP_RAP_CULTURE_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 649753,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "FA"
+  },
+  {
+   "handle": "@gaiamusiccollective",
+   "niche": "MUSIC",
+   "sub_niche": "SINGER_SONGWRITERS_VOCAL_COACHES",
+   "platform": "instagram",
+   "follower_count": 474735,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@fauncommunity",
+   "niche": "MUSIC",
+   "sub_niche": "CLASSICAL_ORCHESTRAL_CREATORS",
+   "platform": "youtube",
+   "follower_count": 470000,
+   "engagement_percent": null,
+   "geo": "DE",
+   "language": "EN"
+  },
+  {
+   "handle": "@luccadoes",
+   "niche": "MUSIC",
+   "sub_niche": "SINGER_SONGWRITERS_VOCAL_COACHES",
+   "platform": "instagram",
+   "follower_count": 396857,
+   "engagement_percent": 7.8,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Stage Banter",
+   "niche": "MUSIC",
+   "sub_niche": null,
+   "platform": "substack",
+   "follower_count": 230000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@WindMusicTW",
+   "niche": "MUSIC",
+   "sub_niche": "MUSIC_REVIEWERS_CRITICS",
+   "platform": "substack",
+   "follower_count": 222000,
+   "engagement_percent": null,
+   "geo": "TW",
+   "language": "EN"
+  },
+  {
+   "handle": "phongbui",
+   "niche": "NON_PROFIT_SOCIAL_IMPACT",
+   "sub_niche": "HUMANITARIAN_RESPONSE_CREATORS",
+   "platform": "youtube",
+   "follower_count": 1800000,
+   "engagement_percent": null,
+   "geo": "VN",
+   "language": "EN"
+  },
+  {
+   "handle": "The Power of Adesso",
+   "niche": "NON_PROFIT_SOCIAL_IMPACT",
+   "sub_niche": "LOCAL_COMMUNITY_ACTION_CREATORS",
+   "platform": "substack",
+   "follower_count": 850000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@nowhitesaviors",
+   "niche": "NON_PROFIT_SOCIAL_IMPACT",
+   "sub_niche": "INTERNATIONAL_DEVELOPMENT_CREATORS",
+   "platform": "instagram",
+   "follower_count": 758000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@CareForGaza",
+   "niche": "NON_PROFIT_SOCIAL_IMPACT",
+   "sub_niche": "HUMANITARIAN_RESPONSE_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 236000,
+   "engagement_percent": null,
+   "geo": "CA",
+   "language": "EN"
+  },
+  {
+   "handle": "@renovabr",
+   "niche": "NON_PROFIT_SOCIAL_IMPACT",
+   "sub_niche": null,
+   "platform": "instagram",
+   "follower_count": 200000,
+   "engagement_percent": null,
+   "geo": "OTHER",
+   "language": "PT"
+  },
+  {
+   "handle": "@alaybowker",
+   "niche": "NON_PROFIT_SOCIAL_IMPACT",
+   "sub_niche": "LOCAL_COMMUNITY_ACTION_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 159185,
+   "engagement_percent": 0.05,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Foreword to Civilization",
+   "niche": "NON_PROFIT_SOCIAL_IMPACT",
+   "sub_niche": "PHILANTHROPY_IMPACT_INVESTING_CREATORS",
+   "platform": "substack",
+   "follower_count": 145000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@johndcaudwell",
+   "niche": "NON_PROFIT_SOCIAL_IMPACT",
+   "sub_niche": "PHILANTHROPY_IMPACT_INVESTING_CREATORS",
+   "platform": "instagram",
+   "follower_count": 76300,
+   "engagement_percent": null,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "@neorsd",
+   "niche": "NON_PROFIT_SOCIAL_IMPACT",
+   "sub_niche": "LOCAL_COMMUNITY_ACTION_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 60000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@tolkachova_olena",
+   "niche": "NON_PROFIT_SOCIAL_IMPACT",
+   "sub_niche": "HUMANITARIAN_RESPONSE_CREATORS",
+   "platform": "other",
+   "follower_count": 50000,
+   "engagement_percent": null,
+   "geo": "UA",
+   "language": "RU"
+  },
+  {
+   "handle": "@drcarmenfong",
+   "niche": "RELATIONSHIPS_DATING",
+   "sub_niche": "POLYAMORY_NON_TRADITIONAL_RELATIONSHIPS_CREATORS",
+   "platform": "substack",
+   "follower_count": 744000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Entrepreneurs in Cars",
+   "niche": "RELATIONSHIPS_DATING",
+   "sub_niche": "DATING_ADVICE_FOR_MEN",
+   "platform": "youtube",
+   "follower_count": 743000,
+   "engagement_percent": 14.01,
+   "geo": "CA",
+   "language": "EN"
+  },
+  {
+   "handle": "@wecuckyou",
+   "niche": "RELATIONSHIPS_DATING",
+   "sub_niche": "POLYAMORY_NON_TRADITIONAL_RELATIONSHIPS_CREATORS",
+   "platform": "substack",
+   "follower_count": 63000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@Variety",
+   "niche": "RELATIONSHIPS_DATING",
+   "sub_niche": "LGBTQ_RELATIONSHIPS_CREATORS",
+   "platform": "substack",
+   "follower_count": 39000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@zabodice",
+   "niche": "RELATIONSHIPS_DATING",
+   "sub_niche": "LGBTQ_RELATIONSHIPS_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 37000,
+   "engagement_percent": null,
+   "geo": "ES",
+   "language": "ES"
+  },
+  {
+   "handle": "@andraporterxo",
+   "niche": "RELATIONSHIPS_DATING",
+   "sub_niche": "DATING_ADVICE_FOR_WOMEN",
+   "platform": "x_twitter",
+   "follower_count": 17000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@GKundalibhagya",
+   "niche": "RELATIONSHIPS_DATING",
+   "sub_niche": "CROSS_CULTURAL_INTERNATIONAL_DATING_CREATORS",
+   "platform": "other",
+   "follower_count": 10000,
+   "engagement_percent": null,
+   "geo": "IN",
+   "language": "EN"
+  },
+  {
+   "handle": "@jollytd",
+   "niche": "RELATIONSHIPS_DATING",
+   "sub_niche": "POLYAMORY_NON_TRADITIONAL_RELATIONSHIPS_CREATORS",
+   "platform": "substack",
+   "follower_count": 3800,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "HoneyHeartsPodcast",
+   "niche": "RELATIONSHIPS_DATING",
+   "sub_niche": "FAMILY_DYNAMICS_HEALING_CREATORS",
+   "platform": "youtube",
+   "follower_count": 3780,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "Marketing Fundas",
+   "niche": "MARKETING_ADVERTISING",
+   "sub_niche": "CONTENT_MARKETING_EDITORIAL_CREATORS",
+   "platform": "youtube",
+   "follower_count": 803000,
+   "engagement_percent": null,
+   "geo": "IN",
+   "language": "EN"
+  },
+  {
+   "handle": "@ecomchasedimond",
+   "niche": "MARKETING_ADVERTISING",
+   "sub_niche": "EMAIL_MARKETING_CREATORS",
+   "platform": "linkedin",
+   "follower_count": 455575,
+   "engagement_percent": 0.12,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@andrewchen",
+   "niche": "MARKETING_ADVERTISING",
+   "sub_niche": null,
+   "platform": "x_twitter",
+   "follower_count": 350486,
+   "engagement_percent": 0.03,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Lenny Rachitsky",
+   "niche": "MARKETING_ADVERTISING",
+   "sub_niche": null,
+   "platform": "substack",
+   "follower_count": 337653,
+   "engagement_percent": 0.01,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@colinrocker",
+   "niche": "MARKETING_ADVERTISING",
+   "sub_niche": "CONTENT_MARKETING_EDITORIAL_CREATORS",
+   "platform": "substack",
+   "follower_count": 232900,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@davegerhardt",
+   "niche": "MARKETING_ADVERTISING",
+   "sub_niche": "B2B_DEMAND_GENERATION_CREATORS",
+   "platform": "linkedin",
+   "follower_count": 150000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@the.creative.bodega",
+   "niche": "MARKETING_ADVERTISING",
+   "sub_niche": "CONTENT_MARKETING_EDITORIAL_CREATORS",
+   "platform": "instagram",
+   "follower_count": 124700,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@DannyDeraney",
+   "niche": "MARKETING_ADVERTISING",
+   "sub_niche": "PR_COMMUNICATIONS_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 120365,
+   "engagement_percent": 0.86,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@harrydry",
+   "niche": "MARKETING_ADVERTISING",
+   "sub_niche": null,
+   "platform": "x_twitter",
+   "follower_count": 115000,
+   "engagement_percent": 0.9,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "Mañana's Newsletter",
+   "niche": "MARKETING_ADVERTISING",
+   "sub_niche": "COPYWRITING_EDUCATORS",
+   "platform": "linkedin",
+   "follower_count": 100000,
+   "engagement_percent": null,
+   "geo": "FR",
+   "language": "FR"
+  },
+  {
+   "handle": "Sharon’s Retail Substack: What's In Store?",
+   "niche": "E_COMMERCE_RETAIL",
+   "sub_niche": "RETAIL_TRENDS_INDUSTRY_ANALYSTS",
+   "platform": "linkedin",
+   "follower_count": 25000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@mikevalera",
+   "niche": "E_COMMERCE_RETAIL",
+   "sub_niche": "SHOPIFY_STORE_BUILDING_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 14533,
+   "engagement_percent": 0.01,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "salom",
+   "niche": "E_COMMERCE_RETAIL",
+   "sub_niche": "RETAIL_TRENDS_INDUSTRY_ANALYSTS",
+   "platform": "linkedin",
+   "follower_count": 7000,
+   "engagement_percent": null,
+   "geo": "FR",
+   "language": "FR"
+  },
+  {
+   "handle": "@historiaparatontos",
+   "niche": "HISTORY_CULTURE",
+   "sub_niche": "CULTURAL_CRITIQUE_PUBLIC_HISTORY_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 7000000,
+   "engagement_percent": null,
+   "geo": "MX",
+   "language": "ES"
+  },
+  {
+   "handle": "yoengji",
+   "niche": "HISTORY_CULTURE",
+   "sub_niche": "LOCAL_REGIONAL_HISTORY_CREATORS",
+   "platform": "other",
+   "follower_count": 5000000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@thehumanityarchive",
+   "niche": "HISTORY_CULTURE",
+   "sub_niche": "CULTURAL_CRITIQUE_PUBLIC_HISTORY_CREATORS",
+   "platform": "instagram",
+   "follower_count": 1255609,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@DrIbram",
+   "niche": "HISTORY_CULTURE",
+   "sub_niche": "CULTURAL_CRITIQUE_PUBLIC_HISTORY_CREATORS",
+   "platform": "instagram",
+   "follower_count": 1100000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Crim's Class",
+   "niche": "HISTORY_CULTURE",
+   "sub_niche": "CULTURAL_CRITIQUE_PUBLIC_HISTORY_CREATORS",
+   "platform": "substack",
+   "follower_count": 420000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@historyhustle",
+   "niche": "HISTORY_CULTURE",
+   "sub_niche": "HISTORICAL_TOURISM_HERITAGE_CREATORS",
+   "platform": "youtube",
+   "follower_count": 280000,
+   "engagement_percent": null,
+   "geo": "NL",
+   "language": "EN"
+  },
+  {
+   "handle": "Agenda cultural - @marinadelmoos",
+   "niche": "HISTORY_CULTURE",
+   "sub_niche": null,
+   "platform": "instagram",
+   "follower_count": 206000,
+   "engagement_percent": null,
+   "geo": "ES",
+   "language": "ES"
+  },
+  {
+   "handle": "@livioghilardi",
+   "niche": "HISTORY_CULTURE",
+   "sub_niche": "LOCAL_REGIONAL_HISTORY_CREATORS",
+   "platform": "substack",
+   "follower_count": 120000,
+   "engagement_percent": null,
+   "geo": "IT",
+   "language": "IT"
+  },
+  {
+   "handle": "@loreandlegends3",
+   "niche": "HISTORY_CULTURE",
+   "sub_niche": "MYTHOLOGY_FOLKLORE_CREATORS",
+   "platform": "other",
+   "follower_count": 111535,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "FA"
+  },
+  {
+   "handle": "@historywithbeth",
+   "niche": "HISTORY_CULTURE",
+   "sub_niche": "LOCAL_REGIONAL_HISTORY_CREATORS",
+   "platform": "instagram",
+   "follower_count": 85000,
+   "engagement_percent": null,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "@doctor_komarovskiy",
+   "niche": "HEALTH_FITNESS",
+   "sub_niche": null,
+   "platform": "youtube",
+   "follower_count": 7433120,
+   "engagement_percent": 0.06,
+   "geo": "UA",
+   "language": "RU"
+  },
+  {
+   "handle": "@doctor_zubareva",
+   "niche": "HEALTH_FITNESS",
+   "sub_niche": null,
+   "platform": "instagram",
+   "follower_count": 5632440,
+   "engagement_percent": 0.04,
+   "geo": "UA",
+   "language": "UK"
+  },
+  {
+   "handle": "@racheldashae",
+   "niche": "HEALTH_FITNESS",
+   "sub_niche": "REHAB_INJURY_PREVENTION_CREATORS",
+   "platform": "youtube",
+   "follower_count": 3750000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@doctor_belokon",
+   "niche": "HEALTH_FITNESS",
+   "sub_niche": null,
+   "platform": "other",
+   "follower_count": 2828763,
+   "engagement_percent": 0.83,
+   "geo": "UA",
+   "language": "UK"
+  },
+  {
+   "handle": "Synergies",
+   "niche": "HEALTH_FITNESS",
+   "sub_niche": "SPORTS_NUTRITION_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 2540934,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "zdoggmd",
+   "niche": "HEALTH_FITNESS",
+   "sub_niche": "REHAB_INJURY_PREVENTION_CREATORS",
+   "platform": "youtube",
+   "follower_count": 2500000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "Good Vibes",
+   "niche": "HEALTH_FITNESS",
+   "sub_niche": "SPORTS_NUTRITION_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 1379817,
+   "engagement_percent": null,
+   "geo": "IN",
+   "language": "EN"
+  },
+  {
+   "handle": "@doctor_radion",
+   "niche": "HEALTH_FITNESS",
+   "sub_niche": null,
+   "platform": "youtube",
+   "follower_count": 1105073,
+   "engagement_percent": 0.27,
+   "geo": "UA",
+   "language": "UK"
+  },
+  {
+   "handle": "@anitasporty",
+   "niche": "HEALTH_FITNESS",
+   "sub_niche": null,
+   "platform": "youtube",
+   "follower_count": 1078677,
+   "engagement_percent": null,
+   "geo": "UA",
+   "language": "UK"
+  },
+  {
+   "handle": "@korey_rowe",
+   "niche": "HEALTH_FITNESS",
+   "sub_niche": "CROSSFIT_FUNCTIONAL_TRAINING_CREATORS",
+   "platform": "instagram",
+   "follower_count": 1000000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@moviesquirrels",
+   "niche": "PETS_ANIMALS",
+   "sub_niche": "WILDLIFE_NATURE_DOCUMENTARY_CREATORS",
+   "platform": "youtube",
+   "follower_count": 82800,
+   "engagement_percent": null,
+   "geo": "NO",
+   "language": "EN"
+  },
+  {
+   "handle": "@TheMewDiaries",
+   "niche": "PETS_ANIMALS",
+   "sub_niche": "CAT_LIFESTYLE_CARE_CREATORS",
+   "platform": "youtube",
+   "follower_count": 59000,
+   "engagement_percent": null,
+   "geo": "AT",
+   "language": "FA"
+  },
+  {
+   "handle": "@bluemontequinesanctuary",
+   "niche": "PETS_ANIMALS",
+   "sub_niche": "EQUESTRIAN_HORSE_CREATORS",
+   "platform": "instagram",
+   "follower_count": 38817,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "seoua",
+   "niche": "PETS_ANIMALS",
+   "sub_niche": "DOG_TRAINING_BEHAVIOR_CREATORS",
+   "platform": "youtube",
+   "follower_count": 20000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@dzaglik.batumi",
+   "niche": "PETS_ANIMALS",
+   "sub_niche": "RESCUE_ADOPTION_ADVOCATES",
+   "platform": "instagram",
+   "follower_count": 10000,
+   "engagement_percent": null,
+   "geo": "GE",
+   "language": "KA"
+  },
+  {
+   "handle": "@faunamountain",
+   "niche": "PETS_ANIMALS",
+   "sub_niche": "RESCUE_ADOPTION_ADVOCATES",
+   "platform": "instagram",
+   "follower_count": 8500,
+   "engagement_percent": null,
+   "geo": "ES",
+   "language": "EN"
+  },
+  {
+   "handle": "@mariegrippon",
+   "niche": "PHOTOGRAPHY",
+   "sub_niche": "PORTRAIT_HEADSHOT_PHOTOGRAPHERS",
+   "platform": "instagram",
+   "follower_count": 111400,
+   "engagement_percent": null,
+   "geo": "FR",
+   "language": "FR"
+  },
+  {
+   "handle": "@petertrainerphotography",
+   "niche": "PHOTOGRAPHY",
+   "sub_niche": "PRODUCT_COMMERCIAL_PHOTOGRAPHY_CREATORS",
+   "platform": "instagram",
+   "follower_count": 84872,
+   "engagement_percent": 0,
+   "geo": "AU",
+   "language": "EN"
+  },
+  {
+   "handle": "@zayyarlin84",
+   "niche": "PHOTOGRAPHY",
+   "sub_niche": "TRAVEL_PHOTOGRAPHY_CREATORS",
+   "platform": "instagram",
+   "follower_count": 23300,
+   "engagement_percent": null,
+   "geo": "OTHER",
+   "language": "EN"
+  },
+  {
+   "handle": "@betsnewman",
+   "niche": "PHOTOGRAPHY",
+   "sub_niche": "WEDDING_EVENT_PHOTOGRAPHERS",
+   "platform": "instagram",
+   "follower_count": 13667,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@benyantovisuals",
+   "niche": "PHOTOGRAPHY",
+   "sub_niche": "PRODUCT_COMMERCIAL_PHOTOGRAPHY_CREATORS",
+   "platform": "instagram",
+   "follower_count": 11366,
+   "engagement_percent": 0.83,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "kennethwajda",
+   "niche": "PHOTOGRAPHY",
+   "sub_niche": "PORTRAIT_HEADSHOT_PHOTOGRAPHERS",
+   "platform": "youtube",
+   "follower_count": 8150,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@PKilleenPhoto",
+   "niche": "PHOTOGRAPHY",
+   "sub_niche": "LANDSCAPE_NATURE_PHOTOGRAPHERS",
+   "platform": "x_twitter",
+   "follower_count": 5000,
+   "engagement_percent": null,
+   "geo": "GB",
+   "language": "FA"
+  },
+  {
+   "handle": "@shefit",
+   "niche": "FASHION",
+   "sub_niche": "PLUS_SIZE_FASHION_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 880900,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@lanzybear",
+   "niche": "FASHION",
+   "sub_niche": "HAUTE_COUTURE_RUNWAY_CREATORS",
+   "platform": "instagram",
+   "follower_count": 671000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@metcostumeinstitute",
+   "niche": "FASHION",
+   "sub_niche": "HAUTE_COUTURE_RUNWAY_CREATORS",
+   "platform": "instagram",
+   "follower_count": 326653,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Brent Neale's Substack",
+   "niche": "FASHION",
+   "sub_niche": "ACCESSORIES_JEWELLERY_CREATORS",
+   "platform": "substack",
+   "follower_count": 168800,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@charlotte_fashion_plate",
+   "niche": "FASHION",
+   "sub_niche": "STREETWEAR_CREATORS",
+   "platform": "instagram",
+   "follower_count": 163531,
+   "engagement_percent": 3.95,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@biancabeauchamp",
+   "niche": "FASHION",
+   "sub_niche": "Y2K_AESTHETIC_SUBCULTURE_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 155572,
+   "engagement_percent": null,
+   "geo": "CA",
+   "language": "FA"
+  },
+  {
+   "handle": "@ladymollyelizabeth",
+   "niche": "FASHION",
+   "sub_niche": "HAUTE_COUTURE_RUNWAY_CREATORS",
+   "platform": "substack",
+   "follower_count": 100000,
+   "engagement_percent": null,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "Costume Change",
+   "niche": "FASHION",
+   "sub_niche": "VINTAGE_THRIFT_FASHION_CREATORS",
+   "platform": "substack",
+   "follower_count": 78200,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "MadameAbsinthe",
+   "niche": "FASHION",
+   "sub_niche": "HAUTE_COUTURE_RUNWAY_CREATORS",
+   "platform": "youtube",
+   "follower_count": 33600,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@grace.grit.glamour",
+   "niche": "FASHION",
+   "sub_niche": "WORKWEAR_CAPSULE_WARDROBE_CREATORS",
+   "platform": "instagram",
+   "follower_count": 18241,
+   "engagement_percent": 0.14,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "financialed",
+   "niche": "FINANCE",
+   "sub_niche": "FINANCIAL_LITERACY_FOR_BEGINNERS",
+   "platform": "youtube",
+   "follower_count": 932000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "Trading Strategy Testing",
+   "niche": "FINANCE",
+   "sub_niche": "INVESTING_STOCK_MARKET_EDUCATORS",
+   "platform": "youtube",
+   "follower_count": 906000,
+   "engagement_percent": null,
+   "geo": "EE",
+   "language": "EN"
+  },
+  {
+   "handle": "@markminervini",
+   "niche": "FINANCE",
+   "sub_niche": "INVESTING_STOCK_MARKET_EDUCATORS",
+   "platform": "x_twitter",
+   "follower_count": 688000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@wallstreetyoda",
+   "niche": "FINANCE",
+   "sub_niche": "INVESTING_STOCK_MARKET_EDUCATORS",
+   "platform": "other",
+   "follower_count": 631900,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "Robin J Brooks",
+   "niche": "FINANCE",
+   "sub_niche": "MACROECONOMICS_MARKET_ANALYSTS",
+   "platform": "x_twitter",
+   "follower_count": 379000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@dougboneparth",
+   "niche": "FINANCE",
+   "sub_niche": "FINANCIAL_LITERACY_FOR_BEGINNERS",
+   "platform": "x_twitter",
+   "follower_count": 355628,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@shanaka86",
+   "niche": "FINANCE",
+   "sub_niche": "MACROECONOMICS_MARKET_ANALYSTS",
+   "platform": "x_twitter",
+   "follower_count": 250000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@_erkanoz",
+   "niche": "FINANCE",
+   "sub_niche": "MACROECONOMICS_MARKET_ANALYSTS",
+   "platform": "youtube",
+   "follower_count": 250000,
+   "engagement_percent": null,
+   "geo": "TR",
+   "language": "EN"
+  },
+  {
+   "handle": "Михайло Смокович",
+   "niche": "FINANCE",
+   "sub_niche": "TAX_ACCOUNTING_EDUCATORS",
+   "platform": "youtube",
+   "follower_count": 248000,
+   "engagement_percent": null,
+   "geo": "UA",
+   "language": "RU"
+  },
+  {
+   "handle": "@dlauer",
+   "niche": "FINANCE",
+   "sub_niche": "MACROECONOMICS_MARKET_ANALYSTS",
+   "platform": "x_twitter",
+   "follower_count": 207734,
+   "engagement_percent": null,
+   "geo": "CA",
+   "language": "EN"
+  },
+  {
+   "handle": "@khaledbeydoun",
+   "niche": "CRYPTO_WEB3",
+   "sub_niche": "NFT_DIGITAL_COLLECTIBLES_CREATORS",
+   "platform": "instagram",
+   "follower_count": 2800000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@Aptos",
+   "niche": "CRYPTO_WEB3",
+   "sub_niche": "ETHEREUM_SMART_CONTRACT_DEVELOPERS",
+   "platform": "x_twitter",
+   "follower_count": 585700,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@zkPass",
+   "niche": "CRYPTO_WEB3",
+   "sub_niche": "DAO_GOVERNANCE_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 353200,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@KCCOfficialTW",
+   "niche": "CRYPTO_WEB3",
+   "sub_niche": "ETHEREUM_SMART_CONTRACT_DEVELOPERS",
+   "platform": "x_twitter",
+   "follower_count": 270000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@monad_dev",
+   "niche": "CRYPTO_WEB3",
+   "sub_niche": "STABLECOINS_ON_CHAIN_FINANCE_CREATORS",
+   "platform": "youtube",
+   "follower_count": 245000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "DigitalAssetInvestor",
+   "niche": "CRYPTO_WEB3",
+   "sub_niche": "TRADING_TECHNICAL_ANALYSIS_CREATORS",
+   "platform": "youtube",
+   "follower_count": 221000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@POWR_X",
+   "niche": "CRYPTO_WEB3",
+   "sub_niche": "CRYPTO_NEWS_MARKET_COMMENTATORS",
+   "platform": "substack",
+   "follower_count": 163000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Governance Lab",
+   "niche": "CRYPTO_WEB3",
+   "sub_niche": "DAO_GOVERNANCE_CREATORS",
+   "platform": "substack",
+   "follower_count": 159000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@DefiIgnas",
+   "niche": "CRYPTO_WEB3",
+   "sub_niche": "DEFI_ANALYSTS",
+   "platform": "x_twitter",
+   "follower_count": 159000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "nft now",
+   "niche": "CRYPTO_WEB3",
+   "sub_niche": "NFT_DIGITAL_COLLECTIBLES_CREATORS",
+   "platform": "substack",
+   "follower_count": 142000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@vanillamace",
+   "niche": "ENTERTAINMENT",
+   "sub_niche": "AUDIENCE_REACTIONS_WATCH_PARTY_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 3200000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@hellotefi",
+   "niche": "ENTERTAINMENT",
+   "sub_niche": "POP_CULTURE_COMMENTATORS",
+   "platform": "tiktok",
+   "follower_count": 1900000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@BDisgusting",
+   "niche": "ENTERTAINMENT",
+   "sub_niche": "POP_CULTURE_COMMENTATORS",
+   "platform": "x_twitter",
+   "follower_count": 690000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@LeviJonesCC",
+   "niche": "ENTERTAINMENT",
+   "sub_niche": "POP_CULTURE_COMMENTATORS",
+   "platform": "youtube",
+   "follower_count": 613000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "FA"
+  },
+  {
+   "handle": "al_id",
+   "niche": "ENTERTAINMENT",
+   "sub_niche": "FAN_THEORY_SPECULATION_CREATORS",
+   "platform": "youtube",
+   "follower_count": 341000,
+   "engagement_percent": 37.04,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "Robert Black XXX | Fact and Fantasy",
+   "niche": "ENTERTAINMENT",
+   "sub_niche": "POP_CULTURE_COMMENTATORS",
+   "platform": "substack",
+   "follower_count": 311000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Hotel Matze",
+   "niche": "ENTERTAINMENT",
+   "sub_niche": "POP_CULTURE_COMMENTATORS",
+   "platform": "youtube",
+   "follower_count": 287000,
+   "engagement_percent": null,
+   "geo": "DE",
+   "language": "DE"
+  },
+  {
+   "handle": "scott-michaels",
+   "niche": "ENTERTAINMENT",
+   "sub_niche": "DRAMA_GOSSIP_CREATORS",
+   "platform": "youtube",
+   "follower_count": 276000,
+   "engagement_percent": null,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "@rachelereilly",
+   "niche": "ENTERTAINMENT",
+   "sub_niche": "REALITY_TV_RECAP_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 215476,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "FA"
+  },
+  {
+   "handle": "@realsummervixen",
+   "niche": "ENTERTAINMENT",
+   "sub_niche": "POP_CULTURE_COMMENTATORS",
+   "platform": "x_twitter",
+   "follower_count": 182931,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "FA"
+  },
+  {
+   "handle": "scobel",
+   "niche": "SCIENCE",
+   "sub_niche": "POP_SCIENCE_CURIOSITY_DRIVEN_CREATORS",
+   "platform": "youtube",
+   "follower_count": 565500,
+   "engagement_percent": null,
+   "geo": "DE",
+   "language": "DE"
+  },
+  {
+   "handle": "@_HannahRitchie",
+   "niche": "SCIENCE",
+   "sub_niche": "CLIMATE_ENVIRONMENTAL_SCIENCE_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 79000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@RachelFeltman",
+   "niche": "SCIENCE",
+   "sub_niche": "POP_SCIENCE_CURIOSITY_DRIVEN_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 51500,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@SolomonRDavid",
+   "niche": "SCIENCE",
+   "sub_niche": "BIOLOGY_LIFE_SCIENCES_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 33000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@SkeleCrewPaleo",
+   "niche": "SCIENCE",
+   "sub_niche": "BIOLOGY_LIFE_SCIENCES_CREATORS",
+   "platform": "other",
+   "follower_count": 15100,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@joefrancis505",
+   "niche": "SCIENCE",
+   "sub_niche": "POP_SCIENCE_CURIOSITY_DRIVEN_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 10000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@AxiaVC",
+   "niche": "SCIENCE",
+   "sub_niche": "BIOLOGY_LIFE_SCIENCES_CREATORS",
+   "platform": "substack",
+   "follower_count": 10000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "*notas de Naturaleza",
+   "niche": "SCIENCE",
+   "sub_niche": "CITIZEN_SCIENCE_FIELD_RESEARCH_CREATORS",
+   "platform": "substack",
+   "follower_count": 8000,
+   "engagement_percent": null,
+   "geo": "ES",
+   "language": "ES"
+  },
+  {
+   "handle": "@AukeFlorian",
+   "niche": "SCIENCE",
+   "sub_niche": "BIOLOGY_LIFE_SCIENCES_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 6000,
+   "engagement_percent": null,
+   "geo": "NL",
+   "language": "EN"
+  },
+  {
+   "handle": "@rabbit_hole_of_research",
+   "niche": "SCIENCE",
+   "sub_niche": "POP_SCIENCE_CURIOSITY_DRIVEN_CREATORS",
+   "platform": "substack",
+   "follower_count": 4500,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@fkacrumby",
+   "niche": "SPIRITUALITY_MINDFULNESS",
+   "sub_niche": "CHRISTIAN_FAITH_CREATORS",
+   "platform": "substack",
+   "follower_count": 5148021,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Philosia",
+   "niche": "SPIRITUALITY_MINDFULNESS",
+   "sub_niche": "NEW_AGE_ENERGY_HEALING_CREATORS",
+   "platform": "youtube",
+   "follower_count": 1660000,
+   "engagement_percent": null,
+   "geo": "IN",
+   "language": "EN"
+  },
+  {
+   "handle": "Scarlett’s Substack",
+   "niche": "SPIRITUALITY_MINDFULNESS",
+   "sub_niche": "CHRISTIAN_FAITH_CREATORS",
+   "platform": "substack",
+   "follower_count": 1200000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Albyyinah",
+   "niche": "SPIRITUALITY_MINDFULNESS",
+   "sub_niche": null,
+   "platform": "other",
+   "follower_count": 1070000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@Sirius.Guidance",
+   "niche": "SPIRITUALITY_MINDFULNESS",
+   "sub_niche": "ASTROLOGY_ZODIAC_CREATORS",
+   "platform": "instagram",
+   "follower_count": 721812,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "charlee",
+   "niche": "SPIRITUALITY_MINDFULNESS",
+   "sub_niche": "ASTROLOGY_ZODIAC_CREATORS",
+   "platform": "youtube",
+   "follower_count": 549000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@gottabla",
+   "niche": "SPIRITUALITY_MINDFULNESS",
+   "sub_niche": "ASTROLOGY_ZODIAC_CREATORS",
+   "platform": "substack",
+   "follower_count": 481000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "The Early Edition: Prophetic Updates w/ Pastor Cioccolanti",
+   "niche": "SPIRITUALITY_MINDFULNESS",
+   "sub_niche": "CHRISTIAN_FAITH_CREATORS",
+   "platform": "youtube",
+   "follower_count": 424000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@QasimRashid",
+   "niche": "SPIRITUALITY_MINDFULNESS",
+   "sub_niche": "ISLAMIC_FAITH_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 344000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Victor Fontana",
+   "niche": "SPIRITUALITY_MINDFULNESS",
+   "sub_niche": "CHRISTIAN_FAITH_CREATORS",
+   "platform": "youtube",
+   "follower_count": 248000,
+   "engagement_percent": null,
+   "geo": "BR",
+   "language": "PT"
+  },
+  {
+   "handle": "DIGITAL STORM weekly",
+   "niche": "SAAS_SOFTWARE",
+   "sub_niche": null,
+   "platform": "linkedin",
+   "follower_count": 706490,
+   "engagement_percent": 0.04,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@visualz.us",
+   "niche": "SAAS_SOFTWARE",
+   "sub_niche": "NO_CODE_LOW_CODE_BUILDERS",
+   "platform": "other",
+   "follower_count": 270000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@tibo_maker",
+   "niche": "SAAS_SOFTWARE",
+   "sub_niche": "INDIE_HACKER_BOOTSTRAPPED_SAAS_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 189853,
+   "engagement_percent": null,
+   "geo": "FR",
+   "language": "EN"
+  },
+  {
+   "handle": "swyx & Alessio Fanelli (Latent Space)",
+   "niche": "SAAS_SOFTWARE",
+   "sub_niche": null,
+   "platform": "substack",
+   "follower_count": 178000,
+   "engagement_percent": 0.05,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@pawel-huryn",
+   "niche": "SAAS_SOFTWARE",
+   "sub_niche": null,
+   "platform": "linkedin",
+   "follower_count": 133000,
+   "engagement_percent": 0.21,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "The Good Sales - Vente SaaS",
+   "niche": "SAAS_SOFTWARE",
+   "sub_niche": "SAAS_SALES_REVENUE_OPERATIONS_CREATORS",
+   "platform": "linkedin",
+   "follower_count": 108000,
+   "engagement_percent": null,
+   "geo": "FR",
+   "language": "FR"
+  },
+  {
+   "handle": "@cusdeb_com",
+   "niche": "SAAS_SOFTWARE",
+   "sub_niche": "DEVELOPER_TOOLS_DEVEX_CREATORS",
+   "platform": "instagram",
+   "follower_count": 93500,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "Leah Tharin",
+   "niche": "SAAS_SOFTWARE",
+   "sub_niche": "SAAS_ANALYTICS_GROWTH_CREATORS",
+   "platform": "other",
+   "follower_count": 55000,
+   "engagement_percent": null,
+   "geo": "CH",
+   "language": "EN"
+  },
+  {
+   "handle": "@lea-turner",
+   "niche": "SAAS_SOFTWARE",
+   "sub_niche": null,
+   "platform": "linkedin",
+   "follower_count": 50000,
+   "engagement_percent": 0.15,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "Dave de Céspedes (Notion Coach)",
+   "niche": "SAAS_SOFTWARE",
+   "sub_niche": "NO_CODE_LOW_CODE_BUILDERS",
+   "platform": "youtube",
+   "follower_count": 41745,
+   "engagement_percent": 0.062,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@NFL",
+   "niche": "SPORTS",
+   "sub_niche": "AMERICAN_FOOTBALL_NFL_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 36000000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@ilonamaher",
+   "niche": "SPORTS",
+   "sub_niche": "SPORTS_DOCUMENTARIES_STORYTELLING_CREATORS",
+   "platform": "instagram",
+   "follower_count": 5460000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@gothlaw",
+   "niche": "SPORTS",
+   "sub_niche": "AMERICAN_FOOTBALL_NFL_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 3000000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "DAZN Football",
+   "niche": "SPORTS",
+   "sub_niche": "FOOTBALL_SOCCER_CREATORS",
+   "platform": "youtube",
+   "follower_count": 2900000,
+   "engagement_percent": null,
+   "geo": "GB",
+   "language": "EN"
+  },
+  {
+   "handle": "@lakersnation",
+   "niche": "SPORTS",
+   "sub_niche": "BASKETBALL_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 821912,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "FA"
+  },
+  {
+   "handle": "@sagesteele",
+   "niche": "SPORTS",
+   "sub_niche": "SPORTS_ANALYSIS_TACTICS_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 553000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "FIDE (International Chess Federation)",
+   "niche": "SPORTS",
+   "sub_niche": "SPORTS_ANALYSIS_TACTICS_CREATORS",
+   "platform": "youtube",
+   "follower_count": 361000,
+   "engagement_percent": null,
+   "geo": "CH",
+   "language": "EN"
+  },
+  {
+   "handle": "Doorkronkelen",
+   "niche": "SPORTS",
+   "sub_niche": "FOOTBALL_SOCCER_CREATORS",
+   "platform": "substack",
+   "follower_count": 200000,
+   "engagement_percent": null,
+   "geo": "NL",
+   "language": "NL"
+  },
+  {
+   "handle": "@michaeloher",
+   "niche": "SPORTS",
+   "sub_niche": "AMERICAN_FOOTBALL_NFL_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 199272,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "FA"
+  },
+  {
+   "handle": "@mattamys",
+   "niche": "SPORTS",
+   "sub_niche": "SPORTS_DOCUMENTARIES_STORYTELLING_CREATORS",
+   "platform": "substack",
+   "follower_count": 161000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@Teslarati",
+   "niche": "AUTOMOTIVE",
+   "sub_niche": "EV_HYBRID_CAR_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 24794810,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "FuzzyDiceProjects",
+   "niche": "AUTOMOTIVE",
+   "sub_niche": "DIY_MECHANIC_REPAIR_CREATORS",
+   "platform": "youtube",
+   "follower_count": 271000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@FDataAnalysis",
+   "niche": "AUTOMOTIVE",
+   "sub_niche": "RACE_MOTORSPORT_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 160000,
+   "engagement_percent": null,
+   "geo": "IT",
+   "language": "EN"
+  },
+  {
+   "handle": "Today I'm Growing",
+   "niche": "MENTAL_HEALTH_WELLNESS",
+   "sub_niche": "SELF_COMPASSION_SELF_CARE_CREATORS",
+   "platform": "youtube",
+   "follower_count": 8060000,
+   "engagement_percent": null,
+   "geo": "OTHER",
+   "language": "EN"
+  },
+  {
+   "handle": "@patreon",
+   "niche": "MENTAL_HEALTH_WELLNESS",
+   "sub_niche": "ANXIETY_DEPRESSION_AWARENESS_CREATORS",
+   "platform": "other",
+   "follower_count": 3000000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "Rorro Echávez",
+   "niche": "MENTAL_HEALTH_WELLNESS",
+   "sub_niche": "SELF_COMPASSION_SELF_CARE_CREATORS",
+   "platform": "substack",
+   "follower_count": 1000000,
+   "engagement_percent": null,
+   "geo": "ES",
+   "language": "ES"
+  },
+  {
+   "handle": "Gnarnia with Kate Hopkins",
+   "niche": "MENTAL_HEALTH_WELLNESS",
+   "sub_niche": "SELF_COMPASSION_SELF_CARE_CREATORS",
+   "platform": "youtube",
+   "follower_count": 652000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@barrierose",
+   "niche": "MENTAL_HEALTH_WELLNESS",
+   "sub_niche": "WOMEN_S_MENTAL_HEALTH_CREATORS",
+   "platform": "youtube",
+   "follower_count": 650000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Spark Growth",
+   "niche": "MENTAL_HEALTH_WELLNESS",
+   "sub_niche": "TRAUMA_PTSD_RECOVERY_CREATORS",
+   "platform": "youtube",
+   "follower_count": 644000,
+   "engagement_percent": 100,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@dr_isaenko",
+   "niche": "MENTAL_HEALTH_WELLNESS",
+   "sub_niche": null,
+   "platform": "instagram",
+   "follower_count": 371092,
+   "engagement_percent": null,
+   "geo": "UA",
+   "language": "UK"
+  },
+  {
+   "handle": "@dr_skripnik_evgen_",
+   "niche": "MENTAL_HEALTH_WELLNESS",
+   "sub_niche": "ADDICTION_RECOVERY_CREATORS",
+   "platform": "instagram",
+   "follower_count": 244513,
+   "engagement_percent": 0.18,
+   "geo": "UA",
+   "language": "UK"
+  },
+  {
+   "handle": "The Grief Table - Jamie Herzog",
+   "niche": "MENTAL_HEALTH_WELLNESS",
+   "sub_niche": "TRAUMA_PTSD_RECOVERY_CREATORS",
+   "platform": "substack",
+   "follower_count": 230000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "chernyak.blog",
+   "niche": "MENTAL_HEALTH_WELLNESS",
+   "sub_niche": "BURNOUT_STRESS_MANAGEMENT_CREATORS",
+   "platform": "youtube",
+   "follower_count": 200000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@happy_baes",
+   "niche": "PARENTING_FAMILY",
+   "sub_niche": "STAY_AT_HOME_PARENTS",
+   "platform": "instagram",
+   "follower_count": 235260,
+   "engagement_percent": 8.86,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@glkirschenbaum",
+   "niche": "PARENTING_FAMILY",
+   "sub_niche": "MULTI_GENERATIONAL_FAMILY_CREATORS",
+   "platform": "substack",
+   "follower_count": 100000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Brooklyn Stroll Club",
+   "niche": "PARENTING_FAMILY",
+   "sub_niche": "NEW_PARENTS_0_12_MONTHS",
+   "platform": "substack",
+   "follower_count": 27500,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "meatball",
+   "niche": "GAMING",
+   "sub_niche": "MODDERS_UGC_CREATORS",
+   "platform": "instagram",
+   "follower_count": 2000000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@39jeshi",
+   "niche": "GAMING",
+   "sub_niche": "MODDERS_UGC_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 2000000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@metakitrina",
+   "niche": "GAMING",
+   "sub_niche": "MODDERS_UGC_CREATORS",
+   "platform": "youtube",
+   "follower_count": 617000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@jradoff",
+   "niche": "GAMING",
+   "sub_niche": "LORE_ANALYSTS_GAME_RESEARCHERS",
+   "platform": "x_twitter",
+   "follower_count": 327195,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "FA"
+  },
+  {
+   "handle": "Stories by Chess Knowledge With H1 on Medium",
+   "niche": "GAMING",
+   "sub_niche": "GUIDES_TUTORIALS_CREATORS",
+   "platform": "youtube",
+   "follower_count": 220000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "FA"
+  },
+  {
+   "handle": "luki_media",
+   "niche": "GAMING",
+   "sub_niche": "VARIETY_STREAMERS",
+   "platform": "youtube",
+   "follower_count": 143000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@azaelofficial",
+   "niche": "GAMING",
+   "sub_niche": "COMPETITIVE_ESPORTS_ATHLETES",
+   "platform": "x_twitter",
+   "follower_count": 120393,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "FA"
+  },
+  {
+   "handle": "@bestiarum.games",
+   "niche": "GAMING",
+   "sub_niche": "MODDERS_UGC_CREATORS",
+   "platform": "instagram",
+   "follower_count": 102000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@the.fantasy.forge",
+   "niche": "GAMING",
+   "sub_niche": "GUIDES_TUTORIALS_CREATORS",
+   "platform": "instagram",
+   "follower_count": 89400,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "TYLERWHIFFY",
+   "niche": "GAMING",
+   "sub_niche": "MODDERS_UGC_CREATORS",
+   "platform": "youtube",
+   "follower_count": 86700,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "Omoni Oboli TV",
+   "niche": "FILM_ANIMATION",
+   "sub_niche": null,
+   "platform": "youtube",
+   "follower_count": 1930000,
+   "engagement_percent": null,
+   "geo": "CA",
+   "language": "EN"
+  },
+  {
+   "handle": "Royal Arts TV",
+   "niche": "FILM_ANIMATION",
+   "sub_niche": null,
+   "platform": "youtube",
+   "follower_count": 669000,
+   "engagement_percent": null,
+   "geo": "OTHER",
+   "language": "EN"
+  },
+  {
+   "handle": "The Dor Brothers",
+   "niche": "FILM_ANIMATION",
+   "sub_niche": "VIDEO_EDITING_POST_PRODUCTION_CREATORS",
+   "platform": "youtube",
+   "follower_count": 278000,
+   "engagement_percent": null,
+   "geo": "DE",
+   "language": "EN"
+  },
+  {
+   "handle": "BDANIELS TV",
+   "niche": "FILM_ANIMATION",
+   "sub_niche": "STREAMING_SERVICE_SERIES_REVIEWERS",
+   "platform": "youtube",
+   "follower_count": 204000,
+   "engagement_percent": null,
+   "geo": "NG",
+   "language": "EN"
+  },
+  {
+   "handle": "@yesshecannes",
+   "niche": "FILM_ANIMATION",
+   "sub_niche": "INDIE_FILMMAKING_EDUCATORS",
+   "platform": "instagram",
+   "follower_count": 27699,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@ceryslovesfilm",
+   "niche": "FILM_ANIMATION",
+   "sub_niche": "FILM_REVIEWERS_CRITICS",
+   "platform": "tiktok",
+   "follower_count": 14000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@blacknanimated",
+   "niche": "FILM_ANIMATION",
+   "sub_niche": "N_2D_ANIMATION_CREATORS",
+   "platform": "instagram",
+   "follower_count": 10600,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@weardjupiter",
+   "niche": "FILM_ANIMATION",
+   "sub_niche": "FILM_THEORY_ANALYSIS_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 8000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@ai_studioplatz",
+   "niche": "FILM_ANIMATION",
+   "sub_niche": "INDIE_FILMMAKING_EDUCATORS",
+   "platform": "substack",
+   "follower_count": 8000,
+   "engagement_percent": null,
+   "geo": "ES",
+   "language": "ES"
+  },
+  {
+   "handle": "@fernandadegolin",
+   "niche": "FILM_ANIMATION",
+   "sub_niche": "INDIE_FILMMAKING_EDUCATORS",
+   "platform": "linkedin",
+   "follower_count": 5892,
+   "engagement_percent": 1.05,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "Joseph James Rogan Jr.",
+   "niche": "COMEDY_HUMOR",
+   "sub_niche": "STAND_UP_COMEDY_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 13100000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@realchristianmccartney",
+   "niche": "COMEDY_HUMOR",
+   "sub_niche": "STAND_UP_COMEDY_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 5900000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@dril",
+   "niche": "COMEDY_HUMOR",
+   "sub_niche": "MEME_COMMENTATORS_REACTION_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 1800000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@friday.beers",
+   "niche": "COMEDY_HUMOR",
+   "sub_niche": "SKETCH_COMEDY_GROUPS",
+   "platform": "instagram",
+   "follower_count": 1600000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Matt Shaver",
+   "niche": "COMEDY_HUMOR",
+   "sub_niche": "SKETCH_COMEDY_GROUPS",
+   "platform": "tiktok",
+   "follower_count": 360000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@realDonaldTrFan",
+   "niche": "COMEDY_HUMOR",
+   "sub_niche": "SATIRICAL_POLITICAL_HUMOR_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 291000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "FA"
+  },
+  {
+   "handle": "@corporate.bro",
+   "niche": "COMEDY_HUMOR",
+   "sub_niche": "SATIRICAL_POLITICAL_HUMOR_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 284100,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@akilahobviously",
+   "niche": "COMEDY_HUMOR",
+   "sub_niche": "SATIRICAL_POLITICAL_HUMOR_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 205180,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "AR"
+  },
+  {
+   "handle": "@punchlinettes",
+   "niche": "COMEDY_HUMOR",
+   "sub_niche": "SATIRICAL_POLITICAL_HUMOR_CREATORS",
+   "platform": "instagram",
+   "follower_count": 128981,
+   "engagement_percent": null,
+   "geo": "FR",
+   "language": "FR"
+  },
+  {
+   "handle": "@piersmorgan",
+   "niche": "COMEDY_HUMOR",
+   "sub_niche": "SATIRICAL_POLITICAL_HUMOR_CREATORS",
+   "platform": "substack",
+   "follower_count": 59101,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@purplepingers",
+   "niche": "REAL_ESTATE",
+   "sub_niche": "RENTAL_PROPERTY_LANDLORD_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 200000,
+   "engagement_percent": null,
+   "geo": "AU",
+   "language": "EN"
+  },
+  {
+   "handle": "@lathamjenkins.jacksonhole",
+   "niche": "REAL_ESTATE",
+   "sub_niche": "LUXURY_PROPERTY_TOUR_CREATORS",
+   "platform": "instagram",
+   "follower_count": 81381,
+   "engagement_percent": 0.45,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@danvforbes",
+   "niche": "REAL_ESTATE",
+   "sub_niche": "REAL_ESTATE_MARKET_ANALYSTS",
+   "platform": "x_twitter",
+   "follower_count": 50382,
+   "engagement_percent": 0.01,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Magnates del Ladrillo",
+   "niche": "REAL_ESTATE",
+   "sub_niche": "REAL_ESTATE_INVESTING_CREATORS",
+   "platform": "youtube",
+   "follower_count": 31900,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "ES"
+  },
+  {
+   "handle": "@iamjonbrooks",
+   "niche": "REAL_ESTATE",
+   "sub_niche": "REAL_ESTATE_AGENT_TIP_CREATORS",
+   "platform": "substack",
+   "follower_count": 28000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@theespinozateam",
+   "niche": "REAL_ESTATE",
+   "sub_niche": "REAL_ESTATE_AGENT_TIP_CREATORS",
+   "platform": "substack",
+   "follower_count": 20400,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "ES"
+  },
+  {
+   "handle": "The Bright Build",
+   "niche": "REAL_ESTATE",
+   "sub_niche": "REAL_ESTATE_INVESTING_CREATORS",
+   "platform": "substack",
+   "follower_count": 10000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "placy_ai",
+   "niche": "REAL_ESTATE",
+   "sub_niche": "REAL_ESTATE_AGENT_TIP_CREATORS",
+   "platform": "other",
+   "follower_count": 8000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "lindahayes",
+   "niche": "REAL_ESTATE",
+   "sub_niche": "INTERNATIONAL_PROPERTY_RELOCATION_CREATORS",
+   "platform": "youtube",
+   "follower_count": 3400,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@hattiekolp",
+   "niche": "HOME_GARDEN",
+   "sub_niche": "HOME_RENOVATION_CREATORS",
+   "platform": "instagram",
+   "follower_count": 739600,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@posemcoloralhortasud",
+   "niche": "HOME_GARDEN",
+   "sub_niche": "VEGETABLE_GARDENING_CREATORS",
+   "platform": "instagram",
+   "follower_count": 163400,
+   "engagement_percent": null,
+   "geo": "ES",
+   "language": "EN"
+  },
+  {
+   "handle": "@martin_lippo",
+   "niche": "HOME_GARDEN",
+   "sub_niche": "CLEANING_ROUTINES_ASMR_CLEANING_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 120270,
+   "engagement_percent": 4.89,
+   "geo": "ES",
+   "language": "FI"
+  },
+  {
+   "handle": "Shining House Designs",
+   "niche": "HOME_GARDEN",
+   "sub_niche": "HOME_RENOVATION_CREATORS",
+   "platform": "youtube",
+   "follower_count": 27700,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@originalspinstr",
+   "niche": "HOME_GARDEN",
+   "sub_niche": "HOME_RENOVATION_CREATORS",
+   "platform": "x_twitter",
+   "follower_count": 7000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@toofbush",
+   "niche": "DIY_CRAFTS",
+   "sub_niche": "SEWING_GARMENT_MAKING_CREATORS",
+   "platform": "substack",
+   "follower_count": 938900,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Paul Chevallier",
+   "niche": "DIY_CRAFTS",
+   "sub_niche": "SEWING_GARMENT_MAKING_CREATORS",
+   "platform": "youtube",
+   "follower_count": 390000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "@bmandarines",
+   "niche": "DIY_CRAFTS",
+   "sub_niche": "KNITTING_CROCHET_CREATORS",
+   "platform": "instagram",
+   "follower_count": 72100,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "diy_podcast",
+   "niche": "DIY_CRAFTS",
+   "sub_niche": "SEWING_GARMENT_MAKING_CREATORS",
+   "platform": "youtube",
+   "follower_count": 35000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "createdbygwen",
+   "niche": "DIY_CRAFTS",
+   "sub_niche": "PAPER_CRAFTS_ORIGAMI_CREATORS",
+   "platform": "youtube",
+   "follower_count": 29600,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "Working Cloth: Things to Make",
+   "niche": "DIY_CRAFTS",
+   "sub_niche": "SEWING_GARMENT_MAKING_CREATORS",
+   "platform": "substack",
+   "follower_count": 26028,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@theprimitivehare",
+   "niche": "DIY_CRAFTS",
+   "sub_niche": "EMBROIDERY_CROSS_STITCH_CREATORS",
+   "platform": "instagram",
+   "follower_count": 13500,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "Threadstack",
+   "niche": "DIY_CRAFTS",
+   "sub_niche": "KNITTING_CROCHET_CREATORS",
+   "platform": "substack",
+   "follower_count": 12700,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@pawpular_prints",
+   "niche": "DIY_CRAFTS",
+   "sub_niche": "POLYMER_CLAY_SCULPTING_CREATORS",
+   "platform": "other",
+   "follower_count": 12191,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "chicago craft club",
+   "niche": "DIY_CRAFTS",
+   "sub_niche": "UPCYCLING_REPURPOSING_CREATORS",
+   "platform": "substack",
+   "follower_count": 10000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "TheDumbZone",
+   "niche": "PODCASTING",
+   "sub_niche": "COMEDY_PODCASTERS",
+   "platform": "youtube",
+   "follower_count": 16200,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "Podcast Plunge | Recommendations & Media News",
+   "niche": "PODCASTING",
+   "sub_niche": "STORYTELLING_NARRATIVE_PODCASTERS",
+   "platform": "substack",
+   "follower_count": 13000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "itsmaelam",
+   "niche": "PODCASTING",
+   "sub_niche": null,
+   "platform": "youtube",
+   "follower_count": 12800,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "aleks_podkast",
+   "niche": "PODCASTING",
+   "sub_niche": "INTERVIEW_FORMAT_PODCASTERS",
+   "platform": "youtube",
+   "follower_count": 5000,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "DIGESTIF [ダイジェスティフ]",
+   "niche": "PODCASTING",
+   "sub_niche": null,
+   "platform": "substack",
+   "follower_count": 3000,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@delina_gray",
+   "niche": "BEAUTY_MAKEUP",
+   "sub_niche": "INDIE_BEAUTY_NICHE_BRAND_REVIEWERS",
+   "platform": "other",
+   "follower_count": 43523,
+   "engagement_percent": 1.13,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "barefaced",
+   "niche": "BEAUTY_MAKEUP",
+   "sub_niche": "SKINCARE_FIRST_BEAUTY_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 41500,
+   "engagement_percent": null,
+   "geo": "US",
+   "language": "EN"
+  },
+  {
+   "handle": "@miniinaaz",
+   "niche": "BEAUTY_MAKEUP",
+   "sub_niche": "EVERYDAY_MAKEUP_TUTORIALS_CREATORS",
+   "platform": "instagram",
+   "follower_count": 38100,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "FA"
+  },
+  {
+   "handle": "@theprincessmalia_",
+   "niche": "BEAUTY_MAKEUP",
+   "sub_niche": "EVERYDAY_MAKEUP_TUTORIALS_CREATORS",
+   "platform": "tiktok",
+   "follower_count": 16933,
+   "engagement_percent": 9.08,
+   "geo": null,
+   "language": "EN"
+  },
+  {
+   "handle": "susiedahl",
+   "niche": "BEAUTY_MAKEUP",
+   "sub_niche": "EDITORIAL_HIGH_FASHION_MAKEUP_CREATORS",
+   "platform": "other",
+   "follower_count": 9436,
+   "engagement_percent": null,
+   "geo": null,
+   "language": "EN"
+  }
+ ]
+}

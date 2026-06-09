@@ -28,8 +28,9 @@ async def test_full_demo_pipeline():
     assert 1 <= len(creators) <= 3
     assert all(c["fit_score"] > 0 for c in creators)
 
-    enriched = await enrich_creator(creator_id="demo-uuid")
-    assert enriched["email_verified"] is True
+    enriched = await enrich_creator(creator_id=creators[0]["creator_id"])
+    assert enriched["creator_id"] == creators[0]["creator_id"]
+    assert enriched["handle"] == creators[0]["handle"]
 
     draft = await draft_outreach(profile, creators[0])
     assert "Chapterhouse" in draft["subject"]

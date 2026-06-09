@@ -40,15 +40,20 @@ async def draft_outreach(
 
 def _demo_payload(brand: dict[str, Any], creator: dict[str, Any]) -> dict[str, Any]:
     handle = creator.get("handle", "@creator")
+    company = brand.get("company", {})
+    name = company.get("name", "our brand")
+    desc = (company.get("description") or "").split(".")[0].strip()
+    pitch = f", {desc.lower()}" if desc else ""
+    niche = (creator.get("niche") or "").replace("_", " ").lower()
     return {
-        "subject": f"Chapterhouse × {handle} — a quiet collaboration idea",
+        "subject": f"{name} × {handle} — a collaboration idea",
         "body_markdown": (
             f"Hi {handle},\n\n"
-            "We've followed your reviews for a while — your tone matches what we're "
-            "building at Chapterhouse, an indie-fiction audiobook subscription.\n\n"
-            "Would you be open to a one-month trial in exchange for an honest review?\n\n"
-            "— Demo Founder"
+            f"We've been following your {niche} work — it lines up with what we're "
+            f"building at {name}{pitch}.\n\n"
+            "Would you be open to a short collaboration? Happy to share details.\n\n"
+            f"— The {name} team"
         ),
         "estimated_response_rate": 0.21,
-        "personalisation_signals": ["niche match", "tone match", "geo match"],
+        "personalisation_signals": ["niche match", "audience fit", "geo match"],
     }

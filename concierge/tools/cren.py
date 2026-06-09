@@ -4,42 +4,39 @@ from typing import Any
 
 from concierge.http_client import internal_client
 from concierge.settings import get_settings
+from concierge.tools.aimm import _creator_id, _sample
 
 
 async def enrich_creator(creator_id: str) -> dict[str, Any]:
-    """Refresh creator contact + metrics via CREN.
+    """Refresh a creator's public metrics from the CashTime network.
 
     Args:
-        creator_id: CashTime Twenty UUID for the creator.
+        creator_id: The ``creator_id`` returned by ``match_creators``.
 
     Returns:
-        dict with ``creator_id``, ``email``, ``email_verified``,
-        ``follower_count``, ``avg_views``, ``engagement_percent``,
-        ``last_post_at``, ``biography``, ``platforms`` (list with per-platform
-        handles), ``warnings`` (e.g. "no verified email").
+        dict with ``creator_id``, ``handle``, ``platform``, ``follower_count``,
+        ``engagement_percent``, ``geo``, ``language``, ``warnings``.
     """
     settings = get_settings()
-    if settings.demo_mode or not settings.cren_base_url:
-        return _demo_payload(creator_id)
+    if settings.cren_base_url and not settings.demo_mode:
+        async with internal_client(settings.cren_base_url) as http:
+            resp = await http.get(f"/creators/{creator_id}/enrich")
+            resp.raise_for_status()
+            return resp.json()
 
-    async with internal_client(settings.cren_base_url) as http:
-        resp = await http.get(f"/creators/{creator_id}/enrich")
-        resp.raise_for_status()
-        return resp.json()
+    for c in _sample():
+        if _creator_id(c.get("handle", ""), c.get("niche", "")) == creator_id:
+            warnings = [] if (c.get("follower_count") or 0) else ["no follower data"]
+            return {
+                "creator_id": creator_id,
+                "handle": c.get("handle"),
+                "platform": c.get("platform"),
+                "niche": c.get("niche"),
+                "follower_count": c.get("follower_count"),
+                "engagement_percent": c.get("engagement_percent"),
+                "geo": c.get("geo"),
+                "language": c.get("language"),
+                "warnings": warnings,
+            }
 
-
-def _demo_payload(creator_id: str) -> dict[str, Any]:
-    return {
-        "creator_id": creator_id,
-        "email": "demo@example.com",
-        "email_verified": True,
-        "follower_count": 30_000,
-        "avg_views": 12_500,
-        "engagement_percent": 5.2,
-        "last_post_at": "2026-05-20T10:00:00Z",
-        "biography": "Independent fiction reviews. Berlin → London.",
-        "platforms": [
-            {"platform": "instagram", "handle": "@demo_handle"},
-        ],
-        "warnings": [],
-    }
+    return {"creator_id": creator_id, "follower_count": None, "warnings": ["creator not found"]}
