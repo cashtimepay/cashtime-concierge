@@ -12,14 +12,19 @@ const DEMO_PRESET = {
   budget_monthly_usd: 5000,
 };
 
-// Which pipeline step each tool belongs to.
+// Which pipeline step each tool / sub-agent belongs to.
+// Fast (deterministic) mode emits the inner tool names; Live (ADK) mode emits
+// the sub-agent names (the planner calls each sub-agent as a tool).
 const STEP_OF = {
   research_brand: "research",
   ground_taxonomy: "research",
+  research_agent: "research",
   match_creators: "match",
   enrich_creator: "match",
+  matching_agent: "match",
   draft_outreach: "outreach",
   schedule_sequence: "outreach",
+  outreach_agent: "outreach",
   crm_upsert: "crm",
 };
 const STEP_ORDER = ["research", "match", "outreach", "crm"];
@@ -40,6 +45,7 @@ function emptyPipe() {
     drafts: [],
     sequences: [],
     crm: null,
+    agentText: {}, // live mode: sub-agent natural-language output per step
     steps: { research: "pending", match: "pending", outreach: "pending", crm: "pending" },
   };
 }
@@ -57,6 +63,8 @@ export default function Home() {
   const [tab, setTab] = useState("research");
   const [status, setStatus] = useState("idle"); // idle | running | done | error
   const [apiBase, setApiBase] = useState(BUILD_API_BASE);
+  const [liveMode, setLiveMode] = useState(true);
+  const [ranMode, setRanMode] = useState("live");
   const pinnedRef = useRef(false);
   const logRef = useRef(null);
 
@@ -109,6 +117,12 @@ export default function Home() {
         else if (name === "draft_outreach") n.drafts = [...p.drafts, response];
         else if (name === "schedule_sequence") n.sequences = [...p.sequences, response];
         else if (name === "crm_upsert") n.crm = response;
+        // Live (ADK) mode: sub-agents return natural-language summaries.
+        else if (name === "research_agent" || name === "matching_agent" || name === "outreach_agent") {
+          const step = STEP_OF[name];
+          const text = typeof response === "string" ? response : response?.result || "";
+          n.agentText = { ...p.agentText, [step]: text };
+        }
         return n;
       });
     }
@@ -126,6 +140,7 @@ export default function Home() {
     setPipe(emptyPipe());
     setTab("research");
     pinnedRef.current = false;
+    setRanMode(payload.live ? "live" : "fast");
     setStatus("running");
     try {
       const resp = await fetch(`${apiBase}/concierge/run`, {
@@ -169,14 +184,14 @@ export default function Home() {
 
   function onSubmit(e) {
     e.preventDefault();
-    run({ brand_url: brandUrl, goal, budget_monthly_usd: Number(budget) });
+    run({ brand_url: brandUrl, goal, budget_monthly_usd: Number(budget), live: liveMode });
   }
 
   function runDemo() {
     setBrandUrl(DEMO_PRESET.brand_url);
     setGoal(DEMO_PRESET.goal);
     setBudget(DEMO_PRESET.budget_monthly_usd);
-    run(DEMO_PRESET);
+    run({ ...DEMO_PRESET, live: liveMode });
   }
 
   function selectTab(k) {
@@ -212,6 +227,27 @@ export default function Home() {
           <label htmlFor="budget">Monthly creator budget (USD)</label>
           <input id="budget" type="number" min={0} step={500} value={budget}
             onChange={(e) => setBudget(e.target.value)} disabled={running} />
+
+          <div className="mode">
+            <button
+              type="button"
+              className={`switch ${liveMode ? "on" : ""}`}
+              onClick={() => !running && setLiveMode((v) => !v)}
+              disabled={running}
+              aria-pressed={liveMode}
+            >
+              <span className="knob" />
+            </button>
+            <div className="mode-txt">
+              <b>{liveMode ? "Live AI agents (Gemini)" : "Fast deterministic replay"}</b>
+              <span>
+                {liveMode
+                  ? "Runs the real ADK planner + 3 sub-agents on Gemini 3.5 Flash / 3.1 Pro via Vertex AI — ~1 min."
+                  : "Replays the identical pipeline with no LLM — instant, reproducible."}
+              </span>
+            </div>
+          </div>
+
           <div className="row">
             <button className="primary" type="submit" disabled={running || !brandUrl || !goal}>
               {running ? "Running…" : "Run pipeline"}
@@ -223,6 +259,13 @@ export default function Home() {
         </form>
 
         <div className="panel">
+          {status !== "idle" && (
+            <div className={`runmode ${ranMode}`}>
+              {ranMode === "live"
+                ? "● Live — real ADK agents on Gemini (Vertex AI, project tools-cashtimepay-com)"
+                : "● Fast — deterministic replay, no LLM"}
+            </div>
+          )}
           <div className="tabs">
             {TABS.map((t) => (
               <button
@@ -263,10 +306,20 @@ function Waiting({ what }) {
   return <div className="waiting">Waiting for the {what} agent…</div>;
 }
 
+// Live mode: render a sub-agent's natural-language output.
+function AgentText({ text }) {
+  return <div className="agent-text">{text}</div>;
+}
+
 function ResearchTab({ pipe }) {
   const p = pipe.profile;
   const g = pipe.grounding;
-  if (!p) return <Waiting what="research" />;
+  if (!p)
+    return pipe.agentText.research ? (
+      <AgentText text={pipe.agentText.research} />
+    ) : (
+      <Waiting what="research" />
+    );
   const c = p.company || {};
   const icp = p.icp || {};
   return (
@@ -306,7 +359,12 @@ function ResearchTab({ pipe }) {
 }
 
 function MatchTab({ pipe }) {
-  if (!pipe.creators.length) return <Waiting what="matching" />;
+  if (!pipe.creators.length)
+    return pipe.agentText.match ? (
+      <AgentText text={pipe.agentText.match} />
+    ) : (
+      <Waiting what="matching" />
+    );
   return (
     <div>
       <h3 className="tab-h">{pipe.creators.length} creators matched</h3>
@@ -334,7 +392,12 @@ function MatchTab({ pipe }) {
 }
 
 function OutreachTab({ pipe }) {
-  if (!pipe.drafts.length) return <Waiting what="outreach" />;
+  if (!pipe.drafts.length)
+    return pipe.agentText.outreach ? (
+      <AgentText text={pipe.agentText.outreach} />
+    ) : (
+      <Waiting what="outreach" />
+    );
   return (
     <div>
       <h3 className="tab-h">{pipe.drafts.length} drafts ready for approval</h3>
@@ -446,6 +509,8 @@ const FAQ = [
     a: "One brief in, a full campaign out: researched brand, matched creators, personalised outreach, scheduled follow-ups and a CRM record. Creators are the trusted bridge to their audience — we make reaching the right ones one click. And a human approves every message before anything is sent." },
   { q: "What do the four tabs show?",
     a: "Each tab is one agent's output, filled in live as it finishes: Research = the grounded brand profile, Match = the creators it picked, Outreach = the drafted messages + schedules, CRM = the record it would create. The Activity log tab is the raw tool-by-tool stream." },
+  { q: "Which AI models run, and on what credentials?",
+    a: "Live mode runs the planner on Gemini 3.1 Pro Preview and the three sub-agents on Gemini 3.5 Flash, called through Vertex AI inside our own Google Cloud project (tools-cashtimepay-com). Auth is the project's service-account identity (IAM) — no API key and no third-party gateway, so every Gemini call stays within the project. Toggle off \"Live\" for an instant deterministic replay with no LLM." },
   { q: "Is this real customer data?",
     a: "No. This public demo runs the synthetic \"Chapterhouse\" brand — no real customer data, and the CRM step writes nothing to production. No emails are ever sent." },
 ];
