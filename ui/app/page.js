@@ -142,10 +142,14 @@ export default function Home() {
         const { value, done } = await reader.read();
         if (done) break;
         buffer += decoder.decode(value, { stream: true });
-        const frames = buffer.split("\n\n");
+        // SSE frames are separated by a blank line; the wire uses CRLF
+        // (event:…\r\ndata:…\r\n\r\n), so split on either \r\n\r\n or \n\n.
+        const frames = buffer.split(/\r?\n\r?\n/);
         buffer = frames.pop() ?? "";
         for (const frame of frames) {
-          const dataLine = frame.split("\n").find((l) => l.startsWith("data:"));
+          const dataLine = frame
+            .split(/\r?\n/)
+            .find((l) => l.startsWith("data:"));
           if (!dataLine) continue;
           let ev;
           try {
